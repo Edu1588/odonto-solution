@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odonto Solution - O Mais Completo Ecossistema para Gestão e Crescimento de Clínicas</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#064e3b',
+                            900: '#022c22',
+                        },
+                        odonto: {
+                            500: '#059669',
+                            600: '#047857'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Poppins', sans-serif; }
+        .gradient-hero {
+            background: radial-gradient(circle at top right, #e0f2fe 0%, #ffffff 50%, #f8fafc 100%);
+        }
+        .gradient-dark {
+            background: linear-gradient(135deg, #082f49 0%, #0c4a6e 100%);
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-white antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Notice Banner -->
+    <div class="bg-gradient-to-r from-brand-900 to-slate-900 text-white text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-2">
+        <span class="inline-block px-2 py-0.5 rounded-full bg-brand-500/30 text-brand-300 font-bold text-[10px] uppercase">Pioneirismo</span>
+        <span>A única empresa do segmento com <strong>Certificação ISO 9001:2015</strong> no Brasil.</span>
+        <a href="#solucoes" class="underline text-brand-300 hover:text-white ml-2 hidden sm:inline">Conheça o Ecossistema &rarr;</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 transition shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-500 flex items-center justify-center text-white font-black text-xl shadow-md">
+                    OS
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-tight text-slate-900">Odonto<span class="text-emerald-600"> Solution</span></span>
+                    <span class="block text-[10px] font-semibold text-slate-400 tracking-wider uppercase">Tecnologia & Gestão de Clínicas</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="#solucoes" class="hover:text-brand-600 transition">Soluções</a>
+                <a href="#ecossistema" class="hover:text-brand-600 transition">Ecossistema</a>
+                <a href="#historia" class="hover:text-brand-600 transition">Quem Somos</a>
+                <a href="#depoimentos" class="hover:text-brand-600 transition">Depoimentos</a>
+                <a href="#contato" class="hover:text-brand-600 transition">Contato</a>
+            </nav>
+
+            <!-- Actions / Login Button -->
+            <div class="flex items-center gap-3">
+                <a href="/app" class="text-xs font-bold text-slate-700 hover:text-brand-600 px-4 py-2.5 rounded-xl border border-slate-200 hover:border-brand-500 transition flex items-center gap-2">
+                    <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                    <span>Área do Cliente</span>
+                </a>
+                <a href="/app" class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold px-5 py-2.5 rounded-xl shadow-md shadow-brand-500/20 transition flex items-center gap-2">
+                    <span>Acessar o ERP</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-hero pt-16 pb-24 border-b border-slate-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column (Copy) -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-bold">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-brand-600"></i>
+                        <span>O ERP de Crescimento Clínico Mais Completo</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
+                        Sua Clínica Médica ou Odonto no <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-teal-500">Piloto Automático</span>
+                    </h1>
+
+                    <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Tecnologia de ponta, <strong>ControleMÉDICO</strong>, <strong>ControleODONTO</strong> e a inteligência artificial <strong>Z.AI</strong> para automatizar agendamentos via WhatsApp, prontuários seguros, telemedicina e emissão de notas fiscais sem burocracia.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="/app" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-2xl font-bold text-sm shadow-xl shadow-brand-500/25 transition flex items-center justify-center gap-2">
+                            <span>Experimentar Agora Grátis</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#contato" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 px-7 py-4 rounded-2xl font-bold text-sm transition flex items-center justify-center gap-2">
+                            <i data-lucide="calendar" class="w-4 h-4 text-brand-600"></i>
+                            <span>Falar com Especialista</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200/80 text-left">
+                        <div>
+                            <div class="text-2xl font-black text-slate-900">25+</div>
+                            <div class="text-xs text-slate-500">Anos de pioneirismo</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-black text-brand-600">300+</div>
+                            <div class="text-xs text-slate-500">Depoimentos em vídeo</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-black text-emerald-600">ISO 9001</div>
+                            <div class="text-xs text-slate-500">Certificação de qualidade</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Hero Visual Mockup) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Card Principal Mockup -->
+                        <div class="bg-white rounded-3xl p-6 shadow-2xl border border-slate-200/80 space-y-5">
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-bold">
+                                        <i data-lucide="activity" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-slate-900 text-sm">ControleMÉDICO ERP</div>
+                                        <div class="text-xs text-slate-400">Status em Tempo Real</div>
+                                    </div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">
+                                    Online
+                                </span>
+                            </div>
+
+                            <!-- Paciente sendo chamado agora -->
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-slate-400 font-semibold uppercase text-[10px]">Chamada Atual na TV</span>
+                                    <span class="text-brand-600 font-bold font-mono">09:15</span>
+                                </div>
+                                <div class="font-bold text-slate-900 text-base">Mariana Silva Santos</div>
+                                <div class="text-xs text-slate-500 flex items-center gap-1.5">
+                                    <i data-lucide="stethoscope" class="w-3.5 h-3.5 text-brand-600"></i>
+                                    <span>Consultório 01 · Dr. Carlos Eduardo</span>
+                                </div>
+                            </div>
+
+                            <!-- Z.AI WhatsApp Card Notification -->
+                            <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-100 space-y-2">
+                                <div class="flex items-center gap-2 text-xs font-bold text-emerald-800">
+                                    <i data-lucide="bot" class="w-4 h-4 text-emerald-600"></i>
+                                    <span>Z.AI (Secretária WhatsApp 24h)</span>
+                                </div>
+                                <p class="text-xs text-emerald-950/80 leading-relaxed">
+                                    "Olá! Sua consulta foi confirmada para amanhã às 09:30. Já enviei as orientações de preparo."
+                                </p>
+                            </div>
+
+                            <a href="/app" class="block w-full py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-center text-xs font-bold transition">
+                                Acessar Painel Interativo de Demonstração &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Soluções (Os Produtos do Ecossistema) -->
+    <section id="solucoes" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-100">
+                    Nossas Soluções Especializadas
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                    Tudo o que sua clínica precisa em um só ecossistema
+                </h2>
+                <p class="text-base text-slate-600">
+                    Desenvolvido por quem entende as rotinas clínicas e odontológicas com foco em eficiência, rentabilidade e fidelização do paciente.
+                </p>
+            </div>
+
+            <!-- Grid de 6 Soluções -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Solução 1: ControleODONTO -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="smile" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">ControleODONTO</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        Solução completa para clínicas odontológicas. Prontuário eletrônico com odontograma gráfico, orçamentos inteligentes, controle de estoque de materiais e gestão financeira completa.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2.5 font-medium">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>Odontograma interativo dente a dente</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>Gestão de tratamentos e parcelamentos</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>DocSign com assinatura digital OTP</li>
+                    </ul>
+                </div>
+
+                <!-- Solução 2: ControleMÉDICO -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 text-brand-600 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="stethoscope" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">ControleMÉDICO</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        ERP médico de alta performance. Agendamento com confirmação automática, prontuário personalizável com CID-10, teleconsulta criptografada e faturamento de convênios no padrão TISS.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2.5 font-medium">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i>Prescrição Digital integrada (Mevo & Memed)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i>Faturamento TISS e conciliação de guias</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i>Painel TV de chamada com voz para sala de espera</li>
+                    </ul>
+                </div>
+
+                <!-- Solução 3: Z.AI (IA para WhatsApp) -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="bot" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Z.AI / ZaiONe</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        Sua clínica aberta 24 horas. Uma secretária virtual com inteligência artificial que conversa com os pacientes no WhatsApp, agenda consultas diretamente no sistema e reduz o no-show para zero.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2.5 font-medium">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-600"></i>Atendimento instantâneo sem fila de espera</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-600"></i>Sincronização imediata com a grade do ERP</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-600"></i>Economia comprovada de +4h/dia da recepção</li>
+                    </ul>
+                </div>
+
+                <!-- Solução 4: Marketplace de Insumos -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="shopping-cart" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Compras em 1 Clique</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        Marketplace integrado ao ERP com mais de 8.000 itens médicos e odontológicos. Reposição ágil de insumos, luvas, agulhas e medicamentos com descontos corporativos exclusivos.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2.5 font-medium">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-600"></i>Mais de 8.000 SKUs homologados</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-600"></i>Alerta automático de validade e reposição</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-600"></i>Condições comerciais negociadas em escala</li>
+                    </ul>
+                </div>
+
+                <!-- Solução 5: Contabilidade Digital para Clínicas -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="receipt" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Contabilidade Especializada</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        O fim do retrabalho com planilhas. O ERP envia dados e comprovantes de consultas automaticamente para a contabilidade parceira, emitindo notas de serviço e apurando benefícios fiscais.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2.5 font-medium">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-600"></i>Emissão em lote de NFS-e integrada à prefeitura</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-600"></i>Apuração automática de DARF e impostos</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-600"></i>Benefícios e enquadramento tributário para saúde</li>
+                    </ul>
+                </div>
+
+                <!-- Solução 6: Clube de Benefícios -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i data-lucide="award" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Clube de Benefícios</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        Acesso direto às maiores marcas de tecnologia médica e dental. Implantes, alinhadores ortodônticos invisíveis e equipamentos com vantagens financeiras que impulsionam sua rentabilidade.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2.5 font-medium">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-600"></i>Parcerias com fabricantes mundiais</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-600"></i>Financiamento direto para tratamentos</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-600"></i>Eventos de negócios exclusivos no setor</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Linha do Tempo e Trajetória Histórica -->
+    <section id="historia" class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-100">
+                    Trajetória Consolidada
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                    Uma História de Pioneirismo desde 2001
+                </h2>
+                <p class="text-base text-slate-600">
+                    Mais de duas décadas revolucionando a tecnologia para clínicas médicas e odontológicas em todo o Brasil.
+                </p>
+            </div>
+
+            <!-- Timeline Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 text-center">
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/70">
+                    <div class="text-xl font-black text-brand-600 mb-1">2001</div>
+                    <div class="font-bold text-slate-800 text-xs">Fundação</div>
+                    <div class="text-[11px] text-slate-500 mt-1">Início da jornada tecnológica</div>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/70">
+                    <div class="text-xl font-black text-brand-600 mb-1">2009</div>
+                    <div class="font-bold text-slate-800 text-xs">ControleMÉDICO</div>
+                    <div class="text-[11px] text-slate-500 mt-1">Lançamento do ERP médico</div>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/70">
+                    <div class="text-xl font-black text-brand-600 mb-1">2010</div>
+                    <div class="font-bold text-slate-800 text-xs">ControleODONTO</div>
+                    <div class="text-[11px] text-slate-500 mt-1">Expansão para odontologia</div>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/70">
+                    <div class="text-xl font-black text-emerald-600 mb-1">2017</div>
+                    <div class="font-bold text-slate-800 text-xs">ISO 9001:2015</div>
+                    <div class="text-[11px] text-slate-500 mt-1">Conquista do selo de qualidade</div>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/70">
+                    <div class="text-xl font-black text-brand-600 mb-1">2022</div>
+                    <div class="font-bold text-slate-800 text-xs">Rebranding</div>
+                    <div class="text-[11px] text-slate-500 mt-1">Unificação do Aplicativo.net</div>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/70">
+                    <div class="text-xl font-black text-teal-600 mb-1">2024</div>
+                    <div class="font-bold text-slate-800 text-xs">A Z.AI</div>
+                    <div class="text-[11px] text-slate-500 mt-1">IA nativa para WhatsApp</div>
+                </div>
+                <div class="p-4 bg-gradient-to-tr from-brand-600 to-teal-600 text-white rounded-2xl shadow-lg">
+                    <div class="text-xl font-black mb-1">2026</div>
+                    <div class="font-bold text-xs">A Nova Fase</div>
+                    <div class="text-[11px] text-brand-100 mt-1">Ecossistema Completo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos & Prova Social -->
+    <section id="depoimentos" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                    Quem Usa, Aprova e Recomenda
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight">
+                    Experiências reais que comprovam nosso compromisso
+                </h2>
+                <p class="text-sm text-slate-400">
+                    Mais de 300 depoimentos em vídeo de gestores de clínicas que multiplicaram seu faturamento e eliminaram faltas de pacientes.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/80 p-8 rounded-3xl border border-slate-700 space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed italic">
+                        "A secretária virtual Z.AI no WhatsApp mudou totalmente nosso fluxo. Não perdemos mais nenhum contato fora do horário comercial e os pacientes adoram a facilidade para confirmar a consulta."
+                    </p>
+                    <div class="pt-4 border-t border-slate-700 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center font-bold text-sm">DC</div>
+                        <div>
+                            <div class="font-bold text-sm text-white">Dra. Camila Toledo</div>
+                            <div class="text-xs text-slate-400">Diretora Clínica · Odontologia Integrada</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/80 p-8 rounded-3xl border border-slate-700 space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed italic">
+                        "O faturamento TISS e a prescrição digital com QR Code nos poupam horas toda semana. O painel de sala de espera com chamada sonora na TV deu um ar de hospital de ponta para nossa clínica."
+                    </p>
+                    <div class="pt-4 border-t border-slate-700 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center font-bold text-sm">DR</div>
+                        <div>
+                            <div class="font-bold text-sm text-white">Dr. Ricardo Vasconcelos</div>
+                            <div class="text-xs text-slate-400">Cardiologista · Centro Médico SP</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/80 p-8 rounded-3xl border border-slate-700 space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed italic">
+                        "Ter contabilidade, compras de insumos e contratos assinados por OTP em um único sistema é surreal. Migramos de outro software sem perder nenhum prontuário antigo."
+                    </p>
+                    <div class="pt-4 border-t border-slate-700 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center font-bold text-sm">FA</div>
+                        <div>
+                            <div class="font-bold text-sm text-white">Fernanda Andrade</div>
+                            <div class="text-xs text-slate-400">Gestora Operacional · Clínica Sorrir</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário de Contato & Demonstração -->
+    <section id="contato" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl space-y-8">
+                <div class="text-center space-y-3">
+                    <span class="text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-100">
+                        Demonstração Gratuita
+                    </span>
+                    <h2 class="text-3xl font-black text-slate-900 tracking-tight">
+                        Transforme a gestão da sua clínica hoje mesmo
+                    </h2>
+                    <p class="text-sm text-slate-500">
+                        Preencha os campos abaixo para que um especialista monte uma demonstração personalizada.
+                    </p>
+                </div>
+
+                <form onsubmit="alert('Obrigado pelo contato! Um especialista do Aplicativo.net entrará em contato em breve.'); return false;" class="space-y-4 text-xs">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Seu Nome Completo</label>
+                            <input type="text" placeholder="Dr. Nome Sobrenome" required class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:bg-white focus:ring-2 focus:ring-brand-500 transition">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">E-mail Profissional</label>
+                            <input type="email" placeholder="seu-email@clinica.com.br" required class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:bg-white focus:ring-2 focus:ring-brand-500 transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">WhatsApp com DDD</label>
+                            <input type="tel" placeholder="(11) 98765-4321" required class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:bg-white focus:ring-2 focus:ring-brand-500 transition">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Segmento Principal</label>
+                            <select class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:bg-white focus:ring-2 focus:ring-brand-500 transition">
+                                <option>Clínica Médica / Consultório</option>
+                                <option>Clínica Odontológica</option>
+                                <option>Clínica Multidisciplinar</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Mensagem ou Dúvida (Opcional)</label>
+                        <textarea rows="3" placeholder="Conte brevemente sobre o tamanho da sua equipe e principais necessidades..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 focus:bg-white focus:ring-2 focus:ring-brand-500 transition"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl text-sm shadow-lg shadow-brand-500/25 transition flex items-center justify-center gap-2">
+                        <span>Solicitar Contato de um Especialista</span>
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Institucional -->
+    <footer class="bg-slate-950 text-white py-16 border-t border-slate-900 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Coluna 1: Marca -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center font-black text-white text-base">OS</div>
+                        <span class="text-lg font-black tracking-tight">Odonto<span class="text-emerald-500"> Solution</span></span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Fazemos a sua clínica médica e odontológica crescer com tecnologia, inteligência artificial e gestão humanizada.
+                    </p>
+                    <div class="text-slate-400 font-semibold flex items-center gap-1.5">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+                        <span>Certificação ISO 9001:2015</span>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Soluções -->
+                <div class="space-y-3">
+                    <div class="font-bold text-white uppercase tracking-wider text-[11px]">Soluções</div>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><a href="#solucoes" class="hover:text-white transition">ControleODONTO</a></li>
+                        <li><a href="#solucoes" class="hover:text-white transition">ControleMÉDICO</a></li>
+                        <li><a href="#solucoes" class="hover:text-white transition">Z.AI (IA WhatsApp)</a></li>
+                        <li><a href="#solucoes" class="hover:text-white transition">Compras em 1 Clique</a></li>
+                        <li><a href="#solucoes" class="hover:text-white transition">Contabilidade Digital</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Empresa -->
+                <div class="space-y-3">
+                    <div class="font-bold text-white uppercase tracking-wider text-[11px]">Institucional</div>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><a href="#historia" class="hover:text-white transition">Quem Somos</a></li>
+                        <li><a href="#depoimentos" class="hover:text-white transition">Casos de Sucesso</a></li>
+                        <li><a href="#contato" class="hover:text-white transition">Fale Conosco</a></li>
+                        <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-white transition">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Acesso Rápido -->
+                <div class="space-y-3">
+                    <div class="font-bold text-white uppercase tracking-wider text-[11px]">Acesso Rápido</div>
+                    <p class="text-slate-400 text-xs">Acesse o sistema e gerencie seus atendimentos em tempo real:</p>
+                    <a href="/app" class="inline-block bg-brand-600 hover:bg-brand-700 text-white font-bold px-4 py-2.5 rounded-xl transition text-center w-full">
+                        Entrar no ERP &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-slate-500 gap-4">
+                <div>&copy; 2001-2026 Aplicativo.net. Todos os direitos reservados.</div>
+                <div>Tecnologia e Gestão para a Saúde.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

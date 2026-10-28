@@ -1,0 +1,24 @@
+{
+  "name": "odonto-solution",
+  "version": "1.0.0",
+  "description": "Odonto Solution - O mais completo ecossistema para gestão e crescimento de clínicas odontológicas e médicas",
+  "main": "server.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  },
+  "keywords": [
+    "odonto-solution",
+    "erp",
+    "clinica",
+    "odontologia",
+    "medicina",
+    "teleconsulta",
+    "prontuario-eletronico",
+    "docsign",
+    "prescricao-digital"
+  ],
+  "author": "Eduardo Santos",
+  "license": "MIT"
+}
