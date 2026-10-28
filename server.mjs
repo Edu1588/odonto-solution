@@ -287,7 +287,7 @@ function requestListener(req, res) {
 
     // Rotas de Páginas
     if (pathname === '/' || pathname === '/landing') {
-        const landingPath = path.join(__dirname, 'landing.html');
+        const landingPath = path.join(__dirname, 'index.html');
         fs.readFile(landingPath, (err, content) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -301,7 +301,7 @@ function requestListener(req, res) {
     }
 
     if (pathname === '/portal' || pathname === '/app' || pathname === '/login') {
-        const appPath = path.join(__dirname, 'index.html');
+        const appPath = path.join(__dirname, 'portal.html');
         fs.readFile(appPath, (err, content) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });

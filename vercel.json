@@ -1,11 +1,11 @@
 {
   "version": 2,
+  "framework": null,
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/", "destination": "/landing.html" },
-    { "source": "/portal", "destination": "/index.html" },
-    { "source": "/app", "destination": "/index.html" },
-    { "source": "/login", "destination": "/index.html" },
+    { "source": "/portal", "destination": "/portal.html" },
+    { "source": "/app", "destination": "/portal.html" },
+    { "source": "/login", "destination": "/portal.html" },
     { "source": "/politica-de-privacidade", "destination": "/privacidade.html" },
     { "source": "/termos-de-uso", "destination": "/termos.html" },
     { "source": "/lgpd", "destination": "/lgpd.html" },
