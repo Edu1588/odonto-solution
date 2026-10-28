@@ -300,12 +300,54 @@ const server = http.createServer((req, res) => {
         return;
     }
 
-    if (pathname === '/app' || pathname === '/login') {
+    if (pathname === '/portal' || pathname === '/app' || pathname === '/login') {
         const appPath = path.join(__dirname, 'index.html');
         fs.readFile(appPath, (err, content) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
-                res.end('Erro ao carregar app');
+                res.end('Erro ao carregar portal');
+            } else {
+                res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+                res.end(content);
+            }
+        });
+        return;
+    }
+
+    if (pathname === '/politica-de-privacidade' || pathname === '/privacidade') {
+        const privPath = path.join(__dirname, 'privacidade.html');
+        fs.readFile(privPath, (err, content) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+                res.end('Erro ao carregar política de privacidade');
+            } else {
+                res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+                res.end(content);
+            }
+        });
+        return;
+    }
+
+    if (pathname === '/termos-de-uso' || pathname === '/termos') {
+        const termosPath = path.join(__dirname, 'termos.html');
+        fs.readFile(termosPath, (err, content) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+                res.end('Erro ao carregar termos de uso');
+            } else {
+                res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+                res.end(content);
+            }
+        });
+        return;
+    }
+
+    if (pathname === '/lgpd') {
+        const lgpdPath = path.join(__dirname, 'lgpd.html');
+        fs.readFile(lgpdPath, (err, content) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+                res.end('Erro ao carregar página de LGPD');
             } else {
                 res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
                 res.end(content);
