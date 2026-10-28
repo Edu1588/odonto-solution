@@ -36,28 +36,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Three.js (3D Graphics) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- GSAP & ScrollTrigger (Ultra High-Performance Animations) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #fafbfc; color: #0f172a; overflow-x: hidden; }
         .font-display { font-family: 'Poppins', sans-serif; }
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: float-slow 4s ease-in-out infinite; }
         .gradient-radial {
-            background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.14) 0%, rgba(250, 251, 252, 0) 70%);
+            background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.12) 0%, rgba(250, 251, 252, 0) 70%);
         }
-        .perspective-1000 {
-            perspective: 1000px;
-        }
-        .transform-style-3d {
-            transform-style: preserve-3d;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #059669; }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-white">
@@ -65,7 +54,7 @@
     <!-- ======================================================== -->
     <!-- HEADER STICKY COM LOGO E CTA -->
     <!-- ======================================================== -->
-    <header id="main-header" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <a href="/" class="flex items-center gap-3 group text-decoration-none">
@@ -108,36 +97,32 @@
     </header>
 
     <!-- ======================================================== -->
-    <!-- HERO SECTION COM THREE.JS 3D CANVAS & GSAP -->
+    <!-- HERO SECTION (CENTRALIZADO, IMPACTANTE E ELEGANTE) -->
     <!-- ======================================================== -->
-    <section class="relative pt-16 pb-20 md:pt-24 md:pb-32 gradient-radial overflow-hidden">
-        
-        <!-- Canvas 3D Three.js de Fundo (Partículas e Rede Biomédica Conectada) -->
-        <div id="three-hero-container" class="absolute inset-0 pointer-events-none z-0 opacity-70"></div>
-
-        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+    <section class="relative pt-16 pb-20 md:pt-24 md:pb-28 gradient-radial overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
             
             <!-- Badge Superior Flutuante -->
-            <div id="hero-badge" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-200/80 text-brand-800 text-xs sm:text-sm font-semibold shadow-sm mb-6">
-                <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-200/80 text-brand-800 text-xs sm:text-sm font-semibold shadow-sm mb-6 animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-brand-500"></span>
                 <span>O mais completo ecossistema para a gestão do crescimento de clínicas</span>
             </div>
 
-            <!-- Título Principal do Hero com Animação GSAP -->
-            <h1 id="hero-title" class="font-display font-black text-3xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight leading-[1.15] max-w-4xl mx-auto">
-                Sua Clínica no <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-teal-500 to-emerald-400">Piloto Automático</span>
+            <!-- Título Principal do Hero -->
+            <h1 class="font-display font-black text-3xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight leading-[1.15] max-w-4xl mx-auto">
+                Sua Clínica no <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-teal-500">Piloto Automático</span>
             </h1>
 
             <!-- Subtítulo -->
-            <p id="hero-desc" class="mt-6 text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p class="mt-6 text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                 Revolucione a gestão de sua clínica odontológica e médica. Agenda inteligente, prontuário com odontograma 3D, secretária virtual Z.AI no WhatsApp e receitas digitais ICP-Brasil com assinatura DocSign.
             </p>
 
             <!-- Chamadas para Ação (CTAs) -->
-            <div id="hero-cta" class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-                <a href="/portal" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 text-white font-bold rounded-2xl shadow-xl shadow-brand-500/30 hover:scale-[1.03] transition-all duration-300 flex items-center justify-center gap-3 text-base group">
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+                <a href="/portal" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 text-white font-bold rounded-2xl shadow-xl shadow-brand-500/30 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 text-base">
                     <span>Acessar o Portal Odonto Solution</span>
-                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
                 <a href="#solucoes" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 text-slate-700 font-bold rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 transition-all duration-300 text-base">
                     Conhecer as Soluções
@@ -153,18 +138,18 @@
             <!-- ============================================== -->
             <!-- MOCKUP CENTRALIZADO DA PLATAFORMA (HERO SHOWCASE) -->
             <!-- ============================================== -->
-            <div id="hero-mockup-wrapper" class="mt-14 relative w-full max-w-4xl mx-auto perspective-1000">
-                <!-- Efeito Glow de Fundo 3D -->
-                <div class="absolute -inset-4 bg-gradient-to-r from-brand-500 via-teal-400 to-emerald-500 rounded-3xl blur-2xl opacity-25 -z-10 animate-pulse"></div>
+            <div class="mt-14 relative w-full max-w-4xl mx-auto">
+                <!-- Efeito Glow de Fundo -->
+                <div class="absolute -inset-4 bg-gradient-to-r from-brand-500 to-teal-400 rounded-3xl blur-2xl opacity-20 -z-10"></div>
 
-                <!-- Card da Imagem Central com Moldura Sofisticada e Interatividade 3D -->
-                <div id="hero-mockup-card" class="relative bg-white rounded-3xl p-2.5 sm:p-4 shadow-2xl border border-slate-200/80 overflow-hidden transform-style-3d transition-transform duration-200">
+                <!-- Card da Imagem Central com Moldura Sofisticada -->
+                <div class="relative bg-white rounded-3xl p-2.5 sm:p-4 shadow-2xl border border-slate-200/80 overflow-hidden">
                     <img src="/assets/images/hero_platform_mockup.jpg" 
                          alt="Plataforma Odonto Solution - Dashboard Clínico e Odontograma 3D" 
                          class="w-full h-auto rounded-2xl shadow-inner object-cover max-h-[540px]">
 
                     <!-- Badge Flutuante 1 (Inferior Esquerdo) -->
-                    <div id="badge-clinicas" class="absolute bottom-6 left-6 hidden sm:flex items-center gap-3 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-slate-100">
+                    <div class="absolute bottom-6 left-6 hidden sm:flex items-center gap-3 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-slate-100 animate-float">
                         <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600">
                             <i data-lucide="users" class="w-5 h-5"></i>
                         </div>
@@ -175,7 +160,7 @@
                     </div>
 
                     <!-- Badge Flutuante 2 (Superior Direito) -->
-                    <div id="badge-zai" class="absolute top-6 right-6 hidden sm:flex items-center gap-3 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-slate-100">
+                    <div class="absolute top-6 right-6 hidden sm:flex items-center gap-3 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-slate-100">
                         <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-teal-600">
                             <i data-lucide="bot" class="w-5 h-5"></i>
                         </div>
@@ -192,20 +177,20 @@
                 <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 text-center">
                     Ecossistema Completo e Certificado
                 </p>
-                <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 opacity-80 hover:opacity-100 transition-all duration-300">
-                    <div class="flex items-center gap-2 font-display font-bold text-slate-700 text-sm hover:text-brand-600 transition">
+                <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="flex items-center gap-2 font-display font-bold text-slate-700 text-sm">
                         <i data-lucide="activity" class="w-5 h-5 text-brand-600"></i> Odonto Solution Odonto
                     </div>
-                    <div class="flex items-center gap-2 font-display font-bold text-slate-700 text-sm hover:text-teal-600 transition">
+                    <div class="flex items-center gap-2 font-display font-bold text-slate-700 text-sm">
                         <i data-lucide="stethoscope" class="w-5 h-5 text-teal-600"></i> Odonto Solution Médico
                     </div>
-                    <div class="flex items-center gap-2 font-display font-bold text-slate-700 text-sm hover:text-emerald-600 transition">
+                    <div class="flex items-center gap-2 font-display font-bold text-slate-700 text-sm">
                         <i data-lucide="message-square" class="w-5 h-5 text-emerald-600"></i> Z.AI WhatsApp 24h
                     </div>
-                    <div class="flex items-center gap-2 font-display font-bold text-slate-700 text-sm hover:text-blue-600 transition">
+                    <div class="flex items-center gap-2 font-display font-bold text-slate-700 text-sm">
                         <i data-lucide="shopping-cart" class="w-5 h-5 text-blue-600"></i> Marketplace Clínico
                     </div>
-                    <div class="flex items-center gap-2 font-display font-bold text-slate-700 text-sm hover:text-amber-500 transition">
+                    <div class="flex items-center gap-2 font-display font-bold text-slate-700 text-sm">
                         <i data-lucide="award" class="w-5 h-5 text-amber-500"></i> ISO 9001:2015
                     </div>
                 </div>
@@ -215,12 +200,12 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- SEÇÃO: NOSSAS SOLUÇÕES COM 3D TILT EFFECT & GSAP -->
+    <!-- SEÇÃO: NOSSAS SOLUÇÕES (CARDS INTERATIVOS E ORIGINAIS) -->
     <!-- ======================================================== -->
-    <section id="solucoes" class="py-20 md:py-28 bg-white border-y border-slate-200/80 relative">
+    <section id="solucoes" class="py-20 md:py-28 bg-white border-y border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 section-header">
-                <span class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
                     Soluções Especializadas
                 </span>
                 <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900 mt-4 tracking-tight">
@@ -231,14 +216,14 @@
                 </p>
             </div>
 
-            <!-- Grid de 4 Soluções com 3D Tilt Animado -->
-            <div id="solucoes-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 perspective-1000">
+            <!-- Grid de 4 Soluções Principais -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
                 <!-- Card 1: Odonto Solution Odonto -->
-                <div class="solucao-card group bg-slate-50 hover:bg-white rounded-3xl p-8 border border-slate-200/90 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/15 transition-all duration-300 flex flex-col justify-between transform-style-3d cursor-pointer">
+                <div class="group bg-slate-50 hover:bg-white rounded-3xl p-8 border border-slate-200/90 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-52 rounded-2xl overflow-hidden bg-slate-900 mb-6 flex items-center justify-center p-2 shadow-inner">
-                            <img src="/assets/images/odonto_solution_dental.svg" alt="Odonto Solution Dental" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                        <div class="w-full h-52 rounded-2xl overflow-hidden bg-slate-900 mb-6 flex items-center justify-center p-2">
+                            <img src="/assets/images/odonto_solution_dental.svg" alt="Odonto Solution Dental" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-9 h-9 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center">
@@ -258,10 +243,10 @@
                 </div>
 
                 <!-- Card 2: Z.AI - Secretária Virtual com Inteligência Artificial -->
-                <div class="solucao-card group bg-slate-50 hover:bg-white rounded-3xl p-8 border border-slate-200/90 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/15 transition-all duration-300 flex flex-col justify-between transform-style-3d cursor-pointer">
+                <div class="group bg-slate-50 hover:bg-white rounded-3xl p-8 border border-slate-200/90 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-52 rounded-2xl overflow-hidden bg-slate-900 mb-6 flex items-center justify-center p-2 shadow-inner">
-                            <img src="/assets/images/zai_assistant_ai.svg" alt="Z.AI Inteligência Artificial Odonto Solution" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                        <div class="w-full h-52 rounded-2xl overflow-hidden bg-slate-900 mb-6 flex items-center justify-center p-2">
+                            <img src="/assets/images/zai_assistant_ai.svg" alt="Z.AI Inteligência Artificial Odonto Solution" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-9 h-9 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center">
@@ -281,10 +266,10 @@
                 </div>
 
                 <!-- Card 3: Odonto Solution Médico -->
-                <div class="solucao-card group bg-slate-50 hover:bg-white rounded-3xl p-8 border border-slate-200/90 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/15 transition-all duration-300 flex flex-col justify-between transform-style-3d cursor-pointer">
+                <div class="group bg-slate-50 hover:bg-white rounded-3xl p-8 border border-slate-200/90 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-52 rounded-2xl overflow-hidden bg-slate-900 mb-6 flex items-center justify-center p-2 shadow-inner">
-                            <img src="/assets/images/odonto_solution_medico.svg" alt="Odonto Solution Médico" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                        <div class="w-full h-52 rounded-2xl overflow-hidden bg-slate-900 mb-6 flex items-center justify-center p-2">
+                            <img src="/assets/images/odonto_solution_medico.svg" alt="Odonto Solution Médico" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
@@ -304,10 +289,10 @@
                 </div>
 
                 <!-- Card 4: Financeiro, NFS-e & Compras em 1 Clique -->
-                <div class="solucao-card group bg-slate-50 hover:bg-white rounded-3xl p-8 border border-slate-200/90 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/15 transition-all duration-300 flex flex-col justify-between transform-style-3d cursor-pointer">
+                <div class="group bg-slate-50 hover:bg-white rounded-3xl p-8 border border-slate-200/90 hover:border-brand-500 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-52 rounded-2xl overflow-hidden bg-slate-900 mb-6 flex items-center justify-center p-2 shadow-inner">
-                            <img src="/assets/images/odonto_solution_financeiro.svg" alt="Financeiro e Marketplace Odonto Solution" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                        <div class="w-full h-52 rounded-2xl overflow-hidden bg-slate-900 mb-6 flex items-center justify-center p-2">
+                            <img src="/assets/images/odonto_solution_financeiro.svg" alt="Financeiro e Marketplace Odonto Solution" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
@@ -331,15 +316,15 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- SEÇÃO: QUEM SOMOS & TRAJETÓRIA CONSOLIDADA (ANIMADA GSAP) -->
+    <!-- SEÇÃO: QUEM SOMOS & PRESENÇA NACIONAL (SEDE & MAPA) -->
     <!-- ======================================================== -->
-    <section id="quemsomos" class="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="quemsomos" class="py-20 md:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 
-                <!-- Coluna 1: Sede e Apresentação com Fade da Esquerda -->
-                <div id="trajetoria-texto">
-                    <span class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-100/60 px-3.5 py-1.5 rounded-full border border-brand-200">
+                <!-- Coluna 1: Sede e Apresentação -->
+                <div>
+                    <span class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-100/60 px-3 py-1 rounded-full border border-brand-200">
                         Sobre a Odonto Solution
                     </span>
                     <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900 mt-4 tracking-tight leading-tight">
@@ -349,37 +334,31 @@
                         Nascemos com a missão de libertar profissionais de saúde e gestores de clínicas da burocracia diária. Hoje, a <strong>Odonto Solution</strong> conecta consultórios, policlínicas e grandes redes de atendimento através de infraestrutura em nuvem de alta disponibilidade, inteligência artificial e rigorosos padrões de segurança.
                     </p>
 
-                    <!-- Card da Sede Corporativa Original com efeito Hover 3D -->
-                    <div id="card-sede" class="mt-8 rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900 group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
-                        <img src="/assets/images/sede_odonto_solution.svg" alt="Sede Corporativa Odonto Solution" class="w-full h-auto object-cover group-hover:opacity-95 transition-opacity">
+                    <!-- Card da Sede Corporativa Original -->
+                    <div class="mt-8 rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-slate-900">
+                        <img src="/assets/images/sede_odonto_solution.svg" alt="Sede Corporativa Odonto Solution" class="w-full h-auto object-cover">
                     </div>
                 </div>
 
-                <!-- Coluna 2: Mapa Tecnológico do Brasil com Contadores GSAP -->
-                <div id="trajetoria-mapa" class="flex flex-col items-center">
-                    <div class="w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-950 p-4 transition-transform duration-500 hover:scale-[1.01]">
+                <!-- Coluna 2: Mapa Tecnológico do Brasil -->
+                <div class="flex flex-col items-center">
+                    <div class="w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-950 p-4">
                         <img src="/assets/images/mapa_odonto_solution.svg" alt="Presença Nacional Odonto Solution" class="w-full h-auto object-contain">
                     </div>
                     
-                    <!-- Métricas de Impacto com Contadores Numéricos Animados -->
-                    <div id="metricas-grid" class="grid grid-cols-3 gap-4 w-full mt-6 text-center">
-                        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
-                            <div class="font-display font-black text-2xl sm:text-3xl text-brand-600">
-                                +<span id="counter-clinicas">4500</span>
-                            </div>
-                            <div class="text-xs text-slate-500 font-semibold mt-1">Clínicas Ativas</div>
+                    <!-- Métricas de Impacto -->
+                    <div class="grid grid-cols-3 gap-4 w-full mt-6 text-center">
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="font-display font-black text-2xl text-brand-600">+4.500</div>
+                            <div class="text-xs text-slate-500 font-medium mt-1">Clínicas Ativas</div>
                         </div>
-                        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
-                            <div class="font-display font-black text-2xl sm:text-3xl text-brand-600">
-                                <span id="counter-estados">27</span>
-                            </div>
-                            <div class="text-xs text-slate-500 font-semibold mt-1">Estados Atendidos</div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="font-display font-black text-2xl text-brand-600">27</div>
+                            <div class="text-xs text-slate-500 font-medium mt-1">Estados Atendidos</div>
                         </div>
-                        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
-                            <div class="font-display font-black text-2xl sm:text-3xl text-brand-600">
-                                <span id="counter-uptime">99.9</span>%
-                            </div>
-                            <div class="text-xs text-slate-500 font-semibold mt-1">Disponibilidade</div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="font-display font-black text-2xl text-brand-600">99.9%</div>
+                            <div class="text-xs text-slate-500 font-medium mt-1">Disponibilidade</div>
                         </div>
                     </div>
                 </div>
@@ -389,12 +368,12 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- SEÇÃO: UMA HISTÓRIA DE PIONEIRISMO (LINHA DO TEMPO ANIMADA) -->
+    <!-- SEÇÃO: UMA HISTÓRIA DE PIONEIRISMO (LINHA DO TEMPO) -->
     <!-- ======================================================== -->
     <section id="historia" class="py-20 md:py-28 bg-white border-t border-slate-200">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 section-header">
-                <span class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
                     Nossa Trajetória
                 </span>
                 <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900 mt-4 tracking-tight">
@@ -405,46 +384,46 @@
                 </p>
             </div>
 
-            <!-- Linha do Tempo Responsiva com Revelação Dinâmica -->
-            <div id="timeline-container" class="relative border-l-2 border-brand-500/30 ml-4 sm:ml-32 space-y-12">
+            <!-- Linha do Tempo Responsiva -->
+            <div class="relative border-l-2 border-brand-500/30 ml-4 sm:ml-32 space-y-12">
                 
                 <!-- 2001 -->
-                <div class="timeline-item relative pl-8 sm:pl-10">
-                    <div class="timeline-dot absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-brand-600 border-4 border-white flex items-center justify-center text-white shadow">
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-brand-600 border-4 border-white flex items-center justify-center text-white shadow">
                         <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
                     </div>
                     <div class="sm:absolute sm:-left-28 sm:top-1 font-display font-black text-xl text-brand-600">
                         2001
                     </div>
-                    <div class="timeline-content bg-slate-50 p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80">
                         <h4 class="font-bold text-slate-900 text-lg">Início da Gestão Médica Informatizada</h4>
                         <p class="text-slate-600 text-sm mt-1">Lançamento da primeira solução focada em eliminar o prontuário em papel e unificar a recepção clínica.</p>
                     </div>
                 </div>
 
                 <!-- 2009 -->
-                <div class="timeline-item relative pl-8 sm:pl-10">
-                    <div class="timeline-dot absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-brand-600 border-4 border-white flex items-center justify-center text-white shadow">
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-brand-600 border-4 border-white flex items-center justify-center text-white shadow">
                         <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
                     </div>
                     <div class="sm:absolute sm:-left-28 sm:top-1 font-display font-black text-xl text-brand-600">
                         2009
                     </div>
-                    <div class="timeline-content bg-slate-50 p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80">
                         <h4 class="font-bold text-slate-900 text-lg">Especialização em Odontologia</h4>
                         <p class="text-slate-600 text-sm mt-1">Criação do módulo exclusivo com odontograma digital, ortodontia e orçamentos clínicos para consultórios dentários.</p>
                     </div>
                 </div>
 
                 <!-- 2010 -->
-                <div class="timeline-item relative pl-8 sm:pl-10">
-                    <div class="timeline-dot absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-emerald-700 border-4 border-white flex items-center justify-center text-white shadow">
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-emerald-700 border-4 border-white flex items-center justify-center text-white shadow">
                         <i data-lucide="award" class="w-3.5 h-3.5"></i>
                     </div>
                     <div class="sm:absolute sm:-left-28 sm:top-1 font-display font-black text-xl text-emerald-700">
                         2010
                     </div>
-                    <div class="timeline-content bg-emerald-50/70 p-6 rounded-2xl border border-emerald-200 shadow-sm hover:shadow-md transition">
+                    <div class="bg-emerald-50/60 p-6 rounded-2xl border border-emerald-200">
                         <div class="flex items-center gap-2 text-emerald-800 font-bold text-sm mb-1">
                             <i data-lucide="check-circle-2" class="w-4 h-4"></i> Marco Histórico
                         </div>
@@ -454,42 +433,42 @@
                 </div>
 
                 <!-- 2019 -->
-                <div class="timeline-item relative pl-8 sm:pl-10">
-                    <div class="timeline-dot absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-brand-600 border-4 border-white flex items-center justify-center text-white shadow">
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-brand-600 border-4 border-white flex items-center justify-center text-white shadow">
                         <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
                     </div>
                     <div class="sm:absolute sm:-left-28 sm:top-1 font-display font-black text-xl text-brand-600">
                         2019
                     </div>
-                    <div class="timeline-content bg-slate-50 p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80">
                         <h4 class="font-bold text-slate-900 text-lg">Arquitetura em Nuvem e Telemedicina</h4>
                         <p class="text-slate-600 text-sm mt-1">Migração para infraestrutura em nuvem segura, prontuário acessível de qualquer lugar e teleatendimento integrado.</p>
                     </div>
                 </div>
 
                 <!-- 2022 -->
-                <div class="timeline-item relative pl-8 sm:pl-10">
-                    <div class="timeline-dot absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-teal-600 border-4 border-white flex items-center justify-center text-white shadow">
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-teal-600 border-4 border-white flex items-center justify-center text-white shadow">
                         <i data-lucide="bot" class="w-3.5 h-3.5"></i>
                     </div>
                     <div class="sm:absolute sm:-left-28 sm:top-1 font-display font-black text-xl text-teal-600">
                         2022
                     </div>
-                    <div class="timeline-content bg-slate-50 p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/80">
                         <h4 class="font-bold text-slate-900 text-lg">Nascimento da Z.AI: Inteligência Artificial</h4>
                         <p class="text-slate-600 text-sm mt-1">Lançamento da assistente virtual com inteligência artificial para automação de atendimentos e confirmações no WhatsApp.</p>
                     </div>
                 </div>
 
                 <!-- 2025 -->
-                <div class="timeline-item relative pl-8 sm:pl-10">
-                    <div class="timeline-dot absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-brand-600 border-4 border-white flex items-center justify-center text-white shadow">
+                <div class="relative pl-8 sm:pl-10">
+                    <div class="absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-brand-600 border-4 border-white flex items-center justify-center text-white shadow">
                         <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
                     </div>
                     <div class="sm:absolute sm:-left-28 sm:top-1 font-display font-black text-xl text-brand-600">
                         2025-2026
                     </div>
-                    <div class="timeline-content bg-brand-50/80 p-6 rounded-2xl border border-brand-200 shadow-sm hover:shadow-md transition">
+                    <div class="bg-brand-50/70 p-6 rounded-2xl border border-brand-200">
                         <h4 class="font-bold text-slate-900 text-lg">Odonto Solution: O Mais Completo Ecossistema de Saúde</h4>
                         <p class="text-slate-700 text-sm mt-1">Unificação total: Gestão Odontológica, Gestão Médica, Inteligência Artificial, Marketplace Clínico e Finanças.</p>
                     </div>
@@ -518,14 +497,14 @@
                     </p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                        <div class="flex items-start gap-3 bg-slate-800/60 p-4 rounded-xl border border-slate-700/60 hover:border-brand-500/50 transition">
+                        <div class="flex items-start gap-3 bg-slate-800/60 p-4 rounded-xl border border-slate-700/60">
                             <i data-lucide="shield-check" class="w-6 h-6 text-brand-400 shrink-0"></i>
                             <div>
                                 <h4 class="font-bold text-sm text-white">Conformidade LGPD</h4>
                                 <p class="text-xs text-slate-400 mt-1">Criptografia de ponta a ponta e sigilo médico garantido.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-3 bg-slate-800/60 p-4 rounded-xl border border-slate-700/60 hover:border-brand-500/50 transition">
+                        <div class="flex items-start gap-3 bg-slate-800/60 p-4 rounded-xl border border-slate-700/60">
                             <i data-lucide="headphones" class="w-6 h-6 text-brand-400 shrink-0"></i>
                             <div>
                                 <h4 class="font-bold text-sm text-white">Suporte Humanizado Nota 10</h4>
@@ -535,8 +514,8 @@
                     </div>
                 </div>
 
-                <div class="lg:col-span-4 flex justify-center perspective-1000">
-                    <div id="iso-card-3d" class="w-64 sm:w-72 p-4 rounded-3xl bg-slate-800/80 border border-brand-500/30 shadow-2xl shadow-brand-500/20 transform-style-3d hover:scale-105 transition-transform duration-500 cursor-pointer">
+                <div class="lg:col-span-4 flex justify-center">
+                    <div class="w-64 sm:w-72 p-4 rounded-3xl bg-slate-800/80 border border-brand-500/30 shadow-2xl shadow-brand-500/20">
                         <img src="/assets/images/iso_9001_odonto_solution.svg" alt="Selo ISO 9001 Odonto Solution" class="w-full h-auto">
                     </div>
                 </div>
@@ -551,7 +530,7 @@
     <section id="contato" class="py-20 md:py-28 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <span class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200">
+                <span class="text-xs font-bold text-brand-600 tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
                     Fale Conosco
                 </span>
                 <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900 mt-4 tracking-tight">
@@ -595,9 +574,9 @@
                         <textarea id="contatoMensagem" rows="3" placeholder="Quantos profissionais atendem na clínica? Quais são suas principais necessidades hoje?" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none transition"></textarea>
                     </div>
 
-                    <button type="submit" id="btnEnviarContato" class="w-full py-4 bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 text-white font-bold rounded-xl shadow-lg shadow-brand-500/30 transition text-sm flex items-center justify-center gap-2 group">
+                    <button type="submit" id="btnEnviarContato" class="w-full py-4 bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 text-white font-bold rounded-xl shadow-lg shadow-brand-500/30 transition text-sm flex items-center justify-center gap-2">
                         <span>Enviar Mensagem & Agendar Demonstração</span>
-                        <i data-lucide="send" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        <i data-lucide="send" class="w-4 h-4"></i>
                     </button>
                 </form>
             </div>
@@ -693,283 +672,10 @@
         </div>
     </div>
 
-    <!-- ======================================================== -->
-    <!-- SCRIPTS THREE.JS + GSAP & SCROLLTRIGGER ANIMATIONS -->
-    <!-- ======================================================== -->
+    <!-- Scripts de Interatividade -->
     <script>
         // Inicializa ícones Lucide
         lucide.createIcons();
-
-        // 1. THREE.JS 3D HERO CANVAS (Partículas e Rede Biomédica em 3D)
-        (function initThreeHero() {
-            const container = document.getElementById('three-hero-container');
-            if (!container || typeof THREE === 'undefined') return;
-
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 25;
-
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            container.appendChild(renderer.domElement);
-
-            // Geometria de Partículas em Rede 3D
-            const particleCount = 200;
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-            const colors = new Float32Array(particleCount * 3);
-
-            const color1 = new THREE.Color(0x10b981); // Emerald
-            const color2 = new THREE.Color(0x06b6d4); // Cyan
-
-            for (let i = 0; i < particleCount * 3; i += 3) {
-                positions[i] = (Math.random() - 0.5) * 50;
-                positions[i + 1] = (Math.random() - 0.5) * 35;
-                positions[i + 2] = (Math.random() - 0.5) * 30;
-
-                const mixedColor = color1.clone().lerp(color2, Math.random());
-                colors[i] = mixedColor.r;
-                colors[i + 1] = mixedColor.g;
-                colors[i + 2] = mixedColor.b;
-            }
-
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-            const material = new THREE.PointsMaterial({
-                size: 0.65,
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.75
-            });
-
-            const particles = new THREE.Points(geometry, material);
-            scene.add(particles);
-
-            // Anel Orbital 3D Holográfico Central
-            const torusGeo = new THREE.TorusGeometry(12, 0.12, 16, 100);
-            const torusMat = new THREE.MeshBasicMaterial({ color: 0x10b981, wireframe: true, transparent: true, opacity: 0.25 });
-            const torus = new THREE.Mesh(torusGeo, torusMat);
-            torus.rotation.x = Math.PI / 3;
-            scene.add(torus);
-
-            // Movimento suave com o mouse
-            let mouseX = 0, mouseY = 0;
-            window.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX - window.innerWidth / 2) * 0.0008;
-                mouseY = (e.clientY - window.innerHeight / 2) * 0.0008;
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-                particles.rotation.y += 0.0015;
-                particles.rotation.x += 0.0008;
-
-                torus.rotation.z += 0.002;
-                torus.rotation.y += 0.001;
-
-                camera.position.x += (mouseX * 10 - camera.position.x) * 0.05;
-                camera.position.y += (-mouseY * 10 - camera.position.y) * 0.05;
-                camera.lookAt(scene.position);
-
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        })();
-
-        // 2. GSAP & SCROLLTRIGGER ANIMATIONS
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof gsap === 'undefined') return;
-            if (typeof ScrollTrigger !== 'undefined') {
-                gsap.registerPlugin(ScrollTrigger);
-            }
-
-            // Hero Entrance Timeline
-            const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
-            heroTL
-                .from('#hero-badge', { opacity: 0, y: -25, duration: 0.8 })
-                .from('#hero-title', { opacity: 0, y: 35, duration: 0.9 }, '-=0.5')
-                .from('#hero-desc', { opacity: 0, y: 25, duration: 0.8 }, '-=0.5')
-                .from('#hero-cta', { opacity: 0, y: 20, duration: 0.7 }, '-=0.4')
-                .from('#hero-mockup-wrapper', { opacity: 0, scale: 0.92, y: 50, duration: 1.2, ease: 'back.out(1.2)' }, '-=0.5');
-
-            // Flutuação contínua nos badges do Hero
-            gsap.to('#badge-clinicas', {
-                y: -10,
-                duration: 2.8,
-                repeat: -1,
-                yoyo: true,
-                ease: 'sine.inOut'
-            });
-            gsap.to('#badge-zai', {
-                y: 8,
-                duration: 3.2,
-                repeat: -1,
-                yoyo: true,
-                ease: 'sine.inOut',
-                delay: 0.5
-            });
-
-            // 3D Tilt Effect no Mockup Principal ao passar o mouse
-            const heroWrapper = document.getElementById('hero-mockup-wrapper');
-            const heroCard = document.getElementById('hero-mockup-card');
-            if (heroWrapper && heroCard) {
-                heroWrapper.addEventListener('mousemove', (e) => {
-                    const rect = heroWrapper.getBoundingClientRect();
-                    const x = (e.clientX - rect.left) / rect.width - 0.5;
-                    const y = (e.clientY - rect.top) / rect.height - 0.5;
-                    gsap.to(heroCard, {
-                        rotationY: x * 14,
-                        rotationX: -y * 14,
-                        duration: 0.4,
-                        ease: 'power2.out'
-                    });
-                });
-                heroWrapper.addEventListener('mouseleave', () => {
-                    gsap.to(heroCard, {
-                        rotationY: 0,
-                        rotationX: 0,
-                        duration: 0.8,
-                        ease: 'elastic.out(1, 0.4)'
-                    });
-                });
-            }
-
-            // Cards de "Soluções Especializadas": ScrollTrigger + Tilt 3D
-            const solucaoCards = document.querySelectorAll('.solucao-card');
-            if (solucaoCards.length > 0) {
-                gsap.from(solucaoCards, {
-                    scrollTrigger: {
-                        trigger: '#solucoes-grid',
-                        start: 'top 80%',
-                    },
-                    opacity: 0,
-                    y: 60,
-                    duration: 0.9,
-                    stagger: 0.15,
-                    ease: 'power3.out'
-                });
-
-                // Tilt 3D interativo por card
-                solucaoCards.forEach(card => {
-                    card.addEventListener('mousemove', (e) => {
-                        const rect = card.getBoundingClientRect();
-                        const x = (e.clientX - rect.left) / rect.width - 0.5;
-                        const y = (e.clientY - rect.top) / rect.height - 0.5;
-                        gsap.to(card, {
-                            rotationY: x * 10,
-                            rotationX: -y * 10,
-                            y: -6,
-                            duration: 0.3,
-                            ease: 'power1.out'
-                        });
-                    });
-                    card.addEventListener('mouseleave', () => {
-                        gsap.to(card, {
-                            rotationY: 0,
-                            rotationX: 0,
-                            y: 0,
-                            duration: 0.6,
-                            ease: 'power2.out'
-                        });
-                    });
-                });
-            }
-
-            // Animação da Seção "Trajetória consolidada e liderança"
-            if (document.getElementById('quemsomos')) {
-                gsap.from('#trajetoria-texto', {
-                    scrollTrigger: {
-                        trigger: '#quemsomos',
-                        start: 'top 75%'
-                    },
-                    opacity: 0,
-                    x: -50,
-                    duration: 1,
-                    ease: 'power3.out'
-                });
-
-                gsap.from('#trajetoria-mapa', {
-                    scrollTrigger: {
-                        trigger: '#quemsomos',
-                        start: 'top 75%'
-                    },
-                    opacity: 0,
-                    x: 50,
-                    duration: 1,
-                    ease: 'power3.out'
-                });
-
-                // Contadores Numéricos Animados no Scroll
-                ScrollTrigger.create({
-                    trigger: '#metricas-grid',
-                    start: 'top 85%',
-                    once: true,
-                    onEnter: () => {
-                        // Clínicas: 0 -> 4500
-                        const cClinicas = document.getElementById('counter-clinicas');
-                        if (cClinicas) {
-                            gsap.fromTo(cClinicas, { innerHTML: 0 }, {
-                                innerHTML: 4500,
-                                duration: 2,
-                                ease: 'power2.out',
-                                snap: { innerHTML: 1 }
-                            });
-                        }
-                        // Estados: 0 -> 27
-                        const cEstados = document.getElementById('counter-estados');
-                        if (cEstados) {
-                            gsap.fromTo(cEstados, { innerHTML: 0 }, {
-                                innerHTML: 27,
-                                duration: 1.5,
-                                ease: 'power2.out',
-                                snap: { innerHTML: 1 }
-                            });
-                        }
-                    }
-                });
-            }
-
-            // Linha do Tempo: Revelação dos Itens
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            if (timelineItems.length > 0) {
-                timelineItems.forEach((item, index) => {
-                    gsap.from(item, {
-                        scrollTrigger: {
-                            trigger: item,
-                            start: 'top 85%'
-                        },
-                        opacity: 0,
-                        x: -30,
-                        duration: 0.8,
-                        ease: 'power2.out'
-                    });
-                });
-            }
-
-            // Selo ISO 9001 3D Glow Effect
-            const isoCard = document.getElementById('iso-card-3d');
-            if (isoCard) {
-                gsap.from(isoCard, {
-                    scrollTrigger: {
-                        trigger: '#iso9001',
-                        start: 'top 75%'
-                    },
-                    opacity: 0,
-                    scale: 0.8,
-                    rotation: -10,
-                    duration: 1.2,
-                    ease: 'elastic.out(1, 0.5)'
-                });
-            }
-        });
 
         // Gerenciamento do Banner de Cookies
         function aceitarCookies() {
