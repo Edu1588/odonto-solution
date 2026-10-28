@@ -43,8 +43,11 @@ node server.mjs
 ```
 
 Em seguida, acesse no navegador:
-- **Landing Page**: [http://localhost:3000/](http://localhost:3000/)
-- **Painel do ERP / Login**: [http://localhost:3000/app](http://localhost:3000/app)
+- **Página Principal (Landing Page)**: [http://localhost:3000/](http://localhost:3000/)
+- **Portal Clínico & Login**: [http://localhost:3000/portal](http://localhost:3000/portal)
+- **Política de Privacidade (LGPD)**: [http://localhost:3000/politica-de-privacidade](http://localhost:3000/politica-de-privacidade)
+- **Termos de Uso**: [http://localhost:3000/termos-de-uso](http://localhost:3000/termos-de-uso)
+- **Segurança & LGPD na Saúde**: [http://localhost:3000/lgpd](http://localhost:3000/lgpd)
 
 ---
 
