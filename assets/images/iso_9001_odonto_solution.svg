@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Fundo Circular com Borda Dourada / Esmeralda -->
+  <circle cx="200" cy="200" r="185" fill="#ffffff" stroke="url(#borderGrad)" stroke-width="8" filter="url(#shadow)"/>
+  <circle cx="200" cy="200" r="165" fill="#f0fdf4" stroke="#d1fae5" stroke-width="3" stroke-dasharray="6,4"/>
+
+  <!-- Anel de destaque -->
+  <circle cx="200" cy="200" r="145" fill="none" stroke="#059669" stroke-width="2"/>
+
+  <!-- Estrelas de Qualidade Superior -->
+  <g fill="#10b981" transform="translate(140, 60)">
+    <polygon points="10,1 4,19 19,7 1,7 16,19"/>
+    <polygon points="60,1 54,19 69,7 51,7 66,19"/>
+    <polygon points="110,1 104,19 119,7 101,7 116,19"/>
+  </g>
+
+  <!-- Tipografia Central ISO 9001 -->
+  <text x="200" y="145" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="900" font-size="20" fill="#047857" letter-spacing="3">SISTEMA DE GESTÃO</text>
+  <text x="200" y="210" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="900" font-size="52" fill="#065f46" letter-spacing="-1">ISO 9001</text>
+  <text x="200" y="245" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="800" font-size="22" fill="#10b981" letter-spacing="4">: 2015</text>
+
+  <!-- Banner Inferior com Faixa -->
+  <rect x="50" y="275" width="300" height="42" rx="21" fill="url(#goldGrad)"/>
+  <text x="200" y="302" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="800" font-size="14" fill="#ffffff" letter-spacing="2">QUALIDADE CERTIFICADA</text>
+
+  <!-- Rodapé Institucional -->
+  <text x="200" y="345" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="700" font-size="12" fill="#047857">ODONTO SOLUTION TECNOLOGIA</text>
+</svg>

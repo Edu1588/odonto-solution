@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="medicoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="20" fill="url(#medicoGrad)"/>
+  <!-- ECG / Pulso Cardíaco e Estetoscópio -->
+  <path d="M 50,200 L 180,200 L 210,120 L 240,280 L 270,160 L 300,220 L 330,200 L 550,200" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="240" cy="280" r="8" fill="#38bdf8"/>
+  <text x="300" y="340" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="900" font-size="20" fill="#ffffff">Odonto Solution · Gestão Médica &amp; Prontuário CFM</text>
+</svg>

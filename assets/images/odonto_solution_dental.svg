@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dentalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="20" fill="url(#dentalGrad)"/>
+  <!-- Dente 3D estilizado com odontograma interativo -->
+  <path d="M 220,100 Q 300,50 380,100 Q 420,180 370,270 Q 340,320 300,340 Q 260,320 230,270 Q 180,180 220,100 Z" fill="#ffffff" fill-opacity="0.95"/>
+  <circle cx="260" cy="180" r="16" fill="#10b981" fill-opacity="0.8"/>
+  <text x="260" y="185" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="800" font-size="12" fill="#ffffff">18</text>
+  <circle cx="340" cy="180" r="16" fill="#3b82f6" fill-opacity="0.8"/>
+  <text x="340" y="185" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="800" font-size="12" fill="#ffffff">21</text>
+  <text x="300" y="375" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="900" font-size="20" fill="#ffffff">Odonto Solution · Dental &amp; Odontograma 3D</text>
+</svg>

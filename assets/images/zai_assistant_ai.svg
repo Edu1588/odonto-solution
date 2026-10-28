@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="zaiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="50%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="aiGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fundo Tecnológico -->
+  <rect width="800" height="600" rx="24" fill="url(#zaiBg)"/>
+
+  <!-- Círculos de Pulso da IA -->
+  <circle cx="280" cy="300" r="220" fill="none" stroke="#10b981" stroke-width="1" opacity="0.2"/>
+  <circle cx="280" cy="300" r="170" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="8,6" opacity="0.3"/>
+  <circle cx="280" cy="300" r="120" fill="none" stroke="#34d399" stroke-width="2" opacity="0.4"/>
+
+  <!-- Orbe Central da IA (Z.AI Core) -->
+  <circle cx="280" cy="300" r="80" fill="#047857" filter="url(#aiGlow)"/>
+  <circle cx="280" cy="300" r="70" fill="url(#aiBg)"/>
+  <circle cx="280" cy="300" r="50" fill="#10b981" fill-opacity="0.25"/>
+  <text x="280" y="315" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="900" font-size="44" fill="#ffffff">Z.AI</text>
+
+  <!-- Smartphone com o WhatsApp Integrado -->
+  <g transform="translate(460, 60)">
+    <!-- Corpo do Celular -->
+    <rect width="280" height="480" rx="36" fill="url(#phoneGrad)" stroke="#334155" stroke-width="8" filter="url(#aiGlow)"/>
+    <!-- Tela -->
+    <rect x="12" y="18" width="256" height="444" rx="26" fill="#f8fafc"/>
+    <!-- Top Bar WhatsApp -->
+    <rect x="12" y="18" width="256" height="65" rx="26" fill="#059669"/>
+    <circle cx="45" cy="52" r="18" fill="#ffffff"/>
+    <text x="45" y="58" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="900" font-size="14" fill="#059669">Z</text>
+    <text x="75" y="48" font-family="'Poppins', sans-serif" font-weight="800" font-size="13" fill="#ffffff">Z.AI Odonto Solution</text>
+    <text x="75" y="64" font-family="'Poppins', sans-serif" font-size="10" fill="#a7f3d0">● Online · IA 24/7</text>
+
+    <!-- Balão 1 - Paciente -->
+    <g transform="translate(25, 105)">
+      <rect width="220" height="42" rx="12" fill="#e2e8f0"/>
+      <text x="12" y="24" font-family="'Poppins', sans-serif" font-size="11" fill="#1e293b">Olá! Quero agendar uma consulta</text>
+      <text x="12" y="36" font-family="'Poppins', sans-serif" font-size="11" fill="#1e293b">com o ortodontista para amanhã.</text>
+    </g>
+
+    <!-- Balão 2 - Z.AI (Resposta Inteligente Imediata) -->
+    <g transform="translate(35, 165)">
+      <rect width="220" height="85" rx="12" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+      <text x="12" y="22" font-family="'Poppins', sans-serif" font-weight="700" font-size="11" fill="#065f46">Olá! Sou a Z.AI da Odonto Solution 🤖</text>
+      <text x="12" y="38" font-family="'Poppins', sans-serif" font-size="10.5" fill="#047857">Temos 2 horários com a Dra. Juliana:</text>
+      <text x="12" y="54" font-family="'Poppins', sans-serif" font-weight="600" font-size="10.5" fill="#065f46">📅 10:00 ou 📅 14:30.</text>
+      <text x="12" y="72" font-family="'Poppins', sans-serif" font-size="10" fill="#047857">Digite 1 ou 2 para confirmar!</text>
+    </g>
+
+    <!-- Balão 3 - Paciente escolhe -->
+    <g transform="translate(180, 265)">
+      <rect width="65" height="32" rx="12" fill="#e2e8f0"/>
+      <text x="15" y="22" font-family="'Poppins', sans-serif" font-weight="700" font-size="12" fill="#1e293b">Opção 1</text>
+    </g>
+
+    <!-- Balão 4 - Confirmação Automática no ERP -->
+    <g transform="translate(35, 315)">
+      <rect width="220" height="75" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+      <text x="12" y="22" font-family="'Poppins', sans-serif" font-weight="800" font-size="11" fill="#065f46">✅ Consulta Confirmada!</text>
+      <text x="12" y="38" font-family="'Poppins', sans-serif" font-size="10" fill="#047857">Dra. Juliana Mendes · Ortodontia</text>
+      <text x="12" y="52" font-family="'Poppins', sans-serif" font-size="10" fill="#047857">Horário: Amanhã às 10:00 (Consultório 2)</text>
+      <text x="12" y="66" font-family="'Poppins', sans-serif" font-weight="700" font-size="9.5" fill="#059669">Agendamento registrado no ERP.</text>
+    </g>
+  </g>
+
+  <!-- Destaques à esquerda -->
+  <g transform="translate(60, 100)">
+    <rect width="220" height="60" rx="14" fill="#064e3b" stroke="#10b981" stroke-width="1.5" filter="url(#aiGlow)"/>
+    <text x="18" y="26" font-family="'Poppins', sans-serif" font-weight="800" font-size="13" fill="#ffffff">Secretária Virtual 24h</text>
+    <text x="18" y="44" font-family="'Poppins', sans-serif" font-size="11" fill="#a7f3d0">Atendimento humanizado WhatsApp</text>
+  </g>
+
+  <g transform="translate(60, 440)">
+    <rect width="220" height="60" rx="14" fill="#064e3b" stroke="#10b981" stroke-width="1.5" filter="url(#aiGlow)"/>
+    <text x="18" y="26" font-family="'Poppins', sans-serif" font-weight="800" font-size="13" fill="#ffffff">Redução de 85% em Faltas</text>
+    <text x="18" y="44" font-family="'Poppins', sans-serif" font-size="11" fill="#a7f3d0">Confirmação e reagendamento ativo</text>
+  </g>
+</svg>

@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%" style="background: radial-gradient(circle at center, #064e3b 0%, #022c22 70%, #011910 100%); border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Grade de fundo tecnológica -->
+  <g stroke="#065f46" stroke-width="0.5" opacity="0.4">
+    <line x1="50" y1="100" x2="750" y2="100" />
+    <line x1="50" y1="200" x2="750" y2="200" />
+    <line x1="50" y1="300" x2="750" y2="300" />
+    <line x1="50" y1="400" x2="750" y2="400" />
+    <line x1="50" y1="500" x2="750" y2="500" />
+    <line x1="50" y1="600" x2="750" y2="600" />
+    <line x1="50" y1="700" x2="750" y2="700" />
+    <line x1="100" y1="50" x2="100" y2="750" />
+    <line x1="200" y1="50" x2="200" y2="750" />
+    <line x1="300" y1="50" x2="300" y2="750" />
+    <line x1="400" y1="50" x2="400" y2="750" />
+    <line x1="500" y1="50" x2="500" y2="750" />
+    <line x1="600" y1="50" x2="600" y2="750" />
+    <line x1="700" y1="50" x2="700" y2="750" />
+  </g>
+
+  <!-- Silhueta estilizada do Brasil em Polígonos Tecnológicos -->
+  <path d="M 230,140 L 320,110 L 410,130 L 490,160 L 580,220 L 680,280 L 720,330 L 710,380 L 640,430 L 590,470 L 560,540 L 530,620 L 490,690 L 440,730 L 410,740 L 390,700 L 410,630 L 400,560 L 330,520 L 260,460 L 210,380 L 170,300 L 160,230 L 190,170 Z" 
+        fill="#047857" fill-opacity="0.3" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4" />
+
+  <path d="M 250,160 L 330,130 L 430,150 L 520,200 L 650,290 L 680,340 L 620,410 L 550,470 L 520,580 L 460,680 L 420,700 L 390,630 L 370,550 L 290,470 L 240,400 L 210,310 L 200,240 Z" 
+        fill="#10b981" fill-opacity="0.15" stroke="#34d399" stroke-width="3" />
+
+  <!-- Conexões de Rede entre Polos (Capitais / Clínicas) -->
+  <g stroke="url(#lineGrad)" stroke-width="2">
+    <!-- São Paulo / Rio / BH -->
+    <line x1="510" y1="560" x2="560" y2="540" />
+    <line x1="510" y1="560" x2="520" y2="490" />
+    <line x1="510" y1="560" x2="440" y2="600" />
+    <!-- SP para Brasília -->
+    <line x1="510" y1="560" x2="460" y2="420" />
+    <line x1="460" y1="420" x2="520" y2="490" />
+    <!-- Brasília para Salvador / Recife / Fortaleza -->
+    <line x1="460" y1="420" x2="620" y2="390" />
+    <line x1="620" y1="390" x2="670" y2="320" />
+    <line x1="670" y1="320" x2="630" y2="250" />
+    <line x1="460" y1="420" x2="630" y2="250" />
+    <!-- Centro-Oeste / Norte -->
+    <line x1="460" y1="420" x2="360" y2="440" />
+    <line x1="460" y1="420" x2="380" y2="290" />
+    <line x1="380" y1="290" x2="290" y2="250" />
+    <line x1="380" y1="290" x2="510" y2="230" />
+    <!-- Sul (Curitiba / POA / Floripa) -->
+    <line x1="440" y1="600" x2="450" y2="650" />
+    <line x1="450" y1="650" x2="420" y2="700" />
+    <line x1="510" y1="560" x2="450" y2="650" />
+  </g>
+
+  <!-- Nós de Destaque (Hubs Odonto Solution) -->
+  <!-- São Paulo (Hub Central) -->
+  <circle cx="510" cy="560" r="14" fill="#34d399" fill-opacity="0.3" filter="url(#glow)"/>
+  <circle cx="510" cy="560" r="7" fill="#ffffff"/>
+  <circle cx="510" cy="560" r="4" fill="#059669"/>
+  <text x="528" y="565" fill="#ffffff" font-family="'Poppins', sans-serif" font-weight="700" font-size="13">São Paulo (Matriz)</text>
+
+  <!-- Rio de Janeiro -->
+  <circle cx="560" cy="540" r="5" fill="#34d399" filter="url(#glow)"/>
+  <text x="575" y="545" fill="#a7f3d0" font-family="'Poppins', sans-serif" font-size="11">Rio de Janeiro</text>
+
+  <!-- Belo Horizonte -->
+  <circle cx="520" cy="490" r="5" fill="#34d399" filter="url(#glow)"/>
+  <text x="535" y="495" fill="#a7f3d0" font-family="'Poppins', sans-serif" font-size="11">Belo Horizonte</text>
+
+  <!-- Brasília (DF) -->
+  <circle cx="460" cy="420" r="8" fill="#10b981" filter="url(#glow)"/>
+  <circle cx="460" cy="420" r="4" fill="#ffffff"/>
+  <text x="475" y="425" fill="#ffffff" font-family="'Poppins', sans-serif" font-weight="600" font-size="12">Brasília (DF)</text>
+
+  <!-- Salvador -->
+  <circle cx="620" cy="390" r="6" fill="#34d399" filter="url(#glow)"/>
+  <text x="635" y="395" fill="#a7f3d0" font-family="'Poppins', sans-serif" font-size="11">Salvador</text>
+
+  <!-- Recife -->
+  <circle cx="670" cy="320" r="6" fill="#34d399" filter="url(#glow)"/>
+  <text x="685" y="325" fill="#a7f3d0" font-family="'Poppins', sans-serif" font-size="11">Recife</text>
+
+  <!-- Fortaleza -->
+  <circle cx="630" cy="250" r="6" fill="#34d399" filter="url(#glow)"/>
+  <text x="645" y="255" fill="#a7f3d0" font-family="'Poppins', sans-serif" font-size="11">Fortaleza</text>
+
+  <!-- Manaus -->
+  <circle cx="290" cy="250" r="6" fill="#34d399" filter="url(#glow)"/>
+  <text x="305" y="255" fill="#a7f3d0" font-family="'Poppins', sans-serif" font-size="11">Manaus</text>
+
+  <!-- Belém -->
+  <circle cx="510" cy="230" r="5" fill="#34d399" filter="url(#glow)"/>
+  <text x="525" y="235" fill="#a7f3d0" font-family="'Poppins', sans-serif" font-size="11">Belém</text>
+
+  <!-- Curitiba -->
+  <circle cx="440" cy="600" r="6" fill="#34d399" filter="url(#glow)"/>
+  <text x="380" y="605" fill="#a7f3d0" font-family="'Poppins', sans-serif" font-size="11">Curitiba</text>
+
+  <!-- Porto Alegre -->
+  <circle cx="420" cy="700" r="6" fill="#34d399" filter="url(#glow)"/>
+  <text x="330" y="705" fill="#a7f3d0" font-family="'Poppins', sans-serif" font-size="11">Porto Alegre</text>
+
+  <!-- Selo informativo do ecossistema -->
+  <g transform="translate(40, 680)">
+    <rect width="250" height="75" rx="14" fill="#064e3b" fill-opacity="0.85" stroke="#10b981" stroke-width="1.5" />
+    <text x="18" y="28" fill="#ffffff" font-family="'Poppins', sans-serif" font-weight="800" font-size="14">Rede Odonto Solution</text>
+    <text x="18" y="48" fill="#a7f3d0" font-family="'Poppins', sans-serif" font-weight="600" font-size="12">+4.500 Clínicas Conectadas</text>
+    <text x="18" y="64" fill="#6ee7b7" font-family="'Poppins', sans-serif" font-size="10">Presente em 100% dos estados do Brasil</text>
+  </g>
+</svg>
