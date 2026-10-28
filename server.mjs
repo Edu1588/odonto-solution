@@ -77,7 +77,7 @@ const MIME_TYPES = {
     '.ico': 'image/x-icon'
 };
 
-const server = http.createServer((req, res) => {
+function requestListener(req, res) {
     // CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -383,11 +383,17 @@ const server = http.createServer((req, res) => {
             res.end(content);
         }
     });
-});
+}
 
-server.listen(PORT, () => {
-    console.log(`\n======================================================`);
-    console.log(`  SISTEMA ODONTO SOLUTION (ERP & LANDING PAGE)`);
-    console.log(`  Rodando em: http://localhost:${PORT}`);
-    console.log(`======================================================\n`);
-});
+const server = http.createServer(requestListener);
+
+if (!process.env.VERCEL) {
+    server.listen(PORT, () => {
+        console.log(`\n======================================================`);
+        console.log(`  SISTEMA ODONTO SOLUTION (ERP & LANDING PAGE)`);
+        console.log(`  Rodando em: http://localhost:${PORT}`);
+        console.log(`======================================================\n`);
+    });
+}
+
+export default requestListener;

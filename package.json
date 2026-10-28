@@ -2,7 +2,6 @@
   "name": "odonto-solution",
   "version": "1.0.0",
   "description": "Odonto Solution - O mais completo ecossistema para gestão e crescimento de clínicas odontológicas e médicas",
-  "main": "server.mjs",
   "type": "module",
   "scripts": {
     "start": "node server.mjs",

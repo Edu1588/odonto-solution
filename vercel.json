@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/landing.html" },
+    { "source": "/portal", "destination": "/index.html" },
+    { "source": "/app", "destination": "/index.html" },
+    { "source": "/login", "destination": "/index.html" },
+    { "source": "/politica-de-privacidade", "destination": "/privacidade.html" },
+    { "source": "/termos-de-uso", "destination": "/termos.html" },
+    { "source": "/lgpd", "destination": "/lgpd.html" },
+    { "source": "/api/(.*)", "destination": "/api/index.js" }
+  ]
+}
