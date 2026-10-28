@@ -2,7 +2,6 @@
 let db = {
     clinica: {
         nome: "Odonto Solution - Clínica Matriz",
-        cnpj: "12.345.678/0001-90",
         cidade: "São Paulo - SP",
         certificacao: "ISO 9001:2015"
     },

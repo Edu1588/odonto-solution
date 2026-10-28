@@ -12,7 +12,6 @@ const PORT = process.env.PORT || 3000;
 let db = {
     clinica: {
         nome: "Odonto Solution - Clínica Matriz",
-        cnpj: "12.345.678/0001-90",
         cidade: "São Paulo - SP",
         certificacao: "ISO 9001:2015"
     },
@@ -58,7 +57,7 @@ let db = {
         { id: 2, tipo: "receita", descricao: "Procedimento Odonto - José Fernando", valor: 180, data: "28/10/2026", categoria: "Odontologia", status: "Recebido" },
         { id: 3, tipo: "despesa", descricao: "Compra de Luvas e Máscaras (Marketplace)", valor: 340, data: "28/10/2026", categoria: "Insumos", status: "Pago" },
         { id: 4, tipo: "receita", descricao: "Faturamento Convênio Unimed Lote #442", valor: 4850, data: "27/10/2026", categoria: "Convênios TISS", status: "Em Aberto" },
-        { id: 5, tipo: "despesa", descricao: "Licença Software Aplicativo.net & Z.AI", valor: 490, data: "25/10/2026", categoria: "Tecnologia", status: "Pago" }
+        { id: 5, tipo: "despesa", descricao: "Licença Software Odonto Solution & Z.AI", valor: 490, data: "25/10/2026", categoria: "Tecnologia", status: "Pago" }
     ],
     notasFiscais: [
         { id: "NF-1049", paciente: "Mariana Silva Santos", valor: 250, data: "28/10/2026", codigoVerificacao: "4A89-B7C1", chaveAcesso: "35261012345678000190550010000010491008432190", status: "Transmitida com Sucesso" }
