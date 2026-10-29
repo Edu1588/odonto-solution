@@ -211,439 +211,340 @@
             </div>
 
             <!-- ========================================== -->
-            <!-- SIMULADOR INTERATIVO DE TELAS (ODONTO SOLUTION CRM) -->
+            <!-- FLUXO CONTÍNUO E SIMULADOR INTERATIVO DE TELAS (RÉPLICA FIEL WESALES CRM) -->
             <!-- ========================================== -->
-            <div id="simulador" class="mt-14 max-w-6xl mx-auto text-left">
-                <!-- Mockup de Janela de Software Desktop -->
-                <div class="bg-slate-900 rounded-2xl shadow-2xl border border-slate-800 overflow-hidden">
+            <div id="simulador" class="mt-14 max-w-6xl mx-auto text-left relative">
+                
+                <!-- CICLO DO TOPO: CAPTAÇÃO -> NUTRIÇÃO -> VENDA -> REATIVAÇÃO -> E RECOMEÇA -->
+                <div class="flex flex-col items-center justify-center mb-10 text-center">
                     
-                    <!-- Top Window Bar -->
-                    <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
-                        <!-- Dots & Title -->
-                        <div class="flex items-center gap-3">
-                            <div class="flex items-center gap-1.5">
-                                <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
-                                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                            </div>
-                            <span class="text-xs font-semibold text-slate-400 border-l border-slate-800 pl-3 flex items-center gap-1.5">
-                                <span class="text-brand-400">Odonto Solution CRM</span>
-                                <span class="text-slate-600">•</span>
-                                <span class="text-slate-400 text-[11px]">Demonstração Interativa ao Vivo</span>
-                            </span>
+                    <!-- Linha do Ciclo com Bolinha Verde Neon Animada -->
+                    <div class="relative w-full max-w-xl mx-auto px-4 py-2">
+                        <svg class="w-full h-14 overflow-visible" viewBox="0 0 540 60">
+                            <!-- Linha de conexão superior -->
+                            <line x1="40" y1="20" x2="500" y2="20" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="4 4" />
+                            <!-- Arco inferior que volta para o início -->
+                            <path d="M 500 20 C 500 55, 40 55, 40 20" fill="none" stroke="#E2E8F0" stroke-width="1.8" stroke-dasharray="4 4" />
+                            
+                            <!-- Marcadores das 4 Etapas -->
+                            <circle cx="50" cy="20" r="5" fill="#10B981" />
+                            <circle cx="200" cy="20" r="5" fill="#10B981" />
+                            <circle cx="350" cy="20" r="5" fill="#10B981" />
+                            <circle cx="490" cy="20" r="5" fill="#10B981" />
+                            
+                            <!-- Bolinha Verde Neon que corre o ciclo continuamente -->
+                            <circle cx="50" cy="20" r="7" fill="#22c55e" filter="drop-shadow(0 0 10px #22c55e)">
+                                <animateMotion path="M 40 20 L 500 20 C 500 55, 40 55, 40 20 Z" dur="7s" repeatCount="indefinite" />
+                            </circle>
+                        </svg>
+
+                        <!-- Textos das Etapas -->
+                        <div class="flex justify-between items-center text-[11px] sm:text-xs font-extrabold tracking-wider text-slate-500 uppercase -mt-14 px-2 sm:px-6">
+                            <span class="bg-white/90 backdrop-blur px-2.5 py-0.5 rounded-full text-emerald-600 shadow-sm border border-emerald-100">CAPTAÇÃO</span>
+                            <span class="bg-white/90 backdrop-blur px-2.5 py-0.5 rounded-full text-slate-600 shadow-sm border border-slate-100">NUTRIÇÃO</span>
+                            <span class="bg-white/90 backdrop-blur px-2.5 py-0.5 rounded-full text-slate-600 shadow-sm border border-slate-100">VENDA</span>
+                            <span class="bg-white/90 backdrop-blur px-2.5 py-0.5 rounded-full text-emerald-600 shadow-sm border border-emerald-100">REATIVAÇÃO</span>
                         </div>
 
-                        <!-- Abas de Navegação do Simulador -->
-                        <div class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs font-bold">
-                            <button onclick="switchTab('kanban')" id="tab-btn-kanban" class="tab-trigger px-3 py-1.5 rounded-lg text-white bg-brand-600 transition-all flex items-center gap-1.5">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path></svg>
-                                <span>1. Funil de Vendas</span>
-                            </button>
-                            <button onclick="switchTab('chat')" id="tab-btn-chat" class="tab-trigger px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                                <span>2. WhatsApp & Z.AI</span>
-                            </button>
-                            <button onclick="switchTab('dash')" id="tab-btn-dash" class="tab-trigger px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                <span>3. Dashboard & KPIs</span>
-                            </button>
-                            <button onclick="switchTab('zai')" id="tab-btn-zai" class="tab-trigger px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
-                                <span class="text-brand-400">✦</span>
-                                <span>4. Copilot Z.AI</span>
-                            </button>
-                        </div>
-
-                        <!-- Live Badge -->
-                        <div class="hidden sm:flex items-center gap-2 text-[11px] text-slate-400 font-semibold">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span>IA Ativa 24/7</span>
+                        <!-- Texto "E RECOMEÇA" no arco inferior -->
+                        <div class="text-center mt-3">
+                            <span class="text-[10px] font-extrabold tracking-widest text-slate-400 uppercase bg-white/80 px-2 py-0.5 rounded">E RECOMEÇA</span>
                         </div>
                     </div>
 
-                    <!-- Screen Body Container -->
-                    <div class="bg-slate-900 p-4 sm:p-6 min-h-[500px]">
+                    <!-- Botão de Alta Conversão "Escolher meu plano" -->
+                    <div class="mt-5">
+                        <a href="#planos" class="btn-sheen inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-green-500 text-slate-950 font-black text-sm sm:text-base shadow-xl shadow-emerald-500/25 hover:scale-105 transition-all">
+                            <span>Escolher meu plano</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
 
-                        <!-- TAB 1: KANBAN DE VENDAS -->
-                        <div id="tab-content-kanban" class="tab-panel block">
-                            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
-                                <div>
-                                    <h3 class="text-white font-bold text-base flex items-center gap-2">
-                                        <span>Pipeline de Tratamentos Odontológicos</span>
-                                        <span class="text-xs font-normal px-2 py-0.5 rounded bg-brand-500/20 text-brand-300 border border-brand-500/30">4 Etapas Ativas</span>
-                                    </h3>
-                                    <p class="text-slate-400 text-xs mt-0.5">Arraste ou clique nos cards para visualizar o fluxo em tempo real.</p>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-xs text-slate-400 font-semibold hidden md:inline">Valor em negociação: <strong class="text-brand-400 font-bold">R$ 84.500</strong></span>
-                                    <a href="/portal" class="text-xs bg-brand-600 hover:bg-brand-500 text-white font-bold px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1">
-                                        <span>Abrir no Portal</span>
-                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!-- Colunas do Funil -->
-                            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                                <!-- Coluna 1: Novos Leads -->
-                                <div class="bg-slate-950/60 rounded-xl p-3 border border-slate-800">
-                                    <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-800/80">
-                                        <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-                                            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-                                            <span>Novos Leads</span>
-                                        </span>
-                                        <span class="text-[11px] font-bold text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">3</span>
-                                    </div>
-                                    <div class="space-y-2.5">
-                                        <div class="bg-slate-800/90 hover:bg-slate-800 p-3 rounded-lg border border-slate-700/80 shadow-sm cursor-pointer transition-all hover:border-brand-500/50">
-                                            <div class="flex items-start justify-between">
-                                                <span class="text-xs font-bold text-white">Mariana Costa</span>
-                                                <span class="text-[10px] font-semibold text-brand-400 bg-brand-950/80 border border-brand-800 px-1.5 py-0.2 rounded">Alinhadores</span>
-                                            </div>
-                                            <p class="text-xs text-slate-300 mt-1 font-semibold">R$ 9.800</p>
-                                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-700/50 text-[10px] text-slate-400">
-                                                <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5 text-brand-400 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" stroke-width="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2" stroke-linecap="round"/></svg> Instagram Ads</span>
-                                                <span>Há 4 min</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-slate-800/90 hover:bg-slate-800 p-3 rounded-lg border border-slate-700/80 shadow-sm cursor-pointer transition-all hover:border-brand-500/50">
-                                            <div class="flex items-start justify-between">
-                                                <span class="text-xs font-bold text-white">Lucas Silveira</span>
-                                                <span class="text-[10px] font-semibold text-blue-400 bg-blue-950/80 border border-blue-800 px-1.5 py-0.2 rounded">Implante</span>
-                                            </div>
-                                            <p class="text-xs text-slate-300 mt-1 font-semibold">R$ 5.200</p>
-                                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-700/50 text-[10px] text-slate-400">
-                                                <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5 text-blue-400 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><line x1="2" y1="12" x2="22" y2="12" stroke-width="2"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke-width="2"/></svg> Google Ads</span>
-                                                <span>Há 18 min</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Coluna 2: IA Qualificando -->
-                                <div class="bg-slate-950/60 rounded-xl p-3 border border-slate-800">
-                                    <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-800/80">
-                                        <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-                                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-                                            <span>Z.AI Qualificando</span>
-                                        </span>
-                                        <span class="text-[11px] font-bold text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">2</span>
-                                    </div>
-                                    <div class="space-y-2.5">
-                                        <div class="bg-slate-800/90 hover:bg-slate-800 p-3 rounded-lg border border-amber-500/40 shadow-sm cursor-pointer transition-all">
-                                            <div class="flex items-start justify-between">
-                                                <span class="text-xs font-bold text-white">Juliana Paes</span>
-                                                <span class="text-[10px] font-semibold text-amber-400 bg-amber-950/80 border border-amber-800 px-1.5 py-0.2 rounded">Facetas Resina</span>
-                                            </div>
-                                            <p class="text-xs text-slate-300 mt-1 font-semibold">R$ 7.500</p>
-                                            <div class="mt-2 bg-slate-900/80 p-1.5 rounded text-[11px] text-amber-200 border border-amber-500/20 flex items-center gap-1.5">
-                                                <span class="text-amber-400 animate-spin">⟳</span>
-                                                <span>Z.AI enviou horários de quinta</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-slate-800/90 hover:bg-slate-800 p-3 rounded-lg border border-slate-700/80 shadow-sm cursor-pointer transition-all hover:border-brand-500/50">
-                                            <div class="flex items-start justify-between">
-                                                <span class="text-xs font-bold text-white">Rodrigo Santos</span>
-                                                <span class="text-[10px] font-semibold text-purple-400 bg-purple-950/80 border border-purple-800 px-1.5 py-0.2 rounded">Clareamento</span>
-                                            </div>
-                                            <p class="text-xs text-slate-300 mt-1 font-semibold">R$ 1.800</p>
-                                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-700/50 text-[10px] text-slate-400">
-                                                <span>Aguardando resposta</span>
-                                                <span>Há 2h</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Coluna 3: Avaliação Agendada -->
-                                <div class="bg-slate-950/60 rounded-xl p-3 border border-slate-800">
-                                    <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-800/80">
-                                        <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-                                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                                            <span>Consulta Agendada</span>
-                                        </span>
-                                        <span class="text-[11px] font-bold text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">2</span>
-                                    </div>
-                                    <div class="space-y-2.5">
-                                        <div class="bg-slate-800/90 hover:bg-slate-800 p-3 rounded-lg border border-emerald-500/40 shadow-sm cursor-pointer transition-all">
-                                            <div class="flex items-start justify-between">
-                                                <span class="text-xs font-bold text-white">Beatriz Lima</span>
-                                                <span class="text-[10px] font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-1.5 py-0.2 rounded">Confirmado</span>
-                                            </div>
-                                            <p class="text-xs text-slate-300 mt-1 font-semibold">R$ 14.000 <span class="text-[10px] text-slate-400 font-normal">(Lentes Porcelana)</span></p>
-                                            <div class="mt-2 bg-emerald-950/40 p-1.5 rounded text-[11px] text-emerald-300 border border-emerald-500/20 flex items-center justify-between">
-                                                <span>Amanhã às 14h30</span>
-                                                <span>Dra. Amanda</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Coluna 4: Tratamento Fechado! -->
-                                <div class="bg-slate-950/60 rounded-xl p-3 border border-slate-800">
-                                    <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-800/80">
-                                        <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-                                            <span class="w-2 h-2 rounded-full bg-brand-400"></span>
-                                            <span>Fechado (Ganho!)</span>
-                                        </span>
-                                        <span class="text-[11px] font-bold text-brand-300 bg-brand-950 px-1.5 py-0.5 rounded border border-brand-800">+ R$ 42k</span>
-                                    </div>
-                                    <div class="space-y-2.5">
-                                        <div class="bg-gradient-to-br from-slate-800 to-brand-950/30 p-3 rounded-lg border border-brand-500/60 shadow-sm cursor-pointer">
-                                            <div class="flex items-start justify-between">
-                                                <span class="text-xs font-bold text-white">Carlos Eduardo</span>
-                                                <span class="text-[10px] font-bold text-white bg-brand-600 px-1.5 py-0.2 rounded">GANHO</span>
-                                            </div>
-                                            <p class="text-sm text-brand-300 mt-1 font-extrabold">R$ 18.500</p>
-                                            <p class="text-[11px] text-slate-300">Protocolo Cerâmico Superior</p>
-                                            <div class="mt-2 text-[10px] text-brand-400 font-medium flex items-center gap-1">
-                                                <span>✓</span> Contrato assinado via WhatsApp
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- TAB 2: WHATSAPP COM Z.AI -->
-                        <div id="tab-content-chat" class="tab-panel hidden">
-                            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 h-[440px]">
-                                <!-- Coluna Lista de Conversas -->
-                                <div class="md:col-span-4 bg-slate-950 rounded-xl border border-slate-800 p-2 overflow-y-auto space-y-1.5">
-                                    <div class="px-2 py-1.5 text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
-                                        <span>Inbox de Conversas</span>
-                                        <span class="text-[10px] bg-brand-500 text-white px-1.5 py-0.2 rounded-full">3 novas</span>
-                                    </div>
-                                    <!-- Item 1 Ativo -->
-                                    <div class="p-2.5 rounded-lg bg-slate-800/90 border-l-4 border-brand-500 cursor-pointer">
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-xs font-bold text-white">Mariana Costa</span>
-                                            <span class="text-[10px] text-slate-400">14:23</span>
-                                        </div>
-                                        <p class="text-[11px] text-slate-300 truncate mt-0.5">Quinta às 14h perfeito!</p>
-                                        <span class="inline-block text-[9px] font-semibold text-brand-400 mt-1">✦ Z.AI Agendou</span>
-                                    </div>
-                                    <!-- Item 2 -->
-                                    <div class="p-2.5 rounded-lg hover:bg-slate-900 border-l-4 border-transparent cursor-pointer transition-colors">
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-xs font-bold text-slate-300">Lucas Silveira</span>
-                                            <span class="text-[10px] text-slate-400">13:50</span>
-                                        </div>
-                                        <p class="text-[11px] text-slate-400 truncate mt-0.5">Vocês parcelam no cartão?</p>
-                                    </div>
-                                    <!-- Item 3 -->
-                                    <div class="p-2.5 rounded-lg hover:bg-slate-900 border-l-4 border-transparent cursor-pointer transition-colors">
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-xs font-bold text-slate-300">Dr. Carlos (Follow-up)</span>
-                                            <span class="text-[10px] text-slate-400">11:12</span>
-                                        </div>
-                                        <p class="text-[11px] text-slate-400 truncate mt-0.5">Orçamento de implantes enviado</p>
-                                    </div>
-                                </div>
-
-                                <!-- Chat Central -->
-                                <div class="md:col-span-8 bg-slate-950 rounded-xl border border-slate-800 flex flex-col justify-between overflow-hidden">
-                                    <!-- Topo da Conversa -->
-                                    <div class="p-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
-                                        <div class="flex items-center gap-2.5">
-                                            <div class="w-8 h-8 rounded-full bg-brand-700 text-white font-bold text-xs flex items-center justify-center">MC</div>
-                                            <div>
-                                                <h4 class="text-xs font-bold text-white">Mariana Costa (Lead Instagram)</h4>
-                                                <p class="text-[10px] text-emerald-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Z.AI Atendendo no WhatsApp Oficial</p>
-                                            </div>
-                                        </div>
-                                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700">Orçamento: R$ 9.800</span>
-                                    </div>
-
-                                    <!-- Mensagens Trocadas -->
-                                    <div class="p-4 space-y-3 overflow-y-auto flex-1 text-xs">
-                                        <!-- Paciente -->
-                                        <div class="flex items-start gap-2 max-w-[85%]">
-                                            <div class="bg-slate-800 text-slate-200 p-3 rounded-2xl rounded-tl-none border border-slate-700">
-                                                <p>Olá! Vi o anúncio de vocês no Instagram. Quanto custa o tratamento com alinhador transparente?</p>
-                                                <span class="text-[9px] text-slate-400 block mt-1 text-right">14:20</span>
-                                            </div>
-                                        </div>
-
-                                        <!-- IA Resposta Instantânea -->
-                                        <div class="flex items-start justify-end gap-2 max-w-[85%] ml-auto">
-                                            <div class="bg-brand-950/80 text-brand-100 p-3 rounded-2xl rounded-tr-none border border-brand-700/60 shadow-sm">
-                                                <div class="flex items-center gap-1 text-[10px] text-brand-400 font-bold mb-1">
-                                                    <span>✦ Z.AI Odonto</span> • <span>Resposta em 4 segundos</span>
-                                                </div>
-                                                <p>Olá, Mariana! Que prazer receber você! O tratamento com alinhadores começa com um escaneamento digital 3D sem moldes de gesso. A Dra. Amanda tem horários abertos para avaliação nesta quinta às 14h ou sexta às 10h. Qual fica melhor para você?</p>
-                                                <span class="text-[9px] text-brand-300/80 block mt-1 text-right">14:20 ✓✓</span>
-                                            </div>
-                                        </div>
-
-                                        <!-- Paciente -->
-                                        <div class="flex items-start gap-2 max-w-[85%]">
-                                            <div class="bg-slate-800 text-slate-200 p-3 rounded-2xl rounded-tl-none border border-slate-700">
-                                                <p>Quinta às 14h perfeito!</p>
-                                                <span class="text-[9px] text-slate-400 block mt-1 text-right">14:22</span>
-                                            </div>
-                                        </div>
-
-                                        <!-- IA Confirmação -->
-                                        <div class="flex items-start justify-end gap-2 max-w-[85%] ml-auto">
-                                            <div class="bg-brand-950/80 text-brand-100 p-3 rounded-2xl rounded-tr-none border border-brand-700/60 shadow-sm">
-                                                <p>Perfeito, Mariana! Horário reservado para quinta-feira às 14h com a Dra. Amanda. O endereço da clínica e as orientações foram gerados no seu prontuário!</p>
-                                                <span class="text-[9px] text-brand-300/80 block mt-1 text-right">14:23 ✓✓</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Barra de Envio Simulada -->
-                                    <div class="p-2.5 bg-slate-900 border-t border-slate-800 flex items-center gap-2">
-                                        <input type="text" placeholder="Simular digitação de mensagem ou comando para Z.AI..." class="bg-slate-950 border border-slate-800 text-slate-300 text-xs px-3 py-2 rounded-lg flex-1 outline-none focus:border-brand-500">
-                                        <button class="bg-brand-600 hover:bg-brand-500 text-white px-3 py-2 rounded-lg text-xs font-bold transition-colors">Enviar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- TAB 3: DASHBOARD DE MÉTRICAS -->
-                        <div id="tab-content-dash" class="tab-panel hidden">
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-                                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                                    <span class="text-[11px] text-slate-400 block font-medium">Faturamento Mensal</span>
-                                    <div class="flex items-baseline gap-2 mt-1">
-                                        <span class="text-xl font-extrabold text-white">R$ 148.200</span>
-                                        <span class="text-[11px] font-bold text-emerald-400">+22%</span>
-                                    </div>
-                                </div>
-                                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                                    <span class="text-[11px] text-slate-400 block font-medium">Leads Qualificados</span>
-                                    <div class="flex items-baseline gap-2 mt-1">
-                                        <span class="text-xl font-extrabold text-white">482</span>
-                                        <span class="text-[11px] font-bold text-emerald-400">+38%</span>
-                                    </div>
-                                </div>
-                                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                                    <span class="text-[11px] text-slate-400 block font-medium">Conversão de Orçamentos</span>
-                                    <div class="flex items-baseline gap-2 mt-1">
-                                        <span class="text-xl font-extrabold text-white">68.4%</span>
-                                        <span class="text-[11px] font-bold text-emerald-400">+14%</span>
-                                    </div>
-                                </div>
-                                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                                    <span class="text-[11px] text-slate-400 block font-medium">Ticket Médio</span>
-                                    <div class="flex items-baseline gap-2 mt-1">
-                                        <span class="text-xl font-extrabold text-white">R$ 3.850</span>
-                                        <span class="text-[11px] font-bold text-slate-400">Estável</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Gráfico Visual e Ranking -->
-                            <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-                                <div class="md:col-span-8 bg-slate-950 p-4 rounded-xl border border-slate-800">
-                                    <h4 class="text-xs font-bold text-slate-300 mb-3">Evolução de Fechamento por Semana (R$ Mil)</h4>
-                                    <!-- Barras CSS -->
-                                    <div class="flex items-end justify-between h-44 pt-6 pb-2 px-4 border-b border-slate-800">
-                                        <div class="flex flex-col items-center gap-1.5">
-                                            <span class="text-[10px] text-slate-400">R$ 18k</span>
-                                            <div class="w-8 bg-slate-800 rounded-t h-16"></div>
-                                            <span class="text-[10px] text-slate-400">Sem 1</span>
-                                        </div>
-                                        <div class="flex flex-col items-center gap-1.5">
-                                            <span class="text-[10px] text-slate-400">R$ 29k</span>
-                                            <div class="w-8 bg-slate-700 rounded-t h-24"></div>
-                                            <span class="text-[10px] text-slate-400">Sem 2</span>
-                                        </div>
-                                        <div class="flex flex-col items-center gap-1.5">
-                                            <span class="text-[10px] text-slate-400">R$ 41k</span>
-                                            <div class="w-8 bg-brand-700 rounded-t h-32"></div>
-                                            <span class="text-[10px] text-slate-400">Sem 3</span>
-                                        </div>
-                                        <div class="flex flex-col items-center gap-1.5">
-                                            <span class="text-[10px] text-brand-300 font-bold">R$ 58k</span>
-                                            <div class="w-8 bg-gradient-to-t from-brand-600 to-brand-400 rounded-t h-40"></div>
-                                            <span class="text-[10px] text-brand-400 font-bold">Atual</span>
-                                        </div>
-                                    </div>
-                                    <p class="text-[11px] text-slate-400 mt-2">✦ Com a IA Z.AI, a taxa de fechamento cresceu 38% em 60 dias.</p>
-                                </div>
-
-                                <div class="md:col-span-4 bg-slate-950 p-4 rounded-xl border border-slate-800">
-                                    <h4 class="text-xs font-bold text-slate-300 mb-3">Conversão por Dentista</h4>
-                                    <div class="space-y-3">
-                                        <div>
-                                            <div class="flex justify-between text-xs text-slate-300 font-semibold mb-1">
-                                                <span>Dra. Amanda (Ortodontia)</span>
-                                                <span class="text-brand-400">82%</span>
-                                            </div>
-                                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                                                <div class="bg-brand-500 h-full rounded-full" style="width: 82%"></div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="flex justify-between text-xs text-slate-300 font-semibold mb-1">
-                                                <span>Dr. Roberto (Implantes)</span>
-                                                <span class="text-brand-400">74%</span>
-                                            </div>
-                                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                                                <div class="bg-brand-500 h-full rounded-full" style="width: 74%"></div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="flex justify-between text-xs text-slate-300 font-semibold mb-1">
-                                                <span>Dra. Camila (Estética)</span>
-                                                <span class="text-brand-400">69%</span>
-                                            </div>
-                                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                                                <div class="bg-brand-500 h-full rounded-full" style="width: 69%"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- TAB 4: COPILOT Z.AI -->
-                        <div id="tab-content-zai" class="tab-panel hidden">
-                            <div class="bg-slate-950 rounded-xl p-5 border border-slate-800 space-y-4">
-                                <div class="flex items-center gap-3 pb-3 border-b border-slate-800">
-                                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white text-lg font-bold shadow-md">✦</div>
-                                    <div>
-                                        <h4 class="text-sm font-bold text-white">Z.AI Copilot da Clínica</h4>
-                                        <p class="text-xs text-slate-400">Pergunte qualquer métrica ou mande a IA disparar follow-ups inteligentes.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Botões de Pergunta Prontos -->
-                                <div class="flex flex-wrap gap-2">
-                                    <button onclick="askZai('followup')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
-                                        "Quais orçamentos estão parados há mais de 48h?"
-                                    </button>
-                                    <button onclick="askZai('previsao')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
-                                        "Qual o tratamento com maior margem este mês?"
-                                    </button>
-                                    <button onclick="askZai('campanha')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
-                                        "Reativar pacientes de limpeza semestral"
-                                    </button>
-                                </div>
-
-                                <!-- Resposta Dinâmica -->
-                                <div id="zai-response-box" class="bg-slate-900/90 rounded-xl p-4 border border-brand-500/30 text-xs text-slate-300 space-y-2">
-                                    <p class="text-brand-300 font-semibold">✦ Análise Automática da Z.AI para hoje:</p>
-                                    <p>Identifiquei <strong>7 orçamentos de alto valor (total R$ 46.200)</strong> apresentados há mais de 2 dias sem resposta do paciente. Recomendo disparar a sequência humanizada de follow-up pelo WhatsApp agora mesmo.</p>
-                                    <div class="pt-2">
-                                        <a href="/portal" class="inline-flex items-center gap-1.5 text-xs bg-brand-600 hover:bg-brand-500 text-white font-bold px-3 py-1.5 rounded-lg transition-colors">
-                                            <span>Autorizar Disparo de Follow-up no Portal</span> &rarr;
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                    <!-- 3 Badges de Garantia -->
+                    <div class="mt-4 flex flex-wrap items-center justify-center gap-5 text-xs font-semibold text-slate-600">
+                        <span class="flex items-center gap-1.5"><span class="text-emerald-500 font-bold">✓</span> Acesso em minutos</span>
+                        <span class="flex items-center gap-1.5"><span class="text-emerald-500 font-bold">✓</span> Usuários ilimitados</span>
+                        <span class="flex items-center gap-1.5"><span class="text-emerald-500 font-bold">✓</span> Sem fidelidade</span>
                     </div>
                 </div>
+
+                <!-- MOLDURA DE NAVEGADOR ESTILO MAC (RÉPLICA WESALES CRM) -->
+                <div class="relative bg-white rounded-2xl shadow-2xl border border-slate-300/80 overflow-hidden">
+                    
+                    <!-- Barra de Navegador do Topo -->
+                    <div class="bg-slate-100 px-4 py-3 border-b border-slate-200 flex items-center justify-between gap-4">
+                        <!-- Bolinhas macOS -->
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-[#FF5F56] border border-red-400/40 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-amber-400/40 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#27C93F] border border-green-400/40 inline-block"></span>
+                        </div>
+                        
+                        <!-- Barra de URL com Cadeado -->
+                        <div class="flex-1 max-w-sm mx-auto bg-white border border-slate-200 rounded-lg px-3 py-1 flex items-center justify-center gap-2 text-xs text-slate-600 shadow-sm font-medium">
+                            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-width="2"/></svg>
+                            <span class="text-slate-800 font-semibold">odontosolution.com.br</span>
+                        </div>
+
+                        <!-- Status Online -->
+                        <div class="hidden sm:flex items-center gap-2 text-[11px] text-emerald-600 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span>Sistema Operando</span>
+                        </div>
+                    </div>
+
+                    <!-- TELA COMPLETA DO SISTEMA (SIDEBAR ESCURA + ÁREA DE DADOS CLARA) -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 min-h-[580px] bg-[#F6F7FB] relative overflow-hidden">
+                        
+                        <!-- ========================= -->
+                        <!-- SIDEBAR ESCURA DO SISTEMA -->
+                        <!-- ========================= -->
+                        <div class="md:col-span-3 bg-[#0A0F1F] p-4 text-white flex flex-col justify-between border-r border-slate-800">
+                            <div>
+                                <!-- Logo Odonto Solution na Sidebar -->
+                                <div class="flex items-center gap-2.5 mb-5 pb-4 border-b border-slate-800/80">
+                                    <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white font-bold text-xs shadow-md">
+                                        OS
+                                    </div>
+                                    <div>
+                                        <span class="text-sm font-extrabold text-white tracking-tight block">Odonto<span class="text-brand-400">Solution</span> <span class="text-[10px] text-slate-400 font-normal">CRM</span></span>
+                                    </div>
+                                </div>
+
+                                <!-- Card da Clínica do Usuário -->
+                                <div class="bg-slate-900/90 rounded-xl p-2.5 border border-slate-800 mb-4 flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs border border-emerald-500/30">
+                                        🏥
+                                    </div>
+                                    <div class="truncate">
+                                        <h5 class="text-xs font-bold text-white truncate">Sua clínica</h5>
+                                        <span class="text-[10px] text-slate-400">São Paulo, SP</span>
+                                    </div>
+                                </div>
+
+                                <!-- Campo de Busca -->
+                                <div class="relative mb-4">
+                                    <input type="text" placeholder="Pesquisar..." class="w-full bg-slate-900 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-300 focus:outline-none" readonly>
+                                    <svg class="w-3.5 h-3.5 text-slate-500 absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke-width="2"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2"/></svg>
+                                </div>
+
+                                <!-- Menu de Navegação da Sidebar -->
+                                <nav class="space-y-1 text-xs font-semibold text-slate-300">
+                                    <div class="p-2 rounded-lg bg-brand-500/10 text-brand-300 border border-brand-500/20 flex items-center gap-2 cursor-pointer">
+                                        <span class="text-brand-400">✦</span>
+                                        <span>Pergunte à IA</span>
+                                    </div>
+                                    <div class="p-2 rounded-lg hover:bg-slate-800 text-slate-300 flex items-center gap-2 cursor-pointer transition-colors">
+                                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" stroke-width="2"/><rect x="14" y="3" width="7" height="7" stroke-width="2"/><rect x="14" y="14" width="7" height="7" stroke-width="2"/><rect x="3" y="14" width="7" height="7" stroke-width="2"/></svg>
+                                        <span>Painel de controle</span>
+                                    </div>
+                                    <div class="p-2 rounded-lg hover:bg-slate-800 text-slate-300 flex items-center justify-between cursor-pointer transition-colors">
+                                        <div class="flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                                            <span>Conversas (WhatsApp)</span>
+                                        </div>
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                    </div>
+                                    <div class="p-2 rounded-lg hover:bg-slate-800 text-slate-300 flex items-center gap-2 cursor-pointer transition-colors">
+                                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/></svg>
+                                        <span>Calendários</span>
+                                    </div>
+                                    <div class="p-2 rounded-lg hover:bg-slate-800 text-slate-300 flex items-center gap-2 cursor-pointer transition-colors">
+                                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                                        <span>Contatos / Pacientes</span>
+                                    </div>
+                                    <div class="p-2 rounded-lg hover:bg-slate-800 text-slate-300 flex items-center gap-2 cursor-pointer transition-colors">
+                                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
+                                        <span>Leads & Funil</span>
+                                    </div>
+                                    <div class="p-2 rounded-lg hover:bg-slate-800 text-slate-300 flex items-center gap-2 cursor-pointer transition-colors">
+                                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke-width="2"/></svg>
+                                        <span>Agentes Z.AI</span>
+                                    </div>
+                                </nav>
+                            </div>
+
+                            <!-- Rodapé da Sidebar com Botão Portal -->
+                            <div class="pt-4 border-t border-slate-800">
+                                <a href="/portal" class="w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors">
+                                    <span>Abrir Portal Completo</span>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- ============================================== -->
+                        <!-- ÁREA PRINCIPAL DO SISTEMA (TELA EXATA DA FOTO) -->
+                        <!-- ============================================== -->
+                        <div class="md:col-span-9 flex flex-col justify-between overflow-x-auto relative">
+                            
+                            <!-- Barra Superior de Abas de Relatórios (Preta com Linha Ativa Verde Neon) -->
+                            <div class="bg-[#0A0F1F] px-4 sm:px-6 pt-3 flex flex-wrap items-center gap-4 text-xs font-bold text-slate-400 border-b border-slate-800">
+                                <button onclick="selectSimTab('geral')" id="simtab-geral" class="pb-2.5 hover:text-white transition-colors">Relatórios</button>
+                                <button onclick="selectSimTab('custom')" id="simtab-custom" class="pb-2.5 hover:text-white transition-colors">Relatórios personalizados</button>
+                                <button onclick="selectSimTab('google')" id="simtab-google" class="pb-2.5 hover:text-white transition-colors">Google Ads</button>
+                                <button onclick="selectSimTab('meta')" id="simtab-meta" class="pb-2.5 hover:text-white transition-colors">Anúncios Meta (Facebook/Insta)</button>
+                                <button onclick="selectSimTab('calls')" id="simtab-calls" class="pb-2.5 hover:text-white transition-colors">Relatório de ligações</button>
+                                <button onclick="selectSimTab('vendedor')" id="simtab-vendedor" class="pb-2.5 text-white border-b-2 border-emerald-400 transition-colors">Relatório por dentista</button>
+                            </div>
+
+                            <!-- Conteúdo do Relatório da Tela -->
+                            <div class="p-4 sm:p-6 space-y-5">
+                                
+                                <!-- Cabeçalho da Seção com Subtítulo e Dropdown Azul -->
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                                    <div>
+                                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-indigo-500 block mb-0.5">PERFORMANCE CLÍNICA</span>
+                                        <h3 id="sim-report-title" class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Relatório por dentista</h3>
+                                    </div>
+                                    <div>
+                                        <button class="bg-[#1D63ED] hover:bg-blue-700 text-white font-bold text-xs px-4 py-2 rounded-lg flex items-center gap-2 shadow-sm transition-colors">
+                                            <span>Todos os dentistas</span>
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- 4 CARDS DE MÉTRICAS EXATOS DA REFERÊNCIA -->
+                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+                                    
+                                    <!-- Card 1: Leads -->
+                                    <div id="sim-card-leads" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-emerald-300 transition-all">
+                                        <span class="text-xs font-semibold text-slate-500 block mb-1">Leads</span>
+                                        <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mb-2">386</div>
+                                        <div class="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+                                            <span>▲ 142 novos</span>
+                                            <span class="text-slate-400">•</span>
+                                            <span class="text-slate-600 font-semibold">74 ganhos</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 2: Conversão -->
+                                    <div id="sim-card-conv" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-emerald-300 transition-all">
+                                        <span class="text-xs font-semibold text-slate-500 block mb-1">Conversão</span>
+                                        <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mb-2">19,2%</div>
+                                        <div class="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+                                            <span>▲ R$ 184.300</span>
+                                            <span class="text-slate-500 font-normal">em receita</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 3: Mensagens WhatsApp -->
+                                    <div id="sim-card-sms" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-emerald-300 transition-all">
+                                        <span class="text-xs font-semibold text-slate-500 block mb-1">WhatsApp / SMS</span>
+                                        <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mb-2">1.248</div>
+                                        <div class="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+                                            <span>▲ 98,7% entregues</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card 4: Confirmações -->
+                                    <div id="sim-card-email" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-emerald-300 transition-all">
+                                        <span class="text-xs font-semibold text-slate-500 block mb-1">Confirmações</span>
+                                        <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mb-2">3.420</div>
+                                        <div class="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+                                            <span>▲ 47% de presença</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SEÇÃO INFERIOR: RANKING DE DENTISTAS & MÉTRICAS DE LIGAÇÃO -->
+                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                                    
+                                    <!-- Ranking de Dentistas / Vendedores (Card Esquerdo) -->
+                                    <div class="lg:col-span-6 bg-white p-5 rounded-xl border border-slate-200/90 shadow-sm">
+                                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Ranking de dentistas</h4>
+                                        <div class="space-y-3.5 text-xs font-semibold">
+                                            
+                                            <!-- Dentista 1 -->
+                                            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                                                <div class="flex items-center gap-2.5">
+                                                    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 font-extrabold text-[11px] flex items-center justify-center">1</span>
+                                                    <span class="text-slate-900 font-bold">Dra. Marina Costa</span>
+                                                    <span class="text-[10px] text-slate-400 font-normal">(Ortodontia)</span>
+                                                </div>
+                                                <span class="text-slate-500 font-bold bg-slate-50 px-2 py-0.5 rounded">94 pontos</span>
+                                            </div>
+
+                                            <!-- Dentista 2 -->
+                                            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                                                <div class="flex items-center gap-2.5">
+                                                    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 font-extrabold text-[11px] flex items-center justify-center">2</span>
+                                                    <span class="text-slate-900 font-bold">Dr. Rafael Souza</span>
+                                                    <span class="text-[10px] text-slate-400 font-normal">(Implantes)</span>
+                                                </div>
+                                                <span class="text-slate-500 font-bold bg-slate-50 px-2 py-0.5 rounded">87 pontos</span>
+                                            </div>
+
+                                            <!-- Dentista 3 -->
+                                            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                                                <div class="flex items-center gap-2.5">
+                                                    <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-600 font-extrabold text-[11px] flex items-center justify-center">3</span>
+                                                    <span class="text-slate-900 font-bold">Dra. Camila Alves</span>
+                                                    <span class="text-[10px] text-slate-400 font-normal">(Estética Dental)</span>
+                                                </div>
+                                                <span class="text-slate-500 font-bold bg-slate-50 px-2 py-0.5 rounded">79 pontos</span>
+                                            </div>
+
+                                            <!-- Dentista 4 -->
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center gap-2.5">
+                                                    <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-600 font-extrabold text-[11px] flex items-center justify-center">4</span>
+                                                    <span class="text-slate-900 font-bold">Dr. José Carlos</span>
+                                                    <span class="text-[10px] text-slate-400 font-normal">(Prótese)</span>
+                                                </div>
+                                                <span class="text-slate-500 font-bold bg-slate-50 px-2 py-0.5 rounded">73 pontos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Métricas de Ligação VoIP (Card Direito) -->
+                                    <div class="lg:col-span-6 bg-white p-5 rounded-xl border border-slate-200/90 shadow-sm">
+                                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Métricas de ligação</h4>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div class="p-3 bg-slate-50 rounded-lg">
+                                                <div class="text-xl font-black text-slate-900">312</div>
+                                                <span class="text-[11px] text-slate-500">Total de chamadas</span>
+                                            </div>
+                                            <div class="p-3 bg-slate-50 rounded-lg">
+                                                <div class="text-xl font-black text-slate-900">91%</div>
+                                                <span class="text-[11px] text-slate-500">Atendidas</span>
+                                            </div>
+                                            <div class="p-3 bg-slate-50 rounded-lg">
+                                                <div class="text-xl font-black text-slate-900">4m 18s</div>
+                                                <span class="text-[11px] text-slate-500">Duração média</span>
+                                            </div>
+                                            <div class="p-3 bg-slate-50 rounded-lg border-l-2 border-emerald-500">
+                                                <div class="text-xl font-black text-emerald-600">74</div>
+                                                <span class="text-[11px] text-slate-600 font-bold">Negócios fechados</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- ============================================== -->
+                            <!-- CURSOR DO MOUSE ANIMADO COM GSAP (TOUR GUIADO) -->
+                            <!-- ============================================== -->
+                            <div id="sim-animated-cursor" class="absolute pointer-events-none z-30 transition-opacity duration-300" style="top: 35%; left: 60%;">
+                                <!-- Seta clássica preta do mouse com sombra e ripple -->
+                                <div class="relative">
+                                    <svg class="w-6 h-6 filter drop-shadow(0 2px 4px rgba(0,0,0,0.3))" viewBox="0 0 24 24" fill="none">
+                                        <path d="M5.5 3.5L19 12.5L12 14.5L9 21L5.5 3.5Z" fill="#111827" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+                                    </svg>
+                                    <!-- Efeito de clique (ripple wave) -->
+                                    <span id="sim-cursor-click" class="absolute -top-1 -left-1 w-8 h-8 rounded-full border-2 border-emerald-400 bg-emerald-400/20 opacity-0 transform scale-50"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
-
-        </div>
-    </section>
-
-    <!-- SEÇÃO: "A BAGUNÇA NÃO MANDA BOLETO, MAS VOCÊ PAGA ELA TODO MÊS" -->
+            
+<!-- SEÇÃO: "A BAGUNÇA NÃO MANDA BOLETO, MAS VOCÊ PAGA ELA TODO MÊS" -->
     <section id="dores" class="py-20 bg-white border-t border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -1401,6 +1302,98 @@
                 });
             });
         });
+    </script>
+
+
+    <!-- TOUR AUTÔNOMO COM CURSOR DE MOUSE ANIMADO (GSAP) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof gsap === 'undefined') return;
+
+            const cursor = document.getElementById('sim-animated-cursor');
+            const ripple = document.getElementById('sim-cursor-click');
+            const simContainer = document.getElementById('simulador');
+            if (!cursor || !simContainer) return;
+
+            // Função para simular clique no cursor
+            function triggerClick() {
+                if (!ripple) return;
+                gsap.fromTo(ripple, 
+                    { opacity: 0.9, scale: 0.5 }, 
+                    { opacity: 0, scale: 2.2, duration: 0.45, ease: 'power2.out' }
+                );
+            }
+
+            // Timeline do Tour Autônomo pelo Sistema
+            const tourTl = gsap.timeline({ repeat: -1, repeatDelay: 2 });
+
+            tourTl
+                // 1. Move até o Card de WhatsApp / SMS
+                .to(cursor, { top: '32%', left: '55%', duration: 1.8, ease: 'power2.inOut' })
+                .call(triggerClick)
+                .to('#sim-card-sms', { scale: 1.03, borderColor: '#10B981', duration: 0.2, yoyo: true, repeat: 1 }, '+=0.1')
+                
+                // 2. Move até a aba "Relatório de ligações"
+                .to(cursor, { top: '3%', left: '72%', duration: 1.6, ease: 'power2.inOut', delay: 1 })
+                .call(triggerClick)
+                .call(() => {
+                    document.getElementById('simtab-calls')?.classList.add('text-white', 'border-b-2', 'border-emerald-400');
+                    document.getElementById('simtab-vendedor')?.classList.remove('border-b-2', 'border-emerald-400');
+                })
+
+                // 3. Move até o botão azul "Todos os dentistas"
+                .to(cursor, { top: '15%', left: '88%', duration: 1.4, ease: 'power2.inOut', delay: 1.2 })
+                .call(triggerClick)
+                
+                // 4. Move até a aba "Relatório por dentista" de volta
+                .to(cursor, { top: '3%', left: '86%', duration: 1.5, ease: 'power2.inOut', delay: 1 })
+                .call(triggerClick)
+                .call(() => {
+                    document.getElementById('simtab-vendedor')?.classList.add('text-white', 'border-b-2', 'border-emerald-400');
+                    document.getElementById('simtab-calls')?.classList.remove('border-b-2', 'border-emerald-400');
+                })
+
+                // 5. Move até o card de Conversão (R$ 184.300)
+                .to(cursor, { top: '32%', left: '38%', duration: 1.5, ease: 'power2.inOut', delay: 0.8 })
+                .call(triggerClick)
+                .to('#sim-card-conv', { scale: 1.03, borderColor: '#10B981', duration: 0.2, yoyo: true, repeat: 1 });
+
+            // Esconder o cursor automático se o visitante passar o mouse sobre o simulador
+            simContainer.addEventListener('mouseenter', () => {
+                gsap.to(cursor, { opacity: 0, duration: 0.2 });
+                tourTl.pause();
+            });
+            simContainer.addEventListener('mouseleave', () => {
+                gsap.to(cursor, { opacity: 1, duration: 0.3 });
+                tourTl.resume();
+            });
+        });
+
+        // Alternância manual de abas do simulador pelo visitante
+        function selectSimTab(tab) {
+            const tabs = ['geral', 'custom', 'google', 'meta', 'calls', 'vendedor'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('simtab-' + t);
+                if (btn) {
+                    btn.classList.remove('text-white', 'border-b-2', 'border-emerald-400');
+                    btn.classList.add('text-slate-400');
+                }
+            });
+            const activeBtn = document.getElementById('simtab-' + tab);
+            if (activeBtn) {
+                activeBtn.classList.add('text-white', 'border-b-2', 'border-emerald-400');
+                activeBtn.classList.remove('text-slate-400');
+            }
+            const title = document.getElementById('sim-report-title');
+            if (title) {
+                if (tab === 'vendedor') title.innerText = 'Relatório por dentista';
+                else if (tab === 'calls') title.innerText = 'Relatório de ligações e atendimento';
+                else if (tab === 'meta') title.innerText = 'Métricas de Anúncios Meta (Instagram & Facebook)';
+                else if (tab === 'google') title.innerText = 'Desempenho de Campanhas Google Ads';
+                else if (tab === 'custom') title.innerText = 'Relatórios personalizados da clínica';
+                else title.innerText = 'Visão geral de faturamento e vendas';
+            }
+        }
     </script>
 
 </body>
