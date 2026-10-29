@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odonto Solution - ERP Inteligente para Clínicas e Consultórios</title>
+    <title>Odonto Solution CRM · Painel de Controle & Gestão de Vendas</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -14,889 +14,1248 @@
                         brand: {
                             50: '#ecfdf5',
                             100: '#d1fae5',
+                            200: '#a7f3d0',
                             500: '#10b981',
                             600: '#059669',
                             700: '#047857',
+                            800: '#065f46',
                             900: '#064e3b',
                         },
-                        odonto: {
-                            500: '#059669',
-                            600: '#047857'
+                        crm: {
+                            dark: '#0A0F1F',
+                            card: '#FFFFFF',
+                            muted: '#727B93',
+                            border: '#E4E8F3',
+                            bg: '#F6F7FB'
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Chart.js for Dashboards -->
+    <!-- Chart.js para Dashboards -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- QRCode.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f2f7f8; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .sidebar-link.active {
-            background-color: #d1fae5;
+        body { font-family: 'Inter', sans-serif; background-color: #F6F7FB; color: #0A0F1F; }
+        .font-display { font-family: 'Poppins', sans-serif; }
+        .sidebar-item.active {
+            background-color: #ecfdf5;
             color: #047857;
             font-weight: 600;
-            border-left: 4px solid #059669;
+            border-left: 3px solid #059669;
         }
-        @keyframes pulse-ring {
-            0% { transform: scale(0.95); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-            100% { transform: scale(0.95); opacity: 1; }
+        .kanban-col {
+            min-height: calc(100vh - 280px);
         }
-        .pulse-call {
-            animation: pulse-ring 2s infinite ease-in-out;
+        .drag-over {
+            background-color: #e6fffa !important;
+            border: 2px dashed #059669 !important;
         }
     </style>
 </head>
-<body class="text-slate-800 antialiased h-screen flex flex-col overflow-hidden">
+<body class="antialiased h-screen flex flex-col overflow-hidden bg-[#F6F7FB]">
 
-    <!-- ========================================== -->
-    <!-- TELA DE LOGIN ODONTO SOLUTION -->
-    <!-- ========================================== -->
-    <div id="telaLogin" class="fixed inset-0 bg-[#f2f7f8] z-50 flex items-center justify-center p-4">
-        <div class="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-            <!-- Header da Tela de Login -->
-            <div class="p-8 pb-4 text-center border-b border-slate-100">
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-500 flex items-center justify-center text-white font-black text-xl shadow-md">
+    <!-- ======================================================== -->
+    <!-- TELA DE LOGIN ODONTO SOLUTION (1234 / 1234) -->
+    <!-- ======================================================== -->
+    <div id="telaLogin" class="fixed inset-0 bg-[#0A0F1F]/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
+            <!-- Header do Modal de Login -->
+            <div class="p-8 pb-6 text-center border-b border-slate-100">
+                <div class="flex items-center justify-center gap-2 mb-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-brand-500/30">
                         OS
                     </div>
-                    <span class="text-2xl font-black text-slate-900 tracking-tight">Odonto<span class="text-emerald-600"> Solution</span></span>
+                    <span class="font-display text-2xl font-black text-slate-900 tracking-tight">
+                        Odonto<span class="text-brand-600"> Solution</span>
+                    </span>
                 </div>
-                <div class="text-xs text-slate-500 font-medium">Ecossistema Odonto Solution · Gestão Clínica & Odontológica</div>
-                <div class="mt-2 text-[11px] bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-lg py-1 px-2 font-mono">
-                    Acesso: Usuário: <strong>1234</strong> | Senha: <strong>1234</strong>
+                <div class="text-xs text-slate-500 font-medium">Plataforma CRM de Vendas & Gestão Clínica Integrada</div>
+                
+                <div class="mt-4 p-3 bg-brand-50 border border-brand-200 rounded-xl text-xs text-brand-800 font-medium">
+                    Acesso de Demonstração:<br>
+                    Usuário: <strong class="font-mono text-slate-900 font-bold">1234</strong> | Senha: <strong class="font-mono text-slate-900 font-bold">1234</strong>
                 </div>
             </div>
 
-            <!-- Abas da Tela de Login (Login / Esqueceu a Senha) -->
-            <div class="flex border-b border-slate-100 text-xs font-bold text-center bg-slate-50">
-                <button type="button" onclick="trocarAbaLogin('form-login')" id="tabBtnLogin" class="flex-1 py-3 text-emerald-600 border-b-2 border-emerald-600 bg-white">
-                    Entrar no Sistema
+            <!-- Formulário de Acesso -->
+            <form onsubmit="executarLogin(event)" class="p-8 pt-6 space-y-4">
+                <div id="loginErro" class="hidden p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded-xl font-medium">
+                    Usuário ou senha incorretos! Tente <strong>1234</strong> e <strong>1234</strong>.
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Usuário ou E-mail</label>
+                    <div class="relative">
+                        <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+                        <input type="text" id="loginUsuario" value="1234" required placeholder="Digite 1234" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Senha de Acesso</label>
+                    <div class="relative">
+                        <i data-lucide="lock" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+                        <input type="password" id="loginSenha" value="1234" required placeholder="Digite 1234" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" checked class="rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+                        <span>Lembrar meu acesso</span>
+                    </label>
+                    <a href="#" class="text-brand-600 hover:underline">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 text-white font-bold rounded-xl shadow-lg shadow-brand-500/25 transition text-sm flex items-center justify-center gap-2">
+                    <span>Entrar no CRM Odonto Solution</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </button>
-                <button type="button" onclick="trocarAbaLogin('form-esqueci')" id="tabBtnEsqueci" class="flex-1 py-3 text-slate-500 hover:text-slate-700">
-                    Esqueceu a senha?
-                </button>
-            </div>
-
-            <!-- Formulário de Login -->
-            <div class="p-8 pt-6 space-y-4">
-                <form id="formLoginPrincipal" onsubmit="realizarLogin(event)" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Usuário de Acesso</label>
-                        <div class="relative flex items-center">
-                            <span class="absolute left-3 text-slate-400">
-                                <i data-lucide="user" class="w-4 h-4"></i>
-                            </span>
-                            <input type="text" id="loginUsuario" value="1234" required class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2.5 text-xs text-slate-800 font-medium focus:bg-white focus:ring-2 focus:ring-emerald-500 transition">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Senha de Acesso</label>
-                        <div class="relative flex items-center">
-                            <span class="absolute left-3 text-slate-400">
-                                <i data-lucide="lock" class="w-4 h-4"></i>
-                            </span>
-                            <input type="password" id="loginSenha" value="1234" required class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-10 py-2.5 text-xs text-slate-800 font-medium focus:bg-white focus:ring-2 focus:ring-emerald-500 transition">
-                            <button type="button" onclick="toggleVisibilidadeSenha()" class="absolute right-3 text-slate-400 hover:text-slate-600">
-                                <i data-lucide="eye" id="iconeOlhoSenha" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Cloudflare Turnstile Simulator -->
-                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <input type="checkbox" id="checkTurnstile" checked class="w-4 h-4 text-emerald-600 rounded">
-                            <label for="checkTurnstile" class="text-[11px] font-medium text-slate-600 select-none">
-                                Verificação de Segurança Ativa
-                            </label>
-                        </div>
-                        <span class="text-[9px] text-slate-400 font-mono">CF-0x4AA...</span>
-                    </div>
-
-                    <button type="submit" id="btnSubmitLogin" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-xs shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-2">
-                        <span>Acessar Odonto Solution</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </button>
-                </form>
-
-                <!-- Formulário Esqueceu a Senha -->
-                <form id="formEsqueciSenha" onsubmit="recuperarSenha(event)" class="space-y-4 hidden">
-                    <p class="text-xs text-slate-500 leading-relaxed">
-                        Informe o e-mail ou nome de usuário cadastrado para receber um link de redefinição com código de segurança OTP.
-                    </p>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">E-mail Cadastrado</label>
-                        <input type="email" placeholder="seu-email@odontosolution.com.br" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs">
-                    </div>
-                    <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl text-xs transition">
-                        Enviar Instruções de Recuperação
-                    </button>
-                </form>
-
-                <!-- Atalhos Rápidos para Demonstração -->
-                <div class="pt-4 border-t border-slate-100">
-                    <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider text-center mb-2">Perfis de Demonstração Rápida</div>
-                    <div class="grid grid-cols-3 gap-2 text-center text-[10px] font-bold">
-                        <button type="button" onclick="loginRapido('Dra. Juliana Mendes (Ortodontia)')" class="p-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded-lg transition border border-emerald-100">
-                            Dra. Juliana
-                        </button>
-                        <button type="button" onclick="loginRapido('Dr. Carlos Rocha (Cirurgia)')" class="p-2 bg-blue-50 text-blue-700 hover:bg-blue-100 rounded-lg transition border border-blue-100">
-                            Dr. Carlos
-                        </button>
-                        <button type="button" onclick="loginRapido('Recepção Matriz')" class="p-2 bg-purple-50 text-purple-700 hover:bg-purple-100 rounded-lg transition border border-purple-100">
-                            Recepção
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Login -->
-            <div class="p-4 bg-slate-50 border-t border-slate-100 text-center text-[11px] text-slate-400 flex items-center justify-center gap-1.5">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
-                <span>Odonto Solution · Conexão Segura Criptografada · ISO 9001:2015</span>
-            </div>
+            </form>
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- INTERIOR DO APP (PÓS-LOGIN) -->
-    <!-- ========================================== -->
-
-    <!-- Top Header -->
-    <header class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between z-20 shadow-sm flex-shrink-0">
-        <div class="flex items-center gap-4">
-            <div class="flex items-center gap-2">
-                <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-emerald-700 to-teal-500 flex items-center justify-center text-white font-black text-lg shadow-md">
-                    OS
-                </div>
-                <div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-lg font-bold tracking-tight text-slate-900">Odonto<span class="text-emerald-600"> Solution</span></span>
-                        <a href="/" target="_blank" title="Ver Landing Page Institucional" class="text-[10px] bg-slate-100 hover:bg-slate-200 text-slate-600 px-2 py-0.5 rounded font-semibold transition border border-slate-200">
-                            Ver Site Institucional ↗
-                        </a>
-                    </div>
-                    <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-medium">Odonto Solution ERP & Gestão</span>
-                </div>
-            </div>
-            <div class="hidden md:flex items-center text-xs text-slate-500 border-l border-slate-200 pl-4 gap-2">
-                <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>Clínica Matriz Odonto Solution</span>
-                <span class="text-slate-300">|</span>
-                <span class="text-slate-500 font-mono" id="relogioTopo">--:--:--</span>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-3">
-            <!-- Botão Abrir Painel TV Sala de Espera -->
-            <button onclick="abrirPainelTV()" class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-semibold transition border border-slate-300">
-                <i data-lucide="tv" class="w-4 h-4 text-brand-600"></i>
-                <span class="hidden sm:inline">Painel TV Espera</span>
-            </button>
-
-            <!-- Z.AI Status -->
-            <div class="hidden lg:flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 px-3 py-1.5 rounded-lg text-xs">
-                <i data-lucide="bot" class="w-4 h-4 text-emerald-600 animate-pulse"></i>
-                <span class="font-medium">Z.AI WhatsApp: <strong class="font-bold">Online</strong></span>
-            </div>
-
-            <!-- Profile Menu & Logout -->
-            <div class="flex items-center gap-3 pl-3 border-l border-slate-200">
-                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="w-8 h-8 rounded-full border border-slate-300 object-cover">
-                <div class="hidden md:block text-left text-xs">
-                    <div class="font-bold text-slate-900 leading-tight" id="headerNomeUsuario">Dr. Carlos Eduardo</div>
-                    <div class="text-slate-500 text-[10px]">Administrador Clínico</div>
-                </div>
-                <button onclick="fazerLogout()" title="Sair do Sistema" class="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-slate-100 transition">
-                    <i data-lucide="log-out" class="w-4 h-4"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Container -->
-    <div class="flex flex-1 overflow-hidden">
+    <!-- ======================================================== -->
+    <!-- ESTRUTURA PRINCIPAL DO SISTEMA APÓS O LOGIN -->
+    <!-- ======================================================== -->
+    <div class="flex h-screen overflow-hidden">
         
-        <!-- Sidebar Navigation -->
-        <aside class="w-64 bg-white border-r border-slate-200 flex flex-col justify-between flex-shrink-0">
-            <div class="py-4 space-y-1">
-                <div class="px-4 pb-2 text-[11px] font-bold uppercase tracking-wider text-slate-400">Navegação Principal</div>
-                
-                <a href="#dashboard" onclick="trocarAba('dashboard')" class="sidebar-link active flex items-center gap-3 px-5 py-2.5 text-sm text-slate-600 hover:bg-slate-50 transition" id="nav-dashboard">
-                    <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
-                    <span>Dashboard Geral</span>
-                </a>
+        <!-- SIDEBAR LATERAL (Modelo Odonto Solution CRM) -->
+        <aside class="w-64 bg-white border-r border-[#E4E8F3] flex flex-col justify-between shrink-0 select-none z-20">
+            <div>
+                <!-- Topo da Sidebar: Logo & Empresa -->
+                <div class="p-5 border-b border-[#E4E8F3]">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white font-black text-base shadow-md">
+                            OS
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-display font-black text-lg text-slate-900 tracking-tight leading-none">
+                                Odonto<span class="text-brand-600"> Solution</span>
+                            </span>
+                            <span class="text-[11px] font-semibold text-slate-400 mt-0.5">Odonto Solution Health</span>
+                        </div>
+                    </div>
 
-                <a href="#agenda" onclick="trocarAba('agenda')" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-slate-600 hover:bg-slate-50 transition" id="nav-agenda">
-                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                    <span>Agenda Inteligente</span>
-                </a>
+                    <!-- Seletor de Clínica / Unidade -->
+                    <div class="mt-4 p-2 bg-[#F6F7FB] border border-[#E4E8F3] rounded-xl flex items-center justify-between text-xs cursor-pointer hover:bg-slate-100 transition">
+                        <div class="flex items-center gap-2 overflow-hidden">
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></div>
+                            <span class="font-bold text-slate-800 truncate" id="topbarClinicaNome">Odonto Solution · Matriz SP</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
+                    </div>
+                </div>
 
-                <a href="#espera" onclick="trocarAba('espera')" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-slate-600 hover:bg-slate-50 transition" id="nav-espera">
-                    <i data-lucide="users" class="w-4 h-4"></i>
-                    <span>Fila & Sala de Espera</span>
-                    <span id="badgeFilaCount" class="ml-auto bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded-full font-bold">1</span>
-                </a>
+                <!-- Botão Especial Z.AI (Pergunte à IA) -->
+                <div class="px-4 pt-4">
+                    <button onclick="trocarAba('conversas')" class="w-full py-2.5 px-3 bg-gradient-to-r from-brand-50 to-teal-50 border border-brand-200/80 hover:border-brand-500 rounded-xl text-left text-xs font-bold text-brand-800 flex items-center justify-between transition group shadow-sm">
+                        <span class="flex items-center gap-2">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-brand-600 group-hover:scale-110 transition-transform"></i>
+                            <span>Pergunte à Z.AI</span>
+                        </span>
+                        <span class="text-[10px] bg-brand-600 text-white px-1.5 py-0.5 rounded-md font-mono">IA 24/7</span>
+                    </button>
+                </div>
 
-                <a href="#prontuario" onclick="trocarAba('prontuario')" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-slate-600 hover:bg-slate-50 transition" id="nav-prontuario">
-                    <i data-lucide="file-text" class="w-4 h-4"></i>
-                    <span>Prontuário & Receita</span>
-                </a>
+                <!-- Menu de Navegação -->
+                <nav class="p-3 space-y-1 text-xs font-medium text-[#727B93] overflow-y-auto max-h-[calc(100vh-280px)]">
+                    <div class="px-3 pt-3 pb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Atendimento & Vendas
+                    </div>
+                    
+                    <button onclick="trocarAba('dashboard')" id="nav-dashboard" class="sidebar-item active w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+                        <span>Painel de Controle</span>
+                    </button>
 
-                <a href="#docsign" onclick="trocarAba('docsign')" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-slate-600 hover:bg-slate-50 transition" id="nav-docsign">
-                    <i data-lucide="signature" class="w-4 h-4"></i>
-                    <span>DocSign & OTP</span>
-                </a>
+                    <button onclick="trocarAba('leads')" id="nav-leads" class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="kanban" class="w-4 h-4"></i>
+                        <span>Funil de Tratamentos (Kanban)</span>
+                        <span class="ml-auto bg-brand-100 text-brand-800 text-[10px] font-bold px-1.5 py-0.5 rounded-full">14</span>
+                    </button>
 
-                <a href="#zai" onclick="trocarAba('zai')" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-slate-600 hover:bg-slate-50 transition" id="nav-zai">
-                    <i data-lucide="message-square" class="w-4 h-4 text-emerald-600"></i>
-                    <span>Z.AI (WhatsApp Bot)</span>
-                    <span class="ml-auto w-2 h-2 rounded-full bg-emerald-500"></span>
-                </a>
+                    <button onclick="trocarAba('conversas')" id="nav-conversas" class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="message-square" class="w-4 h-4"></i>
+                        <span>Conversas WhatsApp</span>
+                        <span class="ml-auto bg-emerald-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full animate-pulse">3</span>
+                    </button>
 
-                <a href="#financeiro" onclick="trocarAba('financeiro')" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-slate-600 hover:bg-slate-50 transition" id="nav-financeiro">
-                    <i data-lucide="dollar-sign" class="w-4 h-4"></i>
-                    <span>Financeiro & NFS-e</span>
-                </a>
+                    <button onclick="trocarAba('agenda')" id="nav-agenda" class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        <span>Agenda & Calendário</span>
+                    </button>
+
+                    <button onclick="trocarAba('pacientes')" id="nav-pacientes" class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="users" class="w-4 h-4"></i>
+                        <span>Pacientes & Prontuários</span>
+                    </button>
+
+                    <div class="px-3 pt-4 pb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Automação & Escala
+                    </div>
+
+                    <button onclick="trocarAba('agentes-ia')" id="nav-agentes-ia" class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="bot" class="w-4 h-4 text-teal-600"></i>
+                        <span>Agentes de IA (Z.AI)</span>
+                    </button>
+
+                    <button onclick="trocarAba('automacoes')" id="nav-automacoes" class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
+                        <span>Automações & Follow-up</span>
+                    </button>
+
+                    <button onclick="trocarAba('relatorios')" id="nav-relatorios" class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="trending-up" class="w-4 h-4 text-blue-600"></i>
+                        <span>Relatórios & Metas</span>
+                    </button>
+                </nav>
             </div>
 
-            <!-- Footer Sidebar Info -->
-            <div class="p-4 border-t border-slate-200 bg-slate-50 text-xs text-slate-500 space-y-2">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="shield-check" class="w-4 h-4 text-brand-600"></i>
-                    <span class="font-medium text-slate-700">Certificação ISO 9001:2015</span>
-                </div>
-                <div class="text-[11px] text-slate-400">
-                    REA Reengineered Architecture v6.8
+            <!-- Rodapé da Sidebar: Perfil & Logout -->
+            <div class="p-4 border-t border-[#E4E8F3] bg-white">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2.5 overflow-hidden">
+                        <div class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-xs">
+                            DR
+                        </div>
+                        <div class="flex flex-col truncate">
+                            <span class="text-xs font-bold text-slate-800 truncate">Dra. Juliana Mendes</span>
+                            <span class="text-[10px] text-slate-400 truncate">Administradora</span>
+                        </div>
+                    </div>
+                    <button onclick="logout()" title="Sair do sistema" class="p-2 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-slate-100 transition">
+                        <i data-lucide="log-out" class="w-4 h-4"></i>
+                    </button>
                 </div>
             </div>
         </aside>
 
-        <!-- Main Workspace Area -->
-        <main class="flex-1 overflow-y-auto p-6 bg-slate-50">
-
-            <!-- 1. ABA DASHBOARD -->
-            <section id="aba-dashboard" class="tab-content active space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                        <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Visão Geral da Clínica</h1>
-                        <p class="text-sm text-slate-500">Acompanhamento operacional, taxa de comparecimento e receita do dia.</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <button onclick="abrirModalAgendamento()" class="flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition">
-                            <i data-lucide="plus-circle" class="w-4 h-4"></i>
-                            <span>Novo Agendamento</span>
-                        </button>
-                    </div>
+        <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            
+            <!-- TOPBAR SUPERIOR DO CRM -->
+            <header class="h-16 bg-white border-b border-[#E4E8F3] flex items-center justify-between px-6 shrink-0">
+                <div class="flex items-center gap-4">
+                    <h2 id="topbarTitulo" class="font-display font-bold text-lg text-slate-900">
+                        Painel de Controle
+                    </h2>
+                    <span class="text-xs text-slate-400 hidden sm:inline">|</span>
+                    <span class="text-xs text-slate-500 hidden sm:inline flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        WhatsApp Conectado (3 atendentes online)
+                    </span>
                 </div>
 
-                <!-- KPI Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-                        <div>
-                            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Atendimentos Hoje</div>
-                            <div class="text-2xl font-black text-slate-900 mt-1" id="kpiAtendimentosHoje">5</div>
-                            <div class="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
-                                <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
-                                <span>3 finalizados / 1 em consulta</span>
-                            </div>
-                        </div>
-                        <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-xl flex items-center justify-center">
-                            <i data-lucide="stethoscope" class="w-6 h-6"></i>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-                        <div>
-                            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Sala de Espera</div>
-                            <div class="text-2xl font-black text-amber-600 mt-1" id="kpiSalaEspera">1 paciente</div>
-                            <div class="text-xs text-slate-500 mt-1">Tempo médio: 7 min</div>
-                        </div>
-                        <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center">
-                            <i data-lucide="clock" class="w-6 h-6"></i>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-                        <div>
-                            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Receita Prevista Hoje</div>
-                            <div class="text-2xl font-black text-slate-900 mt-1" id="kpiFaturamento">R$ 1.100,00</div>
-                            <div class="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
-                                <i data-lucide="check-check" class="w-3.5 h-3.5"></i>
-                                <span>R$ 430,00 recebidos</span>
-                            </div>
-                        </div>
-                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
-                            <i data-lucide="dollar-sign" class="w-6 h-6"></i>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
-                        <div>
-                            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Z.AI Confirmação WhatsApp</div>
-                            <div class="text-2xl font-black text-emerald-600 mt-1">94.8%</div>
-                            <div class="text-xs text-slate-500 mt-1">Zero no-show detectado</div>
-                        </div>
-                        <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center">
-                            <i data-lucide="bot" class="w-6 h-6"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Graphs & Next Consultations -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm lg:col-span-2">
-                        <div class="flex items-center justify-between mb-4">
-                            <h2 class="font-bold text-slate-800 text-sm">Volume de Atendimentos por Especialidade</h2>
-                            <span class="text-xs text-slate-400">Últimos 7 dias</span>
-                        </div>
-                        <div class="h-64">
-                            <canvas id="graficoAtendimentos"></canvas>
-                        </div>
-                    </div>
-
-                    <!-- Fila Rápida da Recepção -->
-                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <h2 class="font-bold text-slate-800 text-sm">Próximos na Agenda</h2>
-                                <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Hoje</span>
-                            </div>
-                            <div class="space-y-3" id="listaResumoAgenda">
-                                <!-- Preenchido via JavaScript -->
-                            </div>
-                        </div>
-                        <button onclick="trocarAba('agenda')" class="w-full mt-4 text-center text-xs font-semibold text-brand-600 hover:text-brand-700 py-2 bg-brand-50 hover:bg-brand-100 rounded-lg transition">
-                            Abrir Grade Completa &rarr;
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 2. ABA AGENDA INTELIGENTE -->
-            <section id="aba-agenda" class="tab-content space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                        <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Agenda Inteligente</h1>
-                        <p class="text-sm text-slate-500">Gestão centralizada de consultas, convênios e status em tempo real.</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <select id="filtroProfissional" onchange="renderizarAgenda()" class="bg-white border border-slate-300 text-slate-700 text-xs rounded-lg px-3 py-2 font-medium focus:ring-2 focus:ring-brand-500">
-                            <option value="todos">Todos os Profissionais</option>
-                            <option value="1">Dr. Carlos Eduardo (Cardio)</option>
-                            <option value="2">Dra. Juliana Mendes (Odonto)</option>
-                            <option value="3">Dr. Roberto (Clínico)</option>
-                        </select>
-                        <button onclick="abrirModalAgendamento()" class="flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition">
-                            <i data-lucide="calendar-plus" class="w-4 h-4"></i>
-                            <span>Agendar Paciente</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Tabela de Grade de Horários -->
-                <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                                    <th class="p-4">Horário</th>
-                                    <th class="p-4">Paciente</th>
-                                    <th class="p-4">Profissional / Consultório</th>
-                                    <th class="p-4">Procedimento</th>
-                                    <th class="p-4">Convênio / Pagto</th>
-                                    <th class="p-4">Status</th>
-                                    <th class="p-4 text-right">Ações de Fluxo</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tabelaAgendaCorpo" class="divide-y divide-slate-100 text-xs text-slate-700">
-                                <!-- Preenchido dinamicamente -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 3. ABA FILA & SALA DE ESPERA (PAINEL EM TEMPO REAL) -->
-            <section id="aba-espera" class="tab-content space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                        <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Fila & Sala de Espera</h1>
-                        <p class="text-sm text-slate-500">Controle do fluxo de presença e chamada sonora para consultórios.</p>
-                    </div>
-                    <button onclick="abrirPainelTV()" class="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow">
-                        <i data-lucide="maximize" class="w-4 h-4"></i>
-                        <span>Visualização Tela Cheia (TV Recepção)</span>
+                <div class="flex items-center gap-3">
+                    <!-- Botão de Ação Rápida: Novo Lead / Paciente -->
+                    <button onclick="abrirModalNovoLead()" class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-sm transition flex items-center gap-2">
+                        <i data-lucide="plus" class="w-4 h-4"></i>
+                        <span class="hidden sm:inline">Novo Lead / Orçamento</span>
                     </button>
+
+                    <a href="/" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 px-3 py-2 rounded-xl border border-slate-200 transition flex items-center gap-1.5">
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        <span>Ver Landing Page</span>
+                    </a>
                 </div>
+            </header>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Pacientes Aguardando -->
-                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm lg:col-span-2">
-                        <div class="flex items-center justify-between mb-4">
-                            <h2 class="font-bold text-slate-800 text-sm flex items-center gap-2">
-                                <i data-lucide="user-check" class="w-4 h-4 text-brand-600"></i>
-                                <span>Pacientes na Recepção (Check-in Realizado)</span>
-                            </h2>
-                            <span class="text-xs bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded font-semibold" id="totalEsperaBadge">1 aguardando</span>
+            <!-- CONTAINER DINÂMICO DAS TELAS -->
+            <div class="flex-1 overflow-y-auto p-6 bg-[#F6F7FB]">
+                
+                <!-- ============================================== -->
+                <!-- 1. TELA: PAINEL DE CONTROLE (DASHBOARD) -->
+                <!-- ============================================== -->
+                <div id="view-dashboard" class="tab-pane space-y-6">
+                    
+                    <!-- Barra de Período e Resumo de IA Z.AI -->
+                    <div class="bg-white p-4 rounded-2xl border border-[#E4E8F3] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+                        <div class="flex items-center gap-3 w-full sm:w-auto">
+                            <span class="text-xs font-bold text-slate-500">Período de Análise:</span>
+                            <select class="bg-slate-50 border border-slate-200 text-xs font-semibold rounded-lg px-3 py-1.5 text-slate-700 focus:outline-none">
+                                <option>Últimos 30 dias</option>
+                                <option>Últimos 7 dias</option>
+                                <option>Este Mês</option>
+                            </select>
                         </div>
-                        <div class="space-y-3" id="listaFilaEspera">
-                            <!-- Preenchido dinamicamente -->
-                        </div>
+
+                        <!-- Botão Mágico Resumir com IA (Odonto Solution) -->
+                        <button onclick="resumirComIA()" class="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-brand-600 to-teal-500 hover:from-brand-700 hover:to-teal-600 text-white text-xs font-bold rounded-xl shadow-md shadow-brand-500/20 transition flex items-center justify-center gap-2">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            <span>✦ Resumir o painel com Z.AI</span>
+                        </button>
                     </div>
 
-                    <!-- Histórico de Chamadas Recentes -->
-                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-                        <h2 class="font-bold text-slate-800 text-sm mb-4 flex items-center gap-2">
-                            <i data-lucide="volume-2" class="w-4 h-4 text-emerald-600"></i>
-                            <span>Últimas Chamadas no Painel</span>
-                        </h2>
-                        <div class="space-y-3" id="historicoChamadas">
-                            <!-- Preenchido dinamicamente -->
+                    <!-- Banner de Resumo da IA (Revelado ao clicar) -->
+                    <div id="aiSummaryBox" class="hidden bg-gradient-to-r from-brand-50 via-teal-50 to-white p-5 rounded-2xl border border-brand-200 text-xs text-brand-900 space-y-2 shadow-sm animate-fade-in">
+                        <div class="flex items-center justify-between font-bold text-sm text-brand-800">
+                            <span class="flex items-center gap-2">
+                                <i data-lucide="bot" class="w-4 h-4 text-brand-600"></i>
+                                Insight Estratégico da Z.AI (Últimos 30 dias)
+                            </span>
+                            <button onclick="document.getElementById('aiSummaryBox').classList.add('hidden')" class="text-slate-400 hover:text-slate-600">&times;</button>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 4. ABA PRONTUÁRIO & PRESCRIÇÃO DIGITAL -->
-            <section id="aba-prontuario" class="tab-content space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                        <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Prontuário & Prescrição Digital</h1>
-                        <p class="text-sm text-slate-500">Módulo estilo Mevo/Memed integrado com assinatura digital e QR Code ICP-Brasil.</p>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Formulário de Nova Receita -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm lg:col-span-2 space-y-5">
-                        <h2 class="font-bold text-slate-900 text-sm border-b border-slate-100 pb-3 flex items-center gap-2">
-                            <i data-lucide="pill" class="w-4 h-4 text-brand-600"></i>
-                            <span>Emissão de Prescrição Digital (Mevo/Memed Ready)</span>
-                        </h2>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-600 mb-1">Selecionar Paciente</label>
-                                <select id="rxPacienteSelect" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-brand-500">
-                                    <option value="Mariana Silva Santos">Mariana Silva Santos (CPF: 123.456.789-00)</option>
-                                    <option value="José Fernando Oliveira">José Fernando Oliveira (CPF: 234.567.890-11)</option>
-                                    <option value="Beatriz Lima Castro">Beatriz Lima Castro (CPF: 345.678.901-22)</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-600 mb-1">Médico Prescritor</label>
-                                <select id="rxMedicoSelect" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-brand-500">
-                                    <option value="Dr. Carlos Eduardo Rocha|CRM/SP 142.890">Dr. Carlos Eduardo Rocha (CRM/SP 142.890)</option>
-                                    <option value="Dra. Juliana Mendes|CRO/SP 88.421">Dra. Juliana Mendes (CRO/SP 88.421)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">Medicamento & Dosagem</label>
-                            <input type="text" id="rxMedicamentoInput" placeholder="Ex: Amoxicilina 500mg + Clavulanato" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-brand-500 mb-2">
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">Posologia e Instruções</label>
-                            <textarea id="rxPosologiaInput" rows="3" placeholder="Ex: Tomar 1 comprimido de 8 em 8 horas por 7 dias." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-brand-500"></textarea>
-                        </div>
-
-                        <div class="flex items-center justify-between pt-2">
-                            <div class="flex items-center gap-2 text-xs text-slate-500">
-                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
-                                <span>Assinatura Digital ICP-Brasil pronta</span>
-                            </div>
-                            <button onclick="gerarPrescricao()" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2 shadow-sm">
-                                <i data-lucide="send" class="w-4 h-4"></i>
-                                <span>Emitir e Assinar Receita</span>
-                            </button>
-                        </div>
+                        <p class="leading-relaxed">
+                            🚀 <strong>Excelente desempenho!</strong> Sua taxa de fechamento de orçamentos cresceu <strong>38%</strong> neste mês. Identificamos <strong>18 pacientes</strong> na coluna "Orçamento Apresentado" que ainda não fecharam o plano de tratamento de implantes/ortodontia (total de <strong>R$ 64.200</strong> em oportunidades abertas). O disparo automático da sequência de follow-up foi acionado para resgatar esses pacientes nas próximas 24h.
+                        </p>
                     </div>
 
-                    <!-- Visualizador / Preview da Receita Emitida -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between" id="rxPreviewCard">
-                        <div class="border-2 border-dashed border-slate-200 rounded-lg p-4 bg-slate-50">
-                            <div class="text-center pb-3 border-b border-slate-200">
-                                <div class="text-xs font-bold text-slate-900 uppercase">Clínica Vida & Saúde</div>
-                                <div class="text-[10px] text-slate-500">Receituário Digital Oficial</div>
+                    <!-- 4 Cards Principais de Métricas (Odonto KPIs) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                        
+                        <!-- KPI 1: Leads no Mês -->
+                        <div class="bg-white p-5 rounded-2xl border border-[#E4E8F3] shadow-sm flex flex-col justify-between">
+                            <div class="flex items-center justify-between text-xs text-slate-500">
+                                <span>Leads / Pacientes Novos</span>
+                                <span class="text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-full flex items-center gap-0.5">
+                                    ▲ +22%
+                                </span>
                             </div>
-                            <div class="py-3 text-xs space-y-2">
-                                <div><strong class="text-slate-700">Paciente:</strong> <span id="previewPaciente" class="text-slate-600">Mariana Silva Santos</span></div>
-                                <div><strong class="text-slate-700">Prescrição:</strong> <span id="previewMedicamento" class="text-slate-600">Losartana 50mg</span></div>
-                                <div><strong class="text-slate-700">Instruções:</strong> <span id="previewPosologia" class="text-slate-600">1 comp. pela manhã</span></div>
-                            </div>
-                            <div class="pt-3 border-t border-slate-200 flex flex-col items-center">
-                                <div id="qrcodeReceita" class="mb-2 p-1 bg-white rounded border border-slate-200"></div>
-                                <div class="text-[9px] text-slate-400 font-mono text-center">Validação CFM / ICP-Brasil<br>Hash: <span id="previewHash">e5f8b9a2c4d10378</span></div>
-                            </div>
-                        </div>
-                        <div class="mt-4 flex gap-2">
-                            <button onclick="alert('Receita enviada via WhatsApp para o paciente!')" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2 rounded-lg transition flex items-center justify-center gap-1">
-                                <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
-                                <span>Enviar WhatsApp</span>
-                            </button>
-                            <button onclick="window.print()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold px-3 py-2 rounded-lg transition">
-                                <i data-lucide="printer" class="w-3.5 h-3.5"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 5. ABA DOCSIGN & ASSINATURA ELETRÔNICA COM OTP -->
-            <section id="aba-docsign" class="tab-content space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                        <h1 class="text-2xl font-bold text-slate-900 tracking-tight">DocSign & Assinatura Digital OTP</h1>
-                        <p class="text-sm text-slate-500">Coleta de assinaturas de termos e contratos médicos/odontológicos em tela ou celular.</p>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                        <h2 class="font-bold text-slate-900 text-sm">Contrato de Tratamento Odontológico & Clínico</h2>
-                        <div class="p-4 bg-slate-50 rounded-lg text-xs text-slate-600 leading-relaxed border border-slate-200 max-h-48 overflow-y-auto">
-                            <p class="font-bold mb-2">TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO</p>
-                            <p class="mb-2">Eu, paciente abaixo qualificado, autorizo a realização do plano de tratamento proposto, tendo sido orientado(a) sobre as etapas, riscos, alternativas terapêuticas e cuidados pós-procedimento.</p>
-                            <p>Declaro estar ciente dos termos de pagamento acordados e das orientações médicas fornecidas pela equipe da Clínica Vida & Saúde.</p>
-                        </div>
-
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between text-xs">
-                                <span class="font-semibold text-slate-700">Assinatura Digital em Tela:</span>
-                                <button onclick="limparCanvasAssinatura()" class="text-rose-600 hover:underline">Limpar</button>
-                            </div>
-                            <div class="border-2 border-dashed border-slate-300 rounded-xl bg-white overflow-hidden">
-                                <canvas id="signatureCanvas" width="450" height="150" class="w-full cursor-crosshair touch-none"></canvas>
+                            <div class="mt-3">
+                                <div class="font-display font-black text-3xl text-slate-900">482</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">Todas as campanhas (Instagram/WhatsApp)</div>
                             </div>
                         </div>
 
-                        <div class="flex items-center justify-between pt-2">
-                            <div class="text-xs text-slate-500">
-                                <span>Validação OTP SMS: <strong class="text-slate-800">Ativo</strong></span>
+                        <!-- KPI 2: Faturamento Total no Pipeline -->
+                        <div class="bg-white p-5 rounded-2xl border border-[#E4E8F3] shadow-sm flex flex-col justify-between">
+                            <div class="flex items-center justify-between text-xs text-slate-500">
+                                <span>Tratamentos Fechados</span>
+                                <span class="text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-full flex items-center gap-0.5">
+                                    ▲ +22%
+                                </span>
                             </div>
-                            <button onclick="salvarAssinaturaDocSign()" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2">
-                                <i data-lucide="check" class="w-4 h-4"></i>
-                                <span>Validar e Registrar Contrato</span>
-                            </button>
+                            <div class="mt-3">
+                                <div class="font-display font-black text-3xl text-brand-600">R$ 148.200</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">Entradas confirmadas no mês</div>
+                            </div>
                         </div>
+
+                        <!-- KPI 3: Conversão do Funil -->
+                        <div class="bg-white p-5 rounded-2xl border border-[#E4E8F3] shadow-sm flex flex-col justify-between">
+                            <div class="flex items-center justify-between text-xs text-slate-500">
+                                <span>Conversão de Orçamentos</span>
+                                <span class="text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-full flex items-center gap-0.5">
+                                    ▲ +38%
+                                </span>
+                            </div>
+                            <div class="mt-3">
+                                <div class="font-display font-black text-3xl text-slate-900">68%</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">vs. 49% do mês anterior</div>
+                            </div>
+                        </div>
+
+                        <!-- KPI 4: Ticket Médio do Tratamento -->
+                        <div class="bg-white p-5 rounded-2xl border border-[#E4E8F3] shadow-sm flex flex-col justify-between">
+                            <div class="flex items-center justify-between text-xs text-slate-500">
+                                <span>Ticket Médio Clínico</span>
+                                <span class="text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-full flex items-center gap-0.5">
+                                    ▲ +15%
+                                </span>
+                            </div>
+                            <div class="mt-3">
+                                <div class="font-display font-black text-3xl text-slate-900">R$ 3.850</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">Foco em Implantes & Ortodontia</div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Envio de Link para Celular do Paciente -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4 flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <h2 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                                <i data-lucide="smartphone" class="w-4 h-4 text-brand-600"></i>
-                                <span>Enviar Link de Assinatura Externa (WhatsApp / E-mail)</span>
-                            </h2>
-                            <p class="text-xs text-slate-500">O paciente recebe um link com token exclusivo e assina diretamente do celular após validação do código OTP de 6 dígitos.</p>
-                            
-                            <div class="space-y-3">
-                                <div>
-                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Telefone WhatsApp</label>
-                                    <input type="text" id="otpTelefoneInput" value="(11) 98765-4321" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs">
+                    <!-- Ranking de Especialistas & Gráficos -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        
+                        <!-- Ranking de Vendas / Fechamento de Tratamentos -->
+                        <div class="bg-white p-5 rounded-2xl border border-[#E4E8F3] shadow-sm">
+                            <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                                <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                                    <i data-lucide="trophy" class="w-4 h-4 text-amber-500"></i>
+                                    Ranking de Fechamentos
+                                </h3>
+                                <span class="text-[11px] text-slate-400">30 dias</span>
+                            </div>
+                            <div class="space-y-3.5 text-xs">
+                                <div class="flex items-center justify-between p-2 rounded-xl bg-amber-50/50 border border-amber-200/60">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-6 h-6 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center text-[10px]">1</div>
+                                        <div class="font-bold text-slate-800">Dra. Juliana Mendes</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-slate-900">48 vendas</div>
+                                        <div class="text-[10px] text-emerald-600 font-semibold">R$ 72.400</div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Código OTP Gerado</label>
-                                    <div class="flex items-center gap-2">
-                                        <input type="text" id="otpCodigoDisplay" readonly value="842915" class="bg-slate-100 border border-slate-300 rounded-lg px-3 py-2 text-xs font-mono font-bold text-brand-700 tracking-widest w-32 text-center">
-                                        <button onclick="gerarNovoOtp()" class="text-xs text-brand-600 font-semibold hover:underline">Gerar Novo</button>
+
+                                <div class="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-6 h-6 rounded-full bg-slate-300 text-slate-700 font-bold flex items-center justify-center text-[10px]">2</div>
+                                        <div class="font-bold text-slate-800">Dr. Carlos Rocha</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-slate-900">39 vendas</div>
+                                        <div class="text-[10px] text-emerald-600 font-semibold">R$ 49.800</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center gap-2.5">
+                                        <div class="w-6 h-6 rounded-full bg-orange-400 text-white font-bold flex items-center justify-center text-[10px]">3</div>
+                                        <div class="font-bold text-slate-800">Dr. Roberto Albuquerque</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-slate-900">31 vendas</div>
+                                        <div class="text-[10px] text-emerald-600 font-semibold">R$ 26.000</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <button onclick="enviarLinkDocSign()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-2">
-                            <i data-lucide="send" class="w-4 h-4"></i>
-                            <span>Disparar Link & OTP para o Paciente</span>
+                        <!-- Gráfico de Conversão de Pipeline (2 Colunas) -->
+                        <div class="lg:col-span-2 bg-white p-5 rounded-2xl border border-[#E4E8F3] shadow-sm flex flex-col justify-between">
+                            <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                                <div>
+                                    <h3 class="font-bold text-sm text-slate-900">Oportunidades Ganhas no Pipeline</h3>
+                                    <p class="text-[11px] text-slate-400">Evolução de orçamentos e tratamentos fechados por semana</p>
+                                </div>
+                                <span class="text-xs bg-brand-50 text-brand-700 font-bold px-2 py-1 rounded-lg">Meta: 80%</span>
+                            </div>
+                            <div class="h-56 flex items-center justify-center">
+                                <canvas id="chartPipeline"></canvas>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- 2. TELA: FUNIL DE TRATAMENTOS (KANBAN INTERATIVO) -->
+                <!-- ============================================== -->
+                <div id="view-leads" class="tab-pane hidden space-y-4">
+                    
+                    <!-- Barra de Ações do Kanban -->
+                    <div class="bg-white p-4 rounded-2xl border border-[#E4E8F3] flex items-center justify-between shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <h3 class="font-display font-bold text-base text-slate-900">Funil de Vendas de Tratamentos</h3>
+                            <span class="text-xs text-slate-400">·</span>
+                            <span class="text-xs font-semibold text-brand-700 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-200">
+                                14 Oportunidades em Aberto
+                            </span>
+                        </div>
+                        <button onclick="abrirModalNovoLead()" class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-sm transition flex items-center gap-2">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                            <span>Adicionar Lead</span>
                         </button>
                     </div>
-                </div>
-            </section>
 
-            <!-- 6. ABA Z.AI / ZaiONe (WHATSAPP AI BOT) -->
-            <section id="aba-zai" class="tab-content space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                        <h1 class="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                            <span>Z.AI / ZaiONe</span>
-                            <span class="text-xs bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full font-bold">Inteligência Artificial WhatsApp</span>
-                        </h1>
-                        <p class="text-sm text-slate-500">Secretária virtual inteligente para agendamentos 24h, triagem e confirmações sem intervenção humana.</p>
+                    <!-- Colunas do Funil Kanban -->
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 overflow-x-auto pb-4">
+                        
+                        <!-- Coluna 1: Novos Leads -->
+                        <div class="bg-white rounded-2xl border border-[#E4E8F3] p-3.5 flex flex-col kanban-col shadow-sm" ondragover="permitirDrop(event)" ondrop="soltarLead(event, 'col-novos')">
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                                    <span class="font-bold text-xs text-slate-800">Novos Leads</span>
+                                </div>
+                                <span class="text-[11px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded-full" id="count-novos">3</span>
+                            </div>
+                            <div class="space-y-2.5 flex-1" id="col-novos">
+                                <!-- Card 1 -->
+                                <div class="bg-[#F6F7FB] hover:bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-sm cursor-grab active:cursor-grabbing transition" draggable="true" ondragstart="iniciarDrag(event, 'card-1')">
+                                    <div class="flex items-center justify-between text-[11px] mb-1.5">
+                                        <span class="bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded">Instagram Ads</span>
+                                        <span class="text-slate-400">Há 10m</span>
+                                    </div>
+                                    <div class="font-bold text-xs text-slate-900">Beatriz Lima Castro</div>
+                                    <div class="text-[11px] text-slate-500 mt-1">Interesse: Implante Dentário</div>
+                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-200/60 text-xs font-bold text-slate-800">
+                                        <span>R$ 4.500</span>
+                                        <button onclick="chamarWhatsAppLead('Beatriz Lima')" class="text-emerald-600 hover:text-emerald-700 flex items-center gap-1 text-[11px]">
+                                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Chamar
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="bg-[#F6F7FB] hover:bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-sm cursor-grab active:cursor-grabbing transition" draggable="true" ondragstart="iniciarDrag(event, 'card-2')">
+                                    <div class="flex items-center justify-between text-[11px] mb-1.5">
+                                        <span class="bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded">Google Ads</span>
+                                        <span class="text-slate-400">Há 35m</span>
+                                    </div>
+                                    <div class="font-bold text-xs text-slate-900">Lucas Rodrigues Pereira</div>
+                                    <div class="text-[11px] text-slate-500 mt-1">Interesse: Aparelho Invisível</div>
+                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-200/60 text-xs font-bold text-slate-800">
+                                        <span>R$ 6.800</span>
+                                        <button onclick="chamarWhatsAppLead('Lucas Rodrigues')" class="text-emerald-600 hover:text-emerald-700 flex items-center gap-1 text-[11px]">
+                                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Chamar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coluna 2: Em Qualificação (Z.AI) -->
+                        <div class="bg-white rounded-2xl border border-[#E4E8F3] p-3.5 flex flex-col kanban-col shadow-sm" ondragover="permitirDrop(event)" ondrop="soltarLead(event, 'col-qualificando')">
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse"></span>
+                                    <span class="font-bold text-xs text-slate-800">Z.AI Qualificando</span>
+                                </div>
+                                <span class="text-[11px] bg-teal-50 text-teal-700 font-bold px-2 py-0.5 rounded-full" id="count-qualificando">2</span>
+                            </div>
+                            <div class="space-y-2.5 flex-1" id="col-qualificando">
+                                <div class="bg-[#F6F7FB] hover:bg-white p-3.5 rounded-xl border border-teal-200 shadow-sm cursor-grab active:cursor-grabbing transition" draggable="true" ondragstart="iniciarDrag(event, 'card-3')">
+                                    <div class="flex items-center justify-between text-[11px] mb-1.5">
+                                        <span class="bg-teal-100 text-teal-800 font-bold px-2 py-0.5 rounded">Z.AI Ativo</span>
+                                        <span class="text-slate-400">Agora</span>
+                                    </div>
+                                    <div class="font-bold text-xs text-slate-900">Mariana Silva Santos</div>
+                                    <div class="text-[11px] text-slate-500 mt-1">Sintoma: Dor no siso + Limpeza</div>
+                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-200/60 text-xs font-bold text-slate-800">
+                                        <span>R$ 1.850</span>
+                                        <span class="text-[10px] text-brand-600 font-bold">Agendando...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coluna 3: Avaliação Agendada -->
+                        <div class="bg-white rounded-2xl border border-[#E4E8F3] p-3.5 flex flex-col kanban-col shadow-sm" ondragover="permitirDrop(event)" ondrop="soltarLead(event, 'col-agendados')">
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                                    <span class="font-bold text-xs text-slate-800">Avaliação Agendada</span>
+                                </div>
+                                <span class="text-[11px] bg-amber-50 text-amber-700 font-bold px-2 py-0.5 rounded-full" id="count-agendados">3</span>
+                            </div>
+                            <div class="space-y-2.5 flex-1" id="col-agendados">
+                                <div class="bg-[#F6F7FB] hover:bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-sm cursor-grab active:cursor-grabbing transition" draggable="true" ondragstart="iniciarDrag(event, 'card-4')">
+                                    <div class="flex items-center justify-between text-[11px] mb-1.5">
+                                        <span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">Amanhã 10:00</span>
+                                        <span class="text-slate-400">Confirmado</span>
+                                    </div>
+                                    <div class="font-bold text-xs text-slate-900">José Fernando Oliveira</div>
+                                    <div class="text-[11px] text-slate-500 mt-1">Dra. Juliana Mendes (Consultório 2)</div>
+                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-200/60 text-xs font-bold text-slate-800">
+                                        <span>R$ 3.500</span>
+                                        <span class="text-[10px] text-amber-600 font-bold">Aguardando Visita</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coluna 4: Orçamento Apresentado -->
+                        <div class="bg-white rounded-2xl border border-[#E4E8F3] p-3.5 flex flex-col kanban-col shadow-sm" ondragover="permitirDrop(event)" ondrop="soltarLead(event, 'col-orcamentos')">
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+                                    <span class="font-bold text-xs text-slate-800">Orçamento Apresentado</span>
+                                </div>
+                                <span class="text-[11px] bg-purple-50 text-purple-700 font-bold px-2 py-0.5 rounded-full" id="count-orcamentos">2</span>
+                            </div>
+                            <div class="space-y-2.5 flex-1" id="col-orcamentos">
+                                <div class="bg-[#F6F7FB] hover:bg-white p-3.5 rounded-xl border border-purple-200 shadow-sm cursor-grab active:cursor-grabbing transition" draggable="true" ondragstart="iniciarDrag(event, 'card-5')">
+                                    <div class="flex items-center justify-between text-[11px] mb-1.5">
+                                        <span class="bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded">Proposta #408</span>
+                                        <span class="text-slate-400">Follow-up 24h</span>
+                                    </div>
+                                    <div class="font-bold text-xs text-slate-900">Clara Mendes Antunes</div>
+                                    <div class="text-[11px] text-slate-500 mt-1">Protocolo All-on-4 Superior</div>
+                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-200/60 text-xs font-bold text-slate-800">
+                                        <span class="text-purple-700">R$ 14.500</span>
+                                        <button onclick="enviarPropostaWhatsApp('Clara Mendes')" class="text-brand-600 font-bold text-[11px] hover:underline">
+                                            Reenviar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coluna 5: Tratamento Fechado (Ganho!) -->
+                        <div class="bg-white rounded-2xl border border-emerald-200 p-3.5 flex flex-col kanban-col shadow-sm bg-gradient-to-b from-white to-emerald-50/30" ondragover="permitirDrop(event)" ondrop="soltarLead(event, 'col-ganhos')">
+                            <div class="flex items-center justify-between pb-3 border-b border-emerald-100 mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                                    <span class="font-bold text-xs text-emerald-800">Tratamento Fechado!</span>
+                                </div>
+                                <span class="text-[11px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full" id="count-ganhos">4</span>
+                            </div>
+                            <div class="space-y-2.5 flex-1" id="col-ganhos">
+                                <div class="bg-white p-3.5 rounded-xl border border-emerald-300 shadow-sm cursor-grab active:cursor-grabbing transition" draggable="true" ondragstart="iniciarDrag(event, 'card-6')">
+                                    <div class="flex items-center justify-between text-[11px] mb-1.5">
+                                        <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Ganho / Contrato</span>
+                                        <span class="text-emerald-600 font-bold">Pago via PIX</span>
+                                    </div>
+                                    <div class="font-bold text-xs text-slate-900">Eduardo F. Vasconcelos</div>
+                                    <div class="text-[11px] text-slate-500 mt-1">Lentes de Contato Dental (6x)</div>
+                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-100 text-xs font-bold text-emerald-700">
+                                        <span>R$ 12.000</span>
+                                        <span class="text-[10px] bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-full">DocSign Assinado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Simulador WhatsApp -->
-                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col h-[520px] lg:col-span-2">
-                        <!-- Header WhatsApp -->
-                        <div class="bg-emerald-700 text-white p-3.5 flex items-center justify-between">
+                <!-- ============================================== -->
+                <!-- 3. TELA: CONVERSAS WHATSAPP MULTIATENDENTE (INBOX) -->
+                <!-- ============================================== -->
+                <div id="view-conversas" class="tab-pane hidden h-[calc(100vh-140px)] flex rounded-2xl overflow-hidden border border-[#E4E8F3] bg-white shadow-sm">
+                    
+                    <!-- Coluna de Contatos / Pacientes -->
+                    <div class="w-80 border-r border-[#E4E8F3] flex flex-col bg-[#F6F7FB]">
+                        <div class="p-3.5 border-b border-[#E4E8F3] bg-white">
+                            <div class="relative">
+                                <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5"></i>
+                                <input type="text" placeholder="Buscar conversas..." class="w-full bg-[#F6F7FB] border border-[#E4E8F3] rounded-xl pl-9 pr-3 py-1.5 text-xs focus:outline-none">
+                            </div>
+                        </div>
+
+                        <!-- Lista de Conversas -->
+                        <div class="flex-1 overflow-y-auto divide-y divide-slate-100">
+                            <!-- Conversa 1 -->
+                            <div onclick="selecionarConversa('Mariana Silva', '(11) 98765-4321', 'Ortodontia')" class="p-3.5 hover:bg-white cursor-pointer transition flex items-center gap-3 bg-white border-l-4 border-brand-500">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-xs shrink-0">
+                                    MS
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-xs text-slate-900 truncate">Mariana Silva</span>
+                                        <span class="text-[10px] text-brand-600 font-semibold">10:42</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 truncate mt-0.5">Z.AI: Olá Mariana! Confirmo sua consulta amanhã às 10h.</p>
+                                </div>
+                            </div>
+
+                            <!-- Conversa 2 -->
+                            <div onclick="selecionarConversa('Beatriz Lima', '(11) 96543-2109', 'Implantes')" class="p-3.5 hover:bg-white cursor-pointer transition flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-xs shrink-0">
+                                    BL
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-xs text-slate-900 truncate">Beatriz Lima</span>
+                                        <span class="text-[10px] text-slate-400">09:15</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 truncate mt-0.5">Qual o valor aproximado do implante unitário?</p>
+                                </div>
+                            </div>
+
+                            <!-- Conversa 3 -->
+                            <div onclick="selecionarConversa('Clara Mendes', '(11) 94321-0987', 'Protocolo All-on-4')" class="p-3.5 hover:bg-white cursor-pointer transition flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-800 font-bold flex items-center justify-center text-xs shrink-0">
+                                    CM
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-xs text-slate-900 truncate">Clara Mendes</span>
+                                        <span class="text-[10px] text-slate-400">Ontem</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 truncate mt-0.5">Recebi o orçamento por SMS, consigo parcelar?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Janela de Chat Aberta -->
+                    <div class="flex-1 flex flex-col bg-[#F4F6FC]">
+                        
+                        <!-- Topo do Chat -->
+                        <div class="h-14 bg-white border-b border-[#E4E8F3] px-5 flex items-center justify-between shrink-0">
                             <div class="flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-full bg-emerald-900 flex items-center justify-center text-emerald-200 font-bold">
-                                    <i data-lucide="bot" class="w-5 h-5"></i>
+                                <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-xs" id="chatAvatar">
+                                    MS
                                 </div>
                                 <div>
-                                    <div class="text-xs font-bold leading-tight">Z.AI · Secretária Clínica Vida & Saúde</div>
-                                    <div class="text-[10px] text-emerald-200">Online 24h · Resposta Instantânea</div>
+                                    <div class="font-bold text-xs text-slate-900" id="chatNome">Mariana Silva Santos</div>
+                                    <div class="text-[10px] text-emerald-600 flex items-center gap-1 font-medium">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                        WhatsApp Ativo · Z.AI no comando
+                                    </div>
                                 </div>
                             </div>
-                            <span class="text-[10px] bg-emerald-800 px-2 py-0.5 rounded-full font-mono">IA Conectada</span>
+
+                            <div class="flex items-center gap-2">
+                                <button onclick="alternarModoHumano()" id="btnModoAtendimento" class="px-3 py-1.5 bg-brand-50 text-brand-700 hover:bg-brand-100 border border-brand-200 text-xs font-bold rounded-lg transition flex items-center gap-1.5">
+                                    <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
+                                    <span>Assumir Atendimento Humano</span>
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- Chat Messages Container -->
-                        <div class="flex-1 p-4 overflow-y-auto space-y-3 bg-[#e5ddd5]/30" id="chatZaiContainer">
+                        <!-- Mensagens do Chat -->
+                        <div id="chatMessages" class="flex-1 p-5 overflow-y-auto space-y-3">
                             <div class="flex justify-start">
-                                <div class="bg-white p-3 rounded-xl rounded-tl-none shadow-sm max-w-[80%] text-xs text-slate-800 space-y-1">
-                                    <p>Olá! Sou a <strong>Z.AI</strong>, assistente virtual da Clínica Vida & Saúde. 😊</p>
-                                    <p>Como posso ajudar você hoje? (Ex: agendar consulta, confirmar horário, tirar dúvidas de preparo de exames)</p>
-                                    <span class="block text-[9px] text-slate-400 text-right">08:00</span>
+                                <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm max-w-sm text-xs text-slate-800">
+                                    Olá! Gostaria de agendar uma consulta para avaliação ortodôntica com a Dra. Juliana.
+                                    <div class="text-[10px] text-slate-400 mt-1 text-right">10:40</div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-end">
+                                <div class="bg-emerald-600 text-white p-3 rounded-2xl rounded-tr-none shadow-sm max-w-sm text-xs">
+                                    <div class="font-bold text-[10px] text-emerald-200 mb-1 flex items-center gap-1">
+                                        <i data-lucide="bot" class="w-3 h-3"></i> Z.AI (Odonto Solution)
+                                    </div>
+                                    Olá, Mariana! Que ótimo ter você por aqui. Sou a assistente virtual da Odonto Solution. Temos horários disponíveis amanhã às 10:00 ou às 14:30 com a Dra. Juliana. Qual prefere?
+                                    <div class="text-[10px] text-emerald-200 mt-1 text-right">10:41</div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-start">
+                                <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm max-w-sm text-xs text-slate-800">
+                                    Às 10h fica perfeito pra mim!
+                                    <div class="text-[10px] text-slate-400 mt-1 text-right">10:42</div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-end">
+                                <div class="bg-emerald-600 text-white p-3 rounded-2xl rounded-tr-none shadow-sm max-w-sm text-xs">
+                                    <div class="font-bold text-[10px] text-emerald-200 mb-1 flex items-center gap-1">
+                                        <i data-lucide="bot" class="w-3 h-3"></i> Z.AI (Odonto Solution)
+                                    </div>
+                                    Perfeito! Sua avaliação ortodôntica está confirmada para amanhã às 10:00 no Consultório 02. Já registrei tudo no prontuário! 🦷✨
+                                    <div class="text-[10px] text-emerald-200 mt-1 text-right">10:42</div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Chat Input -->
-                        <div class="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
-                            <input type="text" id="inputChatZai" onkeypress="if(event.key==='Enter') enviarMensagemZai()" placeholder="Digite sua mensagem como se fosse o paciente..." class="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-4 py-2 text-xs focus:ring-2 focus:ring-emerald-500">
-                            <button onclick="enviarMensagemZai()" class="w-9 h-9 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl flex items-center justify-center transition">
+                        <!-- Barra de Envio de Mensagem -->
+                        <form onsubmit="enviarMensagemChat(event)" class="p-3 bg-white border-t border-[#E4E8F3] flex items-center gap-2">
+                            <input type="text" id="chatInputText" placeholder="Digite uma mensagem ou comando para o paciente..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-500">
+                            <button type="submit" class="p-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl transition shadow-sm">
                                 <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Painel Lateral da Ficha do Paciente / Oportunidade -->
+                    <div class="w-72 border-l border-[#E4E8F3] bg-white p-4 overflow-y-auto hidden xl:block">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Dados da Oportunidade</div>
+                        <div class="space-y-3 text-xs">
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <div class="text-[11px] text-slate-400">Tratamento Principal</div>
+                                <div class="font-bold text-slate-900 mt-0.5">Ortodontia & Alinhador</div>
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <div class="text-[11px] text-slate-400">Valor Estimado</div>
+                                <div class="font-bold text-emerald-600 text-sm mt-0.5">R$ 5.800,00</div>
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <div class="text-[11px] text-slate-400">Dentista Responsável</div>
+                                <div class="font-bold text-slate-900 mt-0.5">Dra. Juliana Mendes (CRO 88.421)</div>
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <div class="text-[11px] text-slate-400">Status no Funil</div>
+                                <div class="font-bold text-amber-600 mt-0.5">Avaliação Agendada</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ============================================== -->
+                <!-- 4. TELA: AGENDAS E CALENDÁRIOS -->
+                <!-- ============================================== -->
+                <div id="view-agenda" class="tab-pane hidden space-y-4">
+                    <div class="bg-white p-5 rounded-2xl border border-[#E4E8F3] shadow-sm">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                            <h3 class="font-bold text-sm text-slate-900">Agenda Integrada de Consultas</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs text-slate-500">Exibindo: Hoje (29/10/2026)</span>
+                            </div>
+                        </div>
+
+                        <div class="divide-y divide-slate-100 text-xs">
+                            <div class="py-3 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono font-bold text-brand-600 text-sm">08:30</span>
+                                    <div>
+                                        <div class="font-bold text-slate-900">Mariana Silva Santos</div>
+                                        <div class="text-slate-500">Ortodontia · Dra. Juliana Mendes</div>
+                                    </div>
+                                </div>
+                                <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-bold">Confirmado via WhatsApp</span>
+                            </div>
+
+                            <div class="py-3 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono font-bold text-brand-600 text-sm">09:15</span>
+                                    <div>
+                                        <div class="font-bold text-slate-900">José Fernando Oliveira</div>
+                                        <div class="text-slate-500">Manutenção de Aparelho · Dra. Juliana Mendes</div>
+                                    </div>
+                                </div>
+                                <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-bold">Em Atendimento</span>
+                            </div>
+
+                            <div class="py-3 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <span class="font-mono font-bold text-brand-600 text-sm">10:00</span>
+                                    <div>
+                                        <div class="font-bold text-slate-900">Beatriz Lima Castro</div>
+                                        <div class="text-slate-500">Avaliação de Implante · Dr. Carlos Rocha</div>
+                                    </div>
+                                </div>
+                                <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full font-bold">Aguardando na Recepção</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================== -->
+                <!-- 5. TELA: AGENTES DE IA (Z.AI CONFIGURATION) -->
+                <!-- ============================================== -->
+                <div id="view-agentes-ia" class="tab-pane hidden space-y-5">
+                    <div class="bg-white p-6 rounded-2xl border border-[#E4E8F3] shadow-sm max-w-4xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
+                                <i data-lucide="bot" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-base text-slate-900">Configuração do Agente Z.AI Odonto Solution</h3>
+                                <p class="text-xs text-slate-500">Automatize o atendimento, qualificação e agendamentos no WhatsApp da clínica</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-xs pt-3 border-t border-slate-100">
+                            <div>
+                                <label class="block font-bold text-slate-700 mb-1">Nome da Assistente Virtual</label>
+                                <input type="text" value="Z.AI - Assistente Odonto Solution" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5">
+                            </div>
+
+                            <div>
+                                <label class="block font-bold text-slate-700 mb-1">Tom de Voz</label>
+                                <select class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5">
+                                    <option>Humanizado, acolhedor e profissional (Recomendado para saúde)</option>
+                                    <option>Formal e direto</option>
+                                    <option>Descontraído e dinâmico</option>
+                                </select>
+                            </div>
+
+                            <div class="p-4 bg-brand-50/70 border border-brand-200 rounded-xl space-y-2">
+                                <div class="font-bold text-brand-900">Gatilhos de Automação Ativos:</div>
+                                <label class="flex items-center gap-2 text-brand-800 cursor-pointer">
+                                    <input type="checkbox" checked class="rounded text-brand-600">
+                                    <span>Responder novos leads em menos de 5 segundos</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-brand-800 cursor-pointer">
+                                    <input type="checkbox" checked class="rounded text-brand-600">
+                                    <span>Agendamento automático direto na grade dos dentistas</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-brand-800 cursor-pointer">
+                                    <input type="checkbox" checked class="rounded text-brand-600">
+                                    <span>Disparo automático de lembrete 24h e 2h antes da consulta</span>
+                                </label>
+                            </div>
+
+                            <button onclick="alert('Configurações da Z.AI salvas com sucesso!')" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-sm transition">
+                                Salvar Configurações da IA
                             </button>
                         </div>
                     </div>
-
-                    <!-- Métricas da Z.AI -->
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
-                        <div class="space-y-4">
-                            <h2 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                                <i data-lucide="sparkles" class="w-4 h-4 text-emerald-600"></i>
-                                <span>Capacidade Operacional Z.AI</span>
-                            </h2>
-                            <div class="p-3 bg-emerald-50 border border-emerald-100 rounded-xl text-xs text-emerald-800 space-y-1">
-                                <strong>Economia de Tempo Recepção:</strong>
-                                <p>Cerca de 4,5 horas diárias de atendimento telefônico automatizadas com agendamento direto na agenda.</p>
-                            </div>
-
-                            <div class="space-y-2 text-xs text-slate-600">
-                                <div class="flex justify-between py-1 border-b border-slate-100">
-                                    <span>Agendamentos Concluídos pela IA:</span>
-                                    <strong class="text-slate-900">42 esta semana</strong>
-                                </div>
-                                <div class="flex justify-between py-1 border-b border-slate-100">
-                                    <span>Confirmações Automáticas:</span>
-                                    <strong class="text-slate-900">128 disparadas</strong>
-                                </div>
-                                <div class="flex justify-between py-1 border-b border-slate-100">
-                                    <span>Tempo Médio de Resposta:</span>
-                                    <strong class="text-slate-900">&lt; 3 segundos</strong>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-3 bg-slate-50 rounded-xl text-[11px] text-slate-500 text-center">
-                            Sincronização bidirecional em tempo real com o banco de dados do ERP.
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 7. ABA FINANCEIRO & NFS-e -->
-            <section id="aba-financeiro" class="tab-content space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                        <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Financeiro & Transmissão Fiscal (NFS-e)</h1>
-                        <p class="text-sm text-slate-500">Módulo contábil especializado com emissão de notas de serviço e fluxo de caixa.</p>
-                    </div>
-                    <button onclick="abrirModalNfse()" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition">
-                        <i data-lucide="receipt" class="w-4 h-4"></i>
-                        <span>Emitir Nota Fiscal (NFS-e)</span>
-                    </button>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Tabela de Lançamentos -->
-                    <div class="bg-white rounded-xl border border-slate-200 shadow-sm lg:col-span-2 overflow-hidden">
-                        <div class="p-4 border-b border-slate-100 flex items-center justify-between">
-                            <h2 class="font-bold text-slate-800 text-sm">Extrato Financeiro Recente</h2>
-                            <span class="text-xs text-slate-400">Receitas & Despesas</span>
-                        </div>
+                <!-- OUTRAS ABAS (Pacientes, Automações, Relatórios) -->
+                <div id="view-pacientes" class="tab-pane hidden space-y-4">
+                    <div class="bg-white p-5 rounded-2xl border border-[#E4E8F3] shadow-sm">
+                        <h3 class="font-bold text-sm text-slate-900 mb-4">Base Geral de Pacientes</h3>
                         <div class="overflow-x-auto">
-                            <table class="w-full text-left border-collapse text-xs">
+                            <table class="w-full text-left text-xs">
                                 <thead>
-                                    <tr class="bg-slate-50 text-slate-500 font-semibold uppercase tracking-wider border-b border-slate-200">
-                                        <th class="p-3">Data</th>
-                                        <th class="p-3">Descrição</th>
-                                        <th class="p-3">Categoria</th>
-                                        <th class="p-3">Valor</th>
-                                        <th class="p-3">Status</th>
+                                    <tr class="text-slate-400 border-b border-slate-100 pb-2">
+                                        <th class="py-2">Nome</th>
+                                        <th>Telefone / WhatsApp</th>
+                                        <th>Convênio / Particular</th>
+                                        <th>Última Consulta</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tabelaFinanceiroCorpo" class="divide-y divide-slate-100">
-                                    <!-- Preenchido via JS -->
+                                <tbody class="divide-y divide-slate-100 text-slate-700">
+                                    <tr>
+                                        <td class="py-3 font-bold text-slate-900">Mariana Silva Santos</td>
+                                        <td>(11) 98765-4321</td>
+                                        <td>Unimed</td>
+                                        <td>28/10/2026</td>
+                                        <td><button onclick="trocarAba('conversas')" class="text-brand-600 hover:underline">Abrir Chat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-bold text-slate-900">José Fernando Oliveira</td>
+                                        <td>(11) 97654-3210</td>
+                                        <td>Particular</td>
+                                        <td>22/10/2026</td>
+                                        <td><button onclick="trocarAba('conversas')" class="text-brand-600 hover:underline">Abrir Chat</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-bold text-slate-900">Beatriz Lima Castro</td>
+                                        <td>(11) 96543-2109</td>
+                                        <td>Bradesco Saúde</td>
+                                        <td>15/10/2026</td>
+                                        <td><button onclick="trocarAba('conversas')" class="text-brand-600 hover:underline">Abrir Chat</button></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Notas Fiscais Emitidas -->
-                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <h2 class="font-bold text-slate-800 text-sm flex items-center gap-2">
-                                    <i data-lucide="file-check" class="w-4 h-4 text-emerald-600"></i>
-                                    <span>Notas Emitidas (NFS-e)</span>
-                                </h2>
-                                <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-bold">Prefeitura Integrada</span>
+                <div id="view-automacoes" class="tab-pane hidden space-y-4">
+                    <div class="bg-white p-6 rounded-2xl border border-[#E4E8F3] shadow-sm max-w-4xl">
+                        <h3 class="font-bold text-base text-slate-900 mb-4">Fluxos de Automação Odonto Solution</h3>
+                        <div class="space-y-3 text-xs">
+                            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between">
+                                <div>
+                                    <div class="font-bold text-slate-900">Follow-up de Orçamento Não Respondido (24h e 72h)</div>
+                                    <div class="text-slate-500">Envia simulação de pagamento facilitado e convite para tirar dúvidas</div>
+                                </div>
+                                <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded-full text-[10px]">Ativo</span>
                             </div>
-                            <div class="space-y-3" id="listaNfseCorpo">
-                                <!-- Preenchido dinamicamente -->
-                            </div>
-                        </div>
 
-                        <div class="mt-4 pt-4 border-t border-slate-100 text-center">
-                            <button onclick="alert('Relatório fiscal transmitido para a contabilidade parceira com sucesso!')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 rounded-lg text-xs font-semibold transition">
-                                Transmitir Lote Contábil
-                            </button>
+                            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between">
+                                <div>
+                                    <div class="font-bold text-slate-900">Resgate de Pacientes Inativos (+6 Meses)</div>
+                                    <div class="text-slate-500">Convite para check-up de rotina e profilaxia preventiva</div>
+                                </div>
+                                <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded-full text-[10px]">Ativo</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
 
+                <div id="view-relatorios" class="tab-pane hidden space-y-4">
+                    <div class="bg-white p-6 rounded-2xl border border-[#E4E8F3] shadow-sm max-w-4xl">
+                        <h3 class="font-bold text-base text-slate-900 mb-4">Relatórios de Conversão e Desempenho</h3>
+                        <p class="text-xs text-slate-500 mb-4">Taxa de conversão de leads por canal de origem nos últimos 30 dias:</p>
+                        <div class="space-y-2 text-xs">
+                            <div>
+                                <div class="flex justify-between font-bold mb-1">
+                                    <span>WhatsApp Direto & Indicação</span>
+                                    <span>78%</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-brand-600 h-full w-[78%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between font-bold mb-1">
+                                    <span>Instagram Ads</span>
+                                    <span>62%</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-teal-500 h-full w-[62%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between font-bold mb-1">
+                                    <span>Google Ads</span>
+                                    <span>55%</span>
+                                </div>
+                                <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-blue-500 h-full w-[55%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </main>
     </div>
 
-    <!-- MODAL NOVO AGENDAMENTO -->
-    <div id="modalAgendamento" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+    <!-- MODAL NOVO LEAD -->
+    <div id="modalNovoLead" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4">
             <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                <h3 class="font-bold text-slate-900 text-base">Novo Agendamento Clínico</h3>
-                <button onclick="fecharModalAgendamento()" class="text-slate-400 hover:text-slate-600">&times;</button>
+                <h3 class="font-bold text-slate-900 text-sm">Cadastrar Nova Oportunidade / Lead</h3>
+                <button onclick="fecharModalNovoLead()" class="text-slate-400 hover:text-slate-600 text-lg">&times;</button>
             </div>
-            <form onsubmit="salvarAgendamento(event)" class="space-y-3 text-xs">
+            <form onsubmit="adicionarLeadSubmit(event)" class="space-y-3 text-xs">
                 <div>
-                    <label class="block font-semibold text-slate-600 mb-1">Paciente</label>
-                    <select id="modalPacienteId" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5">
-                        <option value="1">Mariana Silva Santos</option>
-                        <option value="2">José Fernando Oliveira</option>
-                        <option value="3">Beatriz Lima Castro</option>
-                        <option value="4">Lucas Rodrigues Pereira</option>
-                        <option value="5">Clara Mendes Antunes</option>
-                    </select>
+                    <label class="block font-bold text-slate-700 mb-1">Nome do Paciente</label>
+                    <input type="text" id="leadNomeInput" required placeholder="Nome completo" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5">
                 </div>
                 <div>
-                    <label class="block font-semibold text-slate-600 mb-1">Profissional / Consultório</label>
-                    <select id="modalProfissionalId" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5">
-                        <option value="1">Dr. Carlos Eduardo (Cardiologia - Consultório 01)</option>
-                        <option value="2">Dra. Juliana Mendes (Ortodontia - Consultório 02)</option>
-                        <option value="3">Dr. Roberto (Clínico Geral - Consultório 03)</option>
-                    </select>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block font-semibold text-slate-600 mb-1">Data</label>
-                        <input type="date" id="modalData" value="2026-10-28" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5">
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-600 mb-1">Horário</label>
-                        <input type="time" id="modalHora" value="14:00" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5">
-                    </div>
+                    <label class="block font-bold text-slate-700 mb-1">WhatsApp / Telefone</label>
+                    <input type="tel" id="leadTelefoneInput" required placeholder="(11) 99999-9999" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5">
                 </div>
                 <div>
-                    <label class="block font-semibold text-slate-600 mb-1">Procedimento / Motivo</label>
-                    <input type="text" id="modalTipo" placeholder="Ex: Avaliação Inicial / Consulta" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5">
+                    <label class="block font-bold text-slate-700 mb-1">Tratamento de Interesse</label>
+                    <input type="text" id="leadTratamentoInput" required placeholder="Ex: Implante, Alinhador, Clareamento" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5">
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Valor Estimado (R$)</label>
+                    <input type="number" id="leadValorInput" required placeholder="Ex: 3500" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5">
                 </div>
                 <div class="flex justify-end gap-2 pt-3 border-t border-slate-100">
-                    <button type="button" onclick="fecharModalAgendamento()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Cancelar</button>
-                    <button type="submit" class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-semibold shadow-sm">Confirmar Agendamento</button>
+                    <button type="button" onclick="fecharModalNovoLead()" class="px-4 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl">Cancelar</button>
+                    <button type="submit" class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-sm">Cadastrar no Funil</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- MODAL EMITIR NFS-E -->
-    <div id="modalNfse" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                <h3 class="font-bold text-slate-900 text-base">Emitir Nota Fiscal de Serviço (NFS-e)</h3>
-                <button onclick="fecharModalNfse()" class="text-slate-400 hover:text-slate-600">&times;</button>
-            </div>
-            <form onsubmit="emitirNfse(event)" class="space-y-3 text-xs">
-                <div>
-                    <label class="block font-semibold text-slate-600 mb-1">Tomador do Serviço (Paciente)</label>
-                    <input type="text" id="nfsePacienteInput" placeholder="Nome do paciente" value="Beatriz Lima Castro" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5">
-                </div>
-                <div>
-                    <label class="block font-semibold text-slate-600 mb-1">Valor dos Serviços (R$)</label>
-                    <input type="number" id="nfseValorInput" value="320.00" step="0.01" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5">
-                </div>
-                <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg text-[11px] text-slate-500 space-y-1">
-                    <div>Código de Tributação: <strong>04.01 - Medicina e Odontologia</strong></div>
-                    <div>Alíquota ISS: <strong>2,0% (Simples Nacional)</strong></div>
-                </div>
-                <div class="flex justify-end gap-2 pt-3 border-t border-slate-100">
-                    <button type="button" onclick="fecharModalNfse()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold">Cancelar</button>
-                    <button type="submit" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-semibold shadow-sm">Transmitir NFS-e</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <!-- Scripts de Interatividade e CRM Logic -->
+    <script>
+        lucide.createIcons();
 
-    <!-- MODAL PAINEL TV SALA DE ESPERA (FULLSCREEN OVERLAY) -->
-    <div id="painelTvModal" class="fixed inset-0 bg-slate-950 z-[100] hidden flex-col justify-between p-10 text-white select-none">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-6">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-brand-600 flex items-center justify-center font-black text-2xl">A</div>
-                <div>
-                    <div class="text-2xl font-black tracking-tight">Clínica Vida & Saúde</div>
-                    <div class="text-sm text-slate-400">Painel de Atendimento e Sala de Espera</div>
+        // 1. Autenticação (Login 1234 / 1234)
+        function executarLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('loginUsuario').value.trim();
+            const s = document.getElementById('loginSenha').value.trim();
+
+            if (u === '1234' && s === '1234') {
+                document.getElementById('telaLogin').classList.add('hidden');
+                localStorage.setItem('odonto_auth', 'true');
+                inicializarGraficos();
+            } else {
+                document.getElementById('loginErro').classList.remove('hidden');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('odonto_auth');
+            document.getElementById('telaLogin').classList.remove('hidden');
+        }
+
+        // Se já autenticado na sessão
+        if (localStorage.getItem('odonto_auth') === 'true') {
+            document.getElementById('telaLogin').classList.add('hidden');
+            setTimeout(inicializarGraficos, 200);
+        }
+
+        // 2. Troca de Abas do Sistema
+        function trocarAba(abaId) {
+            // Remove active de todas as abas
+            document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
+
+            const targetView = document.getElementById('view-' + abaId);
+            const targetNav = document.getElementById('nav-' + abaId);
+
+            if (targetView) targetView.classList.remove('hidden');
+            if (targetNav) targetNav.classList.add('active');
+
+            // Atualiza o título na topbar
+            const titulos = {
+                'dashboard': 'Painel de Controle & Visão Geral',
+                'leads': 'Funil de Vendas de Tratamentos (Kanban)',
+                'conversas': 'Inbox WhatsApp Multiatendente & Z.AI',
+                'agenda': 'Calendário & Grade de Consultas',
+                'pacientes': 'Base de Pacientes & Prontuários',
+                'agentes-ia': 'Agentes de Inteligência Artificial Z.AI',
+                'automacoes': 'Automações & Regras de Follow-up',
+                'relatorios': 'Relatórios de Metas & Conversão'
+            };
+            document.getElementById('topbarTitulo').innerText = titulos[abaId] || 'Painel Odonto Solution';
+            lucide.createIcons();
+        }
+
+        // 3. Resumo Mágico da Z.AI
+        function resumirComIA() {
+            const box = document.getElementById('aiSummaryBox');
+            box.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // 4. Gráfico do Pipeline com Chart.js
+        let chartInstance = null;
+        function inicializarGraficos() {
+            const ctx = document.getElementById('chartPipeline');
+            if (!ctx || chartInstance) return;
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+                    datasets: [
+                        {
+                            label: 'Orçamentos Apresentados (R$)',
+                            data: [35000, 48000, 56000, 78000],
+                            borderColor: '#727B93',
+                            backgroundColor: 'rgba(114, 123, 147, 0.05)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Tratamentos Fechados (R$)',
+                            data: [28000, 39000, 48000, 72400],
+                            borderColor: '#059669',
+                            backgroundColor: 'rgba(5, 150, 105, 0.15)',
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } }
+                    },
+                    scales: {
+                        y: { grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 } } },
+                        x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+                    }
+                }
+            });
+        }
+
+        // 5. Drag and Drop do Funil Kanban
+        let dragCardId = null;
+        function iniciarDrag(ev, id) {
+            dragCardId = id;
+            ev.dataTransfer.setData("text", id);
+        }
+
+        function permitirDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function soltarLead(ev, colId) {
+            ev.preventDefault();
+            const col = document.getElementById(colId);
+            const card = document.querySelector(`[ondragstart*="${dragCardId}"]`);
+            if (col && card) {
+                col.appendChild(card);
+                atualizarContadoresKanban();
+            }
+        }
+
+        function atualizarContadoresKanban() {
+            document.getElementById('count-novos').innerText = document.getElementById('col-novos').children.length;
+            document.getElementById('count-qualificando').innerText = document.getElementById('col-qualificando').children.length;
+            document.getElementById('count-agendados').innerText = document.getElementById('col-agendados').children.length;
+            document.getElementById('count-orcamentos').innerText = document.getElementById('col-orcamentos').children.length;
+            document.getElementById('count-ganhos').innerText = document.getElementById('col-ganhos').children.length;
+        }
+
+        // 6. Modal Novo Lead
+        function abrirModalNovoLead() {
+            document.getElementById('modalNovoLead').classList.remove('hidden');
+        }
+
+        function fecharModalNovoLead() {
+            document.getElementById('modalNovoLead').classList.add('hidden');
+        }
+
+        function adicionarLeadSubmit(e) {
+            e.preventDefault();
+            const nome = document.getElementById('leadNomeInput').value;
+            const tel = document.getElementById('leadTelefoneInput').value;
+            const trat = document.getElementById('leadTratamentoInput').value;
+            const valor = Number(document.getElementById('leadValorInput').value).toLocaleString('pt-BR');
+
+            const novoCard = document.createElement('div');
+            const cardId = 'card-' + Date.now();
+            novoCard.className = 'bg-[#F6F7FB] hover:bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-sm cursor-grab active:cursor-grabbing transition';
+            novoCard.draggable = true;
+            novoCard.setAttribute('ondragstart', `iniciarDrag(event, '${cardId}')`);
+            novoCard.innerHTML = `
+                <div class="flex items-center justify-between text-[11px] mb-1.5">
+                    <span class="bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded">Manual / Recepção</span>
+                    <span class="text-slate-400">Agora</span>
                 </div>
-            </div>
-            <div class="flex items-center gap-6">
-                <div class="text-3xl font-mono font-bold text-brand-400" id="tvRelogio">14:00</div>
-                <button onclick="fecharPainelTV()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-lg text-sm font-semibold transition">
-                    Fechar TV &times;
-                </button>
-            </div>
-        </div>
+                <div class="font-bold text-xs text-slate-900">${nome}</div>
+                <div class="text-[11px] text-slate-500 mt-1">${trat}</div>
+                <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-200/60 text-xs font-bold text-slate-800">
+                    <span>R$ ${valor}</span>
+                    <button onclick="chamarWhatsAppLead('${nome}')" class="text-emerald-600 hover:text-emerald-700 flex items-center gap-1 text-[11px]">
+                        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Chamar
+                    </button>
+                </div>
+            `;
 
-        <!-- Paciente Chamado em Destaque -->
-        <div class="my-auto text-center space-y-6">
-            <div class="inline-block px-6 py-2 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold uppercase tracking-widest text-sm pulse-call">
-                Chamada Atual
-            </div>
-            <div class="text-6xl md:text-8xl font-black text-white tracking-tight" id="tvPacienteNome">
-                Mariana Silva Santos
-            </div>
-            <div class="text-4xl md:text-5xl font-bold text-brand-400" id="tvConsultorio">
-                Consultório 01
-            </div>
-            <div class="text-xl text-slate-400" id="tvProfissional">
-                Dr. Carlos Eduardo Rocha · Cardiologia
-            </div>
-        </div>
+            document.getElementById('col-novos').prepend(novoCard);
+            fecharModalNovoLead();
+            document.getElementById('leadNomeInput').value = '';
+            document.getElementById('leadTelefoneInput').value = '';
+            document.getElementById('leadTratamentoInput').value = '';
+            document.getElementById('leadValorInput').value = '';
+            atualizarContadoresKanban();
+            lucide.createIcons();
+            alert('Lead cadastrado com sucesso no Funil de Vendas!');
+        }
 
-        <!-- Rodapé do Painel TV -->
-        <div class="border-t border-slate-800 pt-6 flex items-center justify-between text-sm text-slate-500">
-            <div>Por favor, dirija-se ao consultório indicado quando seu nome for chamado.</div>
-            <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Sistema de Voz Automático Ativo</span>
-            </div>
-        </div>
-    </div>
+        // 7. Chat Interativo
+        function selecionarConversa(nome, tel, trat) {
+            document.getElementById('chatNome').innerText = nome;
+            document.getElementById('chatAvatar').innerText = nome.split(' ').map(n => n[0]).join('').substring(0, 2);
+        }
 
-    <!-- Frontend Application Logic -->
-    <script src="/odonto-app.js"></script>
+        function alternarModoHumano() {
+            const btn = document.getElementById('btnModoAtendimento');
+            if (btn.innerText.includes('Humano')) {
+                btn.innerHTML = '<i data-lucide="bot" class="w-3.5 h-3.5"></i><span>Devolver para IA Z.AI</span>';
+                btn.className = 'px-3 py-1.5 bg-teal-50 text-teal-700 hover:bg-teal-100 border border-teal-200 text-xs font-bold rounded-lg transition flex items-center gap-1.5';
+                alert('Atendimento transferido para modo HUMANO. A IA Z.AI pausou as respostas automáticas.');
+            } else {
+                btn.innerHTML = '<i data-lucide="user-check" class="w-3.5 h-3.5"></i><span>Assumir Atendimento Humano</span>';
+                btn.className = 'px-3 py-1.5 bg-brand-50 text-brand-700 hover:bg-brand-100 border border-brand-200 text-xs font-bold rounded-lg transition flex items-center gap-1.5';
+                alert('IA Z.AI reativada com sucesso para este paciente!');
+            }
+            lucide.createIcons();
+        }
+
+        function enviarMensagemChat(e) {
+            e.preventDefault();
+            const input = document.getElementById('chatInputText');
+            const texto = input.value.trim();
+            if (!texto) return;
+
+            const box = document.getElementById('chatMessages');
+            
+            // Adiciona mensagem humana
+            const msgHumana = document.createElement('div');
+            msgHumana.className = 'flex justify-end';
+            msgHumana.innerHTML = `
+                <div class="bg-slate-900 text-white p-3 rounded-2xl rounded-tr-none shadow-sm max-w-sm text-xs">
+                    <div class="font-bold text-[10px] text-slate-300 mb-0.5">Dra. Juliana (Você)</div>
+                    ${texto}
+                    <div class="text-[10px] text-slate-400 mt-1 text-right">${new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</div>
+                </div>
+            `;
+            box.appendChild(msgHumana);
+            input.value = '';
+            box.scrollTop = box.scrollHeight;
+
+            // Simula resposta inteligente após 1.5s
+            setTimeout(() => {
+                const msgResposta = document.createElement('div');
+                msgResposta.className = 'flex justify-start';
+                msgResposta.innerHTML = `
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm max-w-sm text-xs text-slate-800">
+                        Obrigada pelo retorno, doutora! Já deixei anotado aqui e estarei presente no horário marcado.
+                        <div class="text-[10px] text-slate-400 mt-1 text-right">${new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</div>
+                    </div>
+                `;
+                box.appendChild(msgResposta);
+                box.scrollTop = box.scrollHeight;
+            }, 1200);
+        }
+
+        function chamarWhatsAppLead(nome) {
+            trocarAba('conversas');
+            selecionarConversa(nome, '(11) 99999-9999', 'Tratamento');
+        }
+
+        function enviarPropostaWhatsApp(nome) {
+            alert(`Proposta de tratamento e simulação de parcelamento reenviada via WhatsApp com sucesso para ${nome}!`);
+        }
+    </script>
 </body>
 </html>
