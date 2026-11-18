@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="os-bg" x1="6" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#130924"/>
+      <stop offset="55%" stop-color="#0B0716"/>
+      <stop offset="100%" stop-color="#07131E"/>
+    </linearGradient>
+    <linearGradient id="os-rim" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#B794FF" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#19E6FF" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="os-arch-top" x1="46" y1="14" x2="16" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D8B4FE"/>
+      <stop offset="45%" stop-color="#9B6BFF"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="os-arch-bot" x1="18" y1="50" x2="48" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#19E6FF"/>
+      <stop offset="55%" stop-color="#00D4B2"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="os-spark" x1="25" y1="25" x2="39" y2="39" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#E0F9FF"/>
+      <stop offset="100%" stop-color="#7CEEFF"/>
+    </linearGradient>
+    <radialGradient id="os-glow" cx="32" cy="32" r="22" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.28"/>
+      <stop offset="55%" stop-color="#19E6FF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Squircle Container -->
+  <rect width="64" height="64" rx="17" fill="url(#os-bg)"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="16.25" stroke="url(#os-rim)" stroke-width="1.5"/>
+
+  <!-- Ambient Core Glow -->
+  <circle cx="32" cy="32" r="22" fill="url(#os-glow)"/>
+
+  <!-- Subtle Geometric Orbit ("O" Precision Ring) -->
+  <circle cx="32" cy="32" r="20" stroke="url(#os-rim)" stroke-width="1.25" stroke-dasharray="4 4"/>
+
+  <!-- Upper Kinetic Ribbon (Forms top of 'O' + upper curve of 'S') -->
+  <path d="M 45.5 21.5 C 42 14.5, 34 11.5, 25.5 13.5 C 17.5 15.5, 13.5 22, 16.5 27.5 C 18.5 31, 22.5 32, 26.5 32"
+        stroke="url(#os-arch-top)" stroke-width="5.5" stroke-linecap="round"/>
+
+  <!-- Lower Kinetic Smile Arch (Forms bottom smile arc of 'O' + lower curve of 'S') -->
+  <path d="M 18.5 42.5 C 22 49.5, 30 52.5, 38.5 50.5 C 46.5 48.5, 50.5 42, 47.5 36.5 C 45.5 33, 41.5 32, 37.5 32"
+        stroke="url(#os-arch-bot)" stroke-width="5.5" stroke-linecap="round"/>
+
+  <!-- Neural AI Synapse Spark at Center (Z.AI Core) -->
+  <path d="M 32 24.5 L 34 30 L 39.5 32 L 34 34 L 32 39.5 L 30 34 L 24.5 32 L 30 30 Z"
+        fill="url(#os-spark)"/>
+
+  <!-- Precision Terminal Nodes -->
+  <circle cx="45.5" cy="21.5" r="2" fill="#FFFFFF"/>
+  <circle cx="18.5" cy="42.5" r="2" fill="#FFFFFF"/>
+</svg>

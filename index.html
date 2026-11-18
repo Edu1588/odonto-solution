@@ -27,14 +27,14 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#ecfdf5',
-                            100: '#d1fae5',
-                            200: '#a7f3d0',
-                            500: '#10b981',
-                            600: '#059669',
-                            700: '#047857',
-                            800: '#065f46',
-                            900: '#064e3b',
+                            50: '#f5f0ff',
+                            100: '#e8dbff',
+                            200: '#d3b5ff',
+                            500: '#8854ff',
+                            600: '#7433ed',
+                            700: '#6022d1',
+                            800: '#432078',
+                            900: '#291447',
                         },
                         crmDark: '#0A0F1F',
                         crmCard: '#111827',
@@ -102,6 +102,8 @@
             background: #94a3b8;
         }
     </style>
+<link rel="stylesheet" href="/assets/product-demo.css"><link rel="stylesheet" href="/assets/sales-sections.css"><link rel="icon" type="image/svg+xml" href="/assets/odonto-mark.svg">
+<meta name="theme-color" content="#160c29">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-brand-500 selection:text-white">
 
@@ -116,21 +118,23 @@
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                    </svg>
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="relative flex items-center justify-center">
+                    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-violet-600/30 to-cyan-400/30 blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <img src="/assets/odonto-mark.svg" width="44" height="44" alt="Odonto Solution" class="relative shrink-0 rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105">
                 </div>
                 <div>
-                    <span class="text-xl font-extrabold text-slate-900 tracking-tight block leading-tight">Odonto<span class="text-brand-600">Solution</span></span>
-                    <span class="text-[10px] font-bold tracking-widest text-slate-500 uppercase block">CRM & INTELIGÊNCIA ARTIFICIAL</span>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-xl font-extrabold text-slate-900 tracking-tight leading-none">Odonto<span class="bg-gradient-to-r from-violet-600 via-brand-600 to-teal-500 bg-clip-text text-transparent">Solution</span></span>
+                        <span class="text-[9px] font-extrabold uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-slate-900 text-cyan-300 border border-slate-700/80 leading-none">AI</span>
+                    </div>
+                    <span class="text-[10px] font-bold tracking-[0.18em] text-slate-400 uppercase block mt-1">CLINICAL CRM &bull; Z.AI CORE</span>
                 </div>
             </a>
 
             <!-- Menu Desktop -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-                <a href="#simulador" class="hover:text-brand-600 transition-colors">Funil & CRM</a>
+            <nav class="hidden xl:flex items-center gap-4 text-sm font-semibold text-slate-600">
+                <a href="#demonstracao-interativa" class="hover:text-brand-600 transition-colors">Funil & CRM</a>
                 <a href="#dores" class="hover:text-brand-600 transition-colors">O Fim da Bagunça</a>
                 <a href="#automacoes" class="hover:text-brand-600 transition-colors">Automações</a>
                 <a href="#ia" class="hover:text-brand-600 transition-colors">Agente Z.AI</a>
@@ -174,7 +178,7 @@
 
             <!-- Headline Principal -->
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] max-w-4xl mx-auto">
-                Menos Trabalho, Mais Pacientes e <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-teal-600 to-emerald-500">Tratamentos Fechados</span>
+                Menos Trabalho, Mais Pacientes e <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-teal-600 to-violet-500">Tratamentos Fechados</span>
             </h1>
 
             <!-- Subtítulo -->
@@ -191,7 +195,7 @@
                     <span>Acessar Sistema Agora (Login: 1234)</span>
                     <span class="text-slate-400 text-xs font-normal border-l border-slate-700 pl-3">/portal</span>
                 </a>
-                <a href="#simulador" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-bold text-base shadow-sm hover:shadow transition-all flex items-center justify-center gap-2">
+                <a href="#demonstracao-interativa" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-bold text-base shadow-sm hover:shadow transition-all flex items-center justify-center gap-2">
                     <span>Explorar Telas Abaixo</span>
                     <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -204,7 +208,7 @@
                 <div class="flex -space-x-2">
                     <img class="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=120&auto=format&fit=crop&q=80" alt="Doutora">
                     <img class="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=120&auto=format&fit=crop&q=80" alt="Doutor">
-                    <img class="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1594824813589-32217d8f4bc1?w=120&auto=format&fit=crop&q=80" alt="Doutora">
+                    <img class="w-7 h-7 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&auto=format&fit=crop&q=80" alt="Doutora">
                     <div class="w-7 h-7 rounded-full border-2 border-white bg-slate-800 text-white flex items-center justify-center text-[10px] font-bold">+340</div>
                 </div>
                 <span>Mais de <strong>340 clínicas</strong> já aceleraram conversões em todo o Brasil.</span>
@@ -227,10 +231,10 @@
                             <path d="M 500 20 C 500 55, 40 55, 40 20" fill="none" stroke="#E2E8F0" stroke-width="1.8" stroke-dasharray="4 4" />
                             
                             <!-- Marcadores das 4 Etapas -->
-                            <circle cx="50" cy="20" r="5" fill="#10B981" />
-                            <circle cx="200" cy="20" r="5" fill="#10B981" />
-                            <circle cx="350" cy="20" r="5" fill="#10B981" />
-                            <circle cx="490" cy="20" r="5" fill="#10B981" />
+                            <circle cx="50" cy="20" r="5" fill="#8854ff" />
+                            <circle cx="200" cy="20" r="5" fill="#8854ff" />
+                            <circle cx="350" cy="20" r="5" fill="#8854ff" />
+                            <circle cx="490" cy="20" r="5" fill="#8854ff" />
                             
                             <!-- Bolinha Verde Neon que corre o ciclo continuamente -->
                             <circle cx="50" cy="20" r="7" fill="#22c55e" filter="drop-shadow(0 0 10px #22c55e)">
@@ -240,10 +244,10 @@
 
                         <!-- Textos das Etapas -->
                         <div class="flex justify-between items-center text-[11px] sm:text-xs font-extrabold tracking-wider text-slate-500 uppercase -mt-14 px-2 sm:px-6">
-                            <span class="bg-white/90 backdrop-blur px-2.5 py-0.5 rounded-full text-emerald-600 shadow-sm border border-emerald-100">CAPTAÇÃO</span>
+                            <span class="bg-white/90 backdrop-blur px-2.5 py-0.5 rounded-full text-violet-600 shadow-sm border border-violet-100">CAPTAÇÃO</span>
                             <span class="bg-white/90 backdrop-blur px-2.5 py-0.5 rounded-full text-slate-600 shadow-sm border border-slate-100">NUTRIÇÃO</span>
                             <span class="bg-white/90 backdrop-blur px-2.5 py-0.5 rounded-full text-slate-600 shadow-sm border border-slate-100">VENDA</span>
-                            <span class="bg-white/90 backdrop-blur px-2.5 py-0.5 rounded-full text-emerald-600 shadow-sm border border-emerald-100">REATIVAÇÃO</span>
+                            <span class="bg-white/90 backdrop-blur px-2.5 py-0.5 rounded-full text-violet-600 shadow-sm border border-violet-100">REATIVAÇÃO</span>
                         </div>
 
                         <!-- Texto "E RECOMEÇA" no arco inferior -->
@@ -254,7 +258,7 @@
 
                     <!-- Botão de Alta Conversão "Escolher meu plano" -->
                     <div class="mt-5">
-                        <a href="#planos" class="btn-sheen inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-green-500 text-slate-950 font-black text-sm sm:text-base shadow-xl shadow-emerald-500/25 hover:scale-105 transition-all">
+                        <a href="#planos" class="btn-sheen inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-violet-500 via-teal-400 to-cyan-500 text-slate-950 font-black text-sm sm:text-base shadow-xl shadow-violet-500/25 hover:scale-105 transition-all">
                             <span>Escolher meu plano</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
@@ -262,9 +266,9 @@
 
                     <!-- 3 Badges de Garantia -->
                     <div class="mt-4 flex flex-wrap items-center justify-center gap-5 text-xs font-semibold text-slate-600">
-                        <span class="flex items-center gap-1.5"><span class="text-emerald-500 font-bold">✓</span> Acesso em minutos</span>
-                        <span class="flex items-center gap-1.5"><span class="text-emerald-500 font-bold">✓</span> Usuários ilimitados</span>
-                        <span class="flex items-center gap-1.5"><span class="text-emerald-500 font-bold">✓</span> Sem fidelidade</span>
+                        <span class="flex items-center gap-1.5"><span class="text-violet-500 font-bold">✓</span> Acesso em minutos</span>
+                        <span class="flex items-center gap-1.5"><span class="text-violet-500 font-bold">✓</span> Usuários ilimitados</span>
+                        <span class="flex items-center gap-1.5"><span class="text-violet-500 font-bold">✓</span> Sem fidelidade</span>
                     </div>
                 </div>
 
@@ -277,7 +281,7 @@
                         <div class="flex items-center gap-2">
                             <span class="w-3 h-3 rounded-full bg-[#FF5F56] border border-red-400/40 inline-block"></span>
                             <span class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-amber-400/40 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-[#27C93F] border border-green-400/40 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-[#27C93F] border border-cyan-400/40 inline-block"></span>
                         </div>
                         
                         <!-- Barra de URL com Cadeado -->
@@ -287,8 +291,8 @@
                         </div>
 
                         <!-- Status Online -->
-                        <div class="hidden sm:flex items-center gap-2 text-[11px] text-emerald-600 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <div class="hidden sm:flex items-center gap-2 text-[11px] text-violet-600 font-bold bg-violet-50 px-2.5 py-1 rounded-full border border-violet-200">
+                            <span class="w-2 h-2 rounded-full bg-violet-500 animate-pulse"></span>
                             <span>Sistema Operando</span>
                         </div>
                     </div>
@@ -303,9 +307,7 @@
                             <div>
                                 <!-- Logo Odonto Solution na Sidebar -->
                                 <div class="flex items-center gap-2.5 mb-5 pb-4 border-b border-slate-800/80">
-                                    <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-teal-400 flex items-center justify-center text-white font-bold text-xs shadow-md">
-                                        OS
-                                    </div>
+                                    <img src="/assets/odonto-mark.svg" width="32" height="32" alt="Odonto Solution" class="w-8 h-8 rounded-lg shadow-md shrink-0">
                                     <div>
                                         <span class="text-sm font-extrabold text-white tracking-tight block">Odonto<span class="text-brand-400">Solution</span> <span class="text-[10px] text-slate-400 font-normal">CRM</span></span>
                                     </div>
@@ -313,7 +315,7 @@
 
                                 <!-- Card da Clínica do Usuário -->
                                 <div class="bg-slate-900/90 rounded-xl p-2.5 border border-slate-800 mb-4 flex items-center gap-2.5">
-                                    <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs border border-emerald-500/30">
+                                    <div class="w-8 h-8 rounded-lg bg-violet-500/20 text-violet-400 flex items-center justify-center font-bold text-xs border border-violet-500/30">
                                         🏥
                                     </div>
                                     <div class="truncate">
@@ -343,7 +345,7 @@
                                             <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                                             <span>Conversas (WhatsApp)</span>
                                         </div>
-                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <span class="w-2 h-2 rounded-full bg-violet-400"></span>
                                     </div>
                                     <div class="p-2 rounded-lg hover:bg-slate-800 text-slate-300 flex items-center gap-2 cursor-pointer transition-colors">
                                         <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/></svg>
@@ -366,7 +368,7 @@
 
                             <!-- Rodapé da Sidebar com Botão Portal -->
                             <div class="pt-4 border-t border-slate-800">
-                                <a href="/portal" class="w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors">
+                                <a href="/portal" class="w-full py-2 px-3 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors">
                                     <span>Abrir Portal Completo</span>
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                                 </a>
@@ -385,7 +387,7 @@
                                 <button onclick="selectSimTab('google')" id="simtab-google" class="pb-2.5 hover:text-white transition-colors">Google Ads</button>
                                 <button onclick="selectSimTab('meta')" id="simtab-meta" class="pb-2.5 hover:text-white transition-colors">Anúncios Meta (Facebook/Insta)</button>
                                 <button onclick="selectSimTab('calls')" id="simtab-calls" class="pb-2.5 hover:text-white transition-colors">Relatório de ligações</button>
-                                <button onclick="selectSimTab('vendedor')" id="simtab-vendedor" class="pb-2.5 text-white border-b-2 border-emerald-400 transition-colors">Relatório por dentista</button>
+                                <button onclick="selectSimTab('vendedor')" id="simtab-vendedor" class="pb-2.5 text-white border-b-2 border-violet-400 transition-colors">Relatório por dentista</button>
                             </div>
 
                             <!-- Conteúdo do Relatório da Tela -->
@@ -409,10 +411,10 @@
                                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
                                     
                                     <!-- Card 1: Leads -->
-                                    <div id="sim-card-leads" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-emerald-300 transition-all">
+                                    <div id="sim-card-leads" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-violet-300 transition-all">
                                         <span class="text-xs font-semibold text-slate-500 block mb-1">Leads</span>
                                         <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mb-2">386</div>
-                                        <div class="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+                                        <div class="text-[11px] font-bold text-violet-600 flex items-center gap-1">
                                             <span>▲ 142 novos</span>
                                             <span class="text-slate-400">•</span>
                                             <span class="text-slate-600 font-semibold">74 ganhos</span>
@@ -420,29 +422,29 @@
                                     </div>
 
                                     <!-- Card 2: Conversão -->
-                                    <div id="sim-card-conv" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-emerald-300 transition-all">
+                                    <div id="sim-card-conv" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-violet-300 transition-all">
                                         <span class="text-xs font-semibold text-slate-500 block mb-1">Conversão</span>
                                         <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mb-2">19,2%</div>
-                                        <div class="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+                                        <div class="text-[11px] font-bold text-violet-600 flex items-center gap-1">
                                             <span>▲ R$ 184.300</span>
                                             <span class="text-slate-500 font-normal">em receita</span>
                                         </div>
                                     </div>
 
                                     <!-- Card 3: Mensagens WhatsApp -->
-                                    <div id="sim-card-sms" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-emerald-300 transition-all">
+                                    <div id="sim-card-sms" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-violet-300 transition-all">
                                         <span class="text-xs font-semibold text-slate-500 block mb-1">WhatsApp / SMS</span>
                                         <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mb-2">1.248</div>
-                                        <div class="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+                                        <div class="text-[11px] font-bold text-violet-600 flex items-center gap-1">
                                             <span>▲ 98,7% entregues</span>
                                         </div>
                                     </div>
 
                                     <!-- Card 4: Confirmações -->
-                                    <div id="sim-card-email" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-emerald-300 transition-all">
+                                    <div id="sim-card-email" class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm relative group hover:border-violet-300 transition-all">
                                         <span class="text-xs font-semibold text-slate-500 block mb-1">Confirmações</span>
                                         <div class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-none mb-2">3.420</div>
-                                        <div class="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+                                        <div class="text-[11px] font-bold text-violet-600 flex items-center gap-1">
                                             <span>▲ 47% de presença</span>
                                         </div>
                                     </div>
@@ -459,7 +461,7 @@
                                             <!-- Dentista 1 -->
                                             <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
                                                 <div class="flex items-center gap-2.5">
-                                                    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 font-extrabold text-[11px] flex items-center justify-center">1</span>
+                                                    <span class="w-5 h-5 rounded-full bg-violet-100 text-violet-700 font-extrabold text-[11px] flex items-center justify-center">1</span>
                                                     <span class="text-slate-900 font-bold">Dra. Marina Costa</span>
                                                     <span class="text-[10px] text-slate-400 font-normal">(Ortodontia)</span>
                                                 </div>
@@ -469,7 +471,7 @@
                                             <!-- Dentista 2 -->
                                             <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
                                                 <div class="flex items-center gap-2.5">
-                                                    <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 font-extrabold text-[11px] flex items-center justify-center">2</span>
+                                                    <span class="w-5 h-5 rounded-full bg-violet-100 text-violet-700 font-extrabold text-[11px] flex items-center justify-center">2</span>
                                                     <span class="text-slate-900 font-bold">Dr. Rafael Souza</span>
                                                     <span class="text-[10px] text-slate-400 font-normal">(Implantes)</span>
                                                 </div>
@@ -514,8 +516,8 @@
                                                 <div class="text-xl font-black text-slate-900">4m 18s</div>
                                                 <span class="text-[11px] text-slate-500">Duração média</span>
                                             </div>
-                                            <div class="p-3 bg-slate-50 rounded-lg border-l-2 border-emerald-500">
-                                                <div class="text-xl font-black text-emerald-600">74</div>
+                                            <div class="p-3 bg-slate-50 rounded-lg border-l-2 border-violet-500">
+                                                <div class="text-xl font-black text-violet-600">74</div>
                                                 <span class="text-[11px] text-slate-600 font-bold">Negócios fechados</span>
                                             </div>
                                         </div>
@@ -534,7 +536,7 @@
                                         <path d="M5.5 3.5L19 12.5L12 14.5L9 21L5.5 3.5Z" fill="#111827" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
                                     </svg>
                                     <!-- Efeito de clique (ripple wave) -->
-                                    <span id="sim-cursor-click" class="absolute -top-1 -left-1 w-8 h-8 rounded-full border-2 border-emerald-400 bg-emerald-400/20 opacity-0 transform scale-50"></span>
+                                    <span id="sim-cursor-click" class="absolute -top-1 -left-1 w-8 h-8 rounded-full border-2 border-violet-400 bg-violet-400/20 opacity-0 transform scale-50"></span>
                                 </div>
                             </div>
 
@@ -544,6 +546,9 @@
 
             </div>
             
+        </div>
+    </section>
+
 <!-- SEÇÃO: "A BAGUNÇA NÃO MANDA BOLETO, MAS VOCÊ PAGA ELA TODO MÊS" -->
     <section id="dores" class="py-20 bg-white border-t border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -562,8 +567,8 @@
             <!-- Grid de 4 Dores Reais (Todos com Ícones em Verde Gradiente da Marca) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Card 1: Lead esquecido -->
-                <div class="pain-card bg-slate-50 hover:bg-white p-7 rounded-2xl border border-slate-200 hover:border-emerald-300 shadow-sm hover:shadow-md transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mb-5 group-hover:bg-gradient-to-tr group-hover:from-emerald-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
+                <div class="pain-card bg-slate-50 hover:bg-white p-7 rounded-2xl border border-slate-200 hover:border-violet-300 shadow-sm hover:shadow-md transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-violet-50 border border-violet-200 text-violet-600 flex items-center justify-center mb-5 group-hover:bg-gradient-to-tr group-hover:from-violet-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
                         <svg class="w-6 h-6 gsap-pain-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
                             <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5"/>
@@ -577,8 +582,8 @@
                 </div>
 
                 <!-- Card 2: Follow-up -->
-                <div class="pain-card bg-slate-50 hover:bg-white p-7 rounded-2xl border border-slate-200 hover:border-emerald-300 shadow-sm hover:shadow-md transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mb-5 group-hover:bg-gradient-to-tr group-hover:from-emerald-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
+                <div class="pain-card bg-slate-50 hover:bg-white p-7 rounded-2xl border border-slate-200 hover:border-violet-300 shadow-sm hover:shadow-md transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-violet-50 border border-violet-200 text-violet-600 flex items-center justify-center mb-5 group-hover:bg-gradient-to-tr group-hover:from-violet-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
                         <svg class="w-6 h-6 gsap-pain-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"/>
                             <polyline class="gsap-clock-hand" points="12 6 12 12 16 14" stroke-width="2.5"/>
@@ -591,8 +596,8 @@
                 </div>
 
                 <!-- Card 3: Ferramenta demais -->
-                <div class="pain-card bg-slate-50 hover:bg-white p-7 rounded-2xl border border-slate-200 hover:border-emerald-300 shadow-sm hover:shadow-md transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mb-5 group-hover:bg-gradient-to-tr group-hover:from-emerald-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
+                <div class="pain-card bg-slate-50 hover:bg-white p-7 rounded-2xl border border-slate-200 hover:border-violet-300 shadow-sm hover:shadow-md transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-violet-50 border border-violet-200 text-violet-600 flex items-center justify-center mb-5 group-hover:bg-gradient-to-tr group-hover:from-violet-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
                         <svg class="w-6 h-6 gsap-pain-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polygon class="gsap-layer-1" points="12 2 2 7 12 12 22 7 12 2"/>
                             <polyline class="gsap-layer-2" points="2 17 12 22 22 17"/>
@@ -606,8 +611,8 @@
                 </div>
 
                 <!-- Card 4: Crescimento no escuro -->
-                <div class="pain-card bg-slate-50 hover:bg-white p-7 rounded-2xl border border-slate-200 hover:border-emerald-300 shadow-sm hover:shadow-md transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mb-5 group-hover:bg-gradient-to-tr group-hover:from-emerald-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
+                <div class="pain-card bg-slate-50 hover:bg-white p-7 rounded-2xl border border-slate-200 hover:border-violet-300 shadow-sm hover:shadow-md transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-violet-50 border border-violet-200 text-violet-600 flex items-center justify-center mb-5 group-hover:bg-gradient-to-tr group-hover:from-violet-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
                         <svg class="w-6 h-6 gsap-pain-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="20" x2="18" y2="10"/>
                             <line x1="12" y1="20" x2="12" y2="4"/>
@@ -642,9 +647,9 @@
             <!-- 5 Gatilhos em Cards (Todos com Ícones em Verde Gradiente da Marca) -->
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 <!-- Card 1: Sino GSAP -->
-                <div class="auto-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex flex-col justify-between hover:border-emerald-500 transition-all group">
+                <div class="auto-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex flex-col justify-between hover:border-violet-500 transition-all group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-emerald-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-400 flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-violet-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
                             <svg class="w-6 h-6 gsap-bell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
                                 <path class="gsap-bell-clapper" d="M13.73 21a2 2 0 0 1-3.46 0"/>
@@ -653,16 +658,16 @@
                         <h4 class="font-bold text-sm text-white mb-1.5">Novo lead entrou?</h4>
                         <p class="text-xs text-slate-400 leading-relaxed">A Z.AI envia mensagem humanizada em 4 segundos e faz a pré-qualificação.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-slate-700 text-[10px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <div class="mt-4 pt-3 border-t border-slate-700 text-[10px] text-violet-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-ping"></span>
                         <span>Instantâneo</span>
                     </div>
                 </div>
 
                 <!-- Card 2: Chat Typing GSAP -->
-                <div class="auto-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex flex-col justify-between hover:border-emerald-500 transition-all group">
+                <div class="auto-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex flex-col justify-between hover:border-violet-500 transition-all group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-emerald-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-400 flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-violet-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
                             <svg class="w-6 h-6 gsap-chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                                 <circle class="gsap-dot dot-1" cx="8" cy="10" r="1.2" fill="currentColor"/>
@@ -673,16 +678,16 @@
                         <h4 class="font-bold text-sm text-white mb-1.5">Não respondeu?</h4>
                         <p class="text-xs text-slate-400 leading-relaxed">Follow-up automático após 24h e 72h perguntando se ficaram dúvidas sobre o valor.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-slate-700 text-[10px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    <div class="mt-4 pt-3 border-t border-slate-700 text-[10px] text-violet-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>
                         <span>Follow-up Ativo</span>
                     </div>
                 </div>
 
                 <!-- Card 3: Calendário Check GSAP -->
-                <div class="auto-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex flex-col justify-between hover:border-emerald-500 transition-all group">
+                <div class="auto-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex flex-col justify-between hover:border-violet-500 transition-all group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-emerald-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-400 flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-violet-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
                             <svg class="w-6 h-6 gsap-cal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                                 <line x1="16" y1="2" x2="16" y2="6"/>
@@ -694,16 +699,16 @@
                         <h4 class="font-bold text-sm text-white mb-1.5">Consulta amanhã?</h4>
                         <p class="text-xs text-slate-400 leading-relaxed">Confirmação inteligente de presença com sincronização na grade da clínica.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-slate-700 text-[10px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <div class="mt-4 pt-3 border-t border-slate-700 text-[10px] text-violet-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse"></span>
                         <span>Zero Faltas</span>
                     </div>
                 </div>
 
                 <!-- Card 4: Ciclo Semestral GSAP -->
-                <div class="auto-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex flex-col justify-between hover:border-emerald-500 transition-all group">
+                <div class="auto-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex flex-col justify-between hover:border-violet-500 transition-all group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-emerald-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-400 flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-violet-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
                             <svg class="w-6 h-6 gsap-cycle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
                             </svg>
@@ -711,16 +716,16 @@
                         <h4 class="font-bold text-sm text-white mb-1.5">Retorno semestral?</h4>
                         <p class="text-xs text-slate-400 leading-relaxed">Lembrete automático de limpeza e check-up 6 meses após o último tratamento.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-slate-700 text-[10px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    <div class="mt-4 pt-3 border-t border-slate-700 text-[10px] text-violet-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>
                         <span>Recorrência</span>
                     </div>
                 </div>
 
                 <!-- Card 5: Raio Reativação GSAP -->
-                <div class="auto-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex flex-col justify-between hover:border-emerald-500 transition-all group">
+                <div class="auto-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700/80 flex flex-col justify-between hover:border-violet-500 transition-all group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-emerald-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-400 flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-violet-600 group-hover:to-teal-500 group-hover:text-white transition-all shadow-sm">
                             <svg class="w-6 h-6 gsap-bolt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
                             </svg>
@@ -728,8 +733,8 @@
                         <h4 class="font-bold text-sm text-white mb-1.5">Lead esfriou?</h4>
                         <p class="text-xs text-slate-400 leading-relaxed">Campanha de reativação para orçamentos antigos preencherem horários ociosos.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-slate-700 text-[10px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    <div class="mt-4 pt-3 border-t border-slate-700 text-[10px] text-violet-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>
                         <span>Reativação</span>
                     </div>
                 </div>
@@ -791,7 +796,7 @@
                             <div class="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center text-white font-bold text-sm">✦</div>
                             <div>
                                 <h4 class="text-xs font-bold text-white">Z.AI Especialista Odonto</h4>
-                                <span class="text-[10px] text-emerald-400">Em atendimento com 8 pacientes agora</span>
+                                <span class="text-[10px] text-violet-400">Em atendimento com 8 pacientes agora</span>
                             </div>
                         </div>
                         <span class="text-[11px] bg-slate-800 px-2 py-1 rounded text-slate-300">WhatsApp Oficial</span>
@@ -860,8 +865,8 @@
                     <!-- Lado Odonto Solution -->
                     <div class="p-8 bg-brand-50/30">
                         <div class="flex items-center justify-between mb-6">
-                            <div class="flex items-center gap-2">
-                                <div class="w-7 h-7 rounded-lg bg-brand-600 text-white flex items-center justify-center font-bold text-xs">OS</div>
+                            <div class="flex items-center gap-2.5">
+                                <img src="/assets/odonto-mark.svg" width="28" height="28" alt="Odonto Solution" class="w-7 h-7 rounded-lg shadow-sm shrink-0">
                                 <h3 class="text-base font-extrabold text-slate-900">Odonto Solution CRM</h3>
                             </div>
                             <span class="text-xs font-bold text-brand-700 bg-brand-100 px-2 py-0.5 rounded border border-brand-300">Tudo Integrado</span>
@@ -1084,8 +1089,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-xs">OS</div>
-                    <span class="text-slate-200 font-bold text-sm tracking-tight">Odonto Solution CRM</span>
+                    <img src="/assets/odonto-mark.svg" width="36" height="36" alt="Odonto Solution" class="w-9 h-9 rounded-xl shadow-md shrink-0">
+                    <div>
+                        <span class="text-slate-100 font-extrabold text-sm tracking-tight block leading-none">Odonto<span class="text-cyan-400">Solution</span></span>
+                        <span class="text-[9px] font-bold tracking-[0.18em] text-slate-500 uppercase block mt-1">CLINICAL CRM &bull; Z.AI CORE</span>
+                    </div>
                 </div>
                 <div class="flex flex-wrap items-center justify-center gap-6 font-medium text-slate-400">
                     <a href="/portal" class="hover:text-white transition-colors">Acesso ao Portal</a>
@@ -1331,14 +1339,14 @@
                 // 1. Move até o Card de WhatsApp / SMS
                 .to(cursor, { top: '32%', left: '55%', duration: 1.8, ease: 'power2.inOut' })
                 .call(triggerClick)
-                .to('#sim-card-sms', { scale: 1.03, borderColor: '#10B981', duration: 0.2, yoyo: true, repeat: 1 }, '+=0.1')
+                .to('#sim-card-sms', { scale: 1.03, borderColor: '#8854ff', duration: 0.2, yoyo: true, repeat: 1 }, '+=0.1')
                 
                 // 2. Move até a aba "Relatório de ligações"
                 .to(cursor, { top: '3%', left: '72%', duration: 1.6, ease: 'power2.inOut', delay: 1 })
                 .call(triggerClick)
                 .call(() => {
-                    document.getElementById('simtab-calls')?.classList.add('text-white', 'border-b-2', 'border-emerald-400');
-                    document.getElementById('simtab-vendedor')?.classList.remove('border-b-2', 'border-emerald-400');
+                    document.getElementById('simtab-calls')?.classList.add('text-white', 'border-b-2', 'border-violet-400');
+                    document.getElementById('simtab-vendedor')?.classList.remove('border-b-2', 'border-violet-400');
                 })
 
                 // 3. Move até o botão azul "Todos os dentistas"
@@ -1349,14 +1357,14 @@
                 .to(cursor, { top: '3%', left: '86%', duration: 1.5, ease: 'power2.inOut', delay: 1 })
                 .call(triggerClick)
                 .call(() => {
-                    document.getElementById('simtab-vendedor')?.classList.add('text-white', 'border-b-2', 'border-emerald-400');
-                    document.getElementById('simtab-calls')?.classList.remove('border-b-2', 'border-emerald-400');
+                    document.getElementById('simtab-vendedor')?.classList.add('text-white', 'border-b-2', 'border-violet-400');
+                    document.getElementById('simtab-calls')?.classList.remove('border-b-2', 'border-violet-400');
                 })
 
                 // 5. Move até o card de Conversão (R$ 184.300)
                 .to(cursor, { top: '32%', left: '38%', duration: 1.5, ease: 'power2.inOut', delay: 0.8 })
                 .call(triggerClick)
-                .to('#sim-card-conv', { scale: 1.03, borderColor: '#10B981', duration: 0.2, yoyo: true, repeat: 1 });
+                .to('#sim-card-conv', { scale: 1.03, borderColor: '#8854ff', duration: 0.2, yoyo: true, repeat: 1 });
 
             // Esconder o cursor automático se o visitante passar o mouse sobre o simulador
             simContainer.addEventListener('mouseenter', () => {
@@ -1375,13 +1383,13 @@
             tabs.forEach(t => {
                 const btn = document.getElementById('simtab-' + t);
                 if (btn) {
-                    btn.classList.remove('text-white', 'border-b-2', 'border-emerald-400');
+                    btn.classList.remove('text-white', 'border-b-2', 'border-violet-400');
                     btn.classList.add('text-slate-400');
                 }
             });
             const activeBtn = document.getElementById('simtab-' + tab);
             if (activeBtn) {
-                activeBtn.classList.add('text-white', 'border-b-2', 'border-emerald-400');
+                activeBtn.classList.add('text-white', 'border-b-2', 'border-violet-400');
                 activeBtn.classList.remove('text-slate-400');
             }
             const title = document.getElementById('sim-report-title');
@@ -1396,5 +1404,5 @@
         }
     </script>
 
-</body>
+<script src="/assets/product-demo.js"></script><script src="/assets/sales-sections.js"></script></body>
 </html>
