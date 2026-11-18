@@ -19,8 +19,8 @@ O Odonto Solution centraliza a captação de pacientes, o funil de orçamentos (
 - **Redes & Franquias:** R$ 897/mês — Operação ampliada multiunidade com implantação acompanhada.
 
 ## Links Oficiais
-- Página Inicial: https://odonto-solution.vercel.app/
-- Portal do Sistema: https://odonto-solution.vercel.app/portal
-- Conformidade LGPD: https://odonto-solution.vercel.app/lgpd
-- Política de Privacidade: https://odonto-solution.vercel.app/privacidade
-- Termos de Uso: https://odonto-solution.vercel.app/termos
+- Página Inicial: https://odonto-solution-omega.vercel.app/
+- Portal do Sistema: https://odonto-solution-omega.vercel.app/portal
+- Conformidade LGPD: https://odonto-solution-omega.vercel.app/lgpd
+- Política de Privacidade: https://odonto-solution-omega.vercel.app/privacidade
+- Termos de Uso: https://odonto-solution-omega.vercel.app/termos

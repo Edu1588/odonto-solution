@@ -6,4 +6,4 @@ Disallow: /app
 Disallow: /login
 Disallow: /api/
 
-Sitemap: https://odonto-solution.vercel.app/sitemap.xml
+Sitemap: https://odonto-solution-omega.vercel.app/sitemap.xml
