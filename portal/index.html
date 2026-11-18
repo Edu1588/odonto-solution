@@ -136,8 +136,11 @@
     <!-- ======================================================== -->
     <div class="flex h-screen overflow-hidden">
         
+        <!-- BACKDROP MOBILE SIDEBAR -->
+        <div id="sidebarBackdrop" onclick="toggleSidebar(false)" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-30 hidden lg:hidden"></div>
+
         <!-- SIDEBAR LATERAL (Modelo Odonto Solution CRM) -->
-        <aside class="w-64 bg-white border-r border-[#E4E8F3] flex flex-col justify-between shrink-0 select-none z-20">
+        <aside id="portalSidebar" class="fixed inset-y-0 left-0 lg:static w-64 bg-white border-r border-[#E4E8F3] flex flex-col justify-between shrink-0 select-none z-40 -translate-x-full lg:translate-x-0 transition-transform duration-200">
             <div>
                 <!-- Topo da Sidebar: Logo & Empresa -->
                 <div class="p-5 border-b border-[#E4E8F3]">
@@ -152,12 +155,19 @@
                     </div>
 
                     <!-- Seletor de Clínica / Unidade -->
-                    <div class="mt-4 p-2 bg-[#F6F7FB] border border-[#E4E8F3] rounded-xl flex items-center justify-between text-xs cursor-pointer hover:bg-slate-100 transition">
-                        <div class="flex items-center gap-2 overflow-hidden">
-                            <div class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></div>
-                            <span class="font-bold text-slate-800 truncate" id="topbarClinicaNome">Odonto Solution · Matriz SP</span>
+                    <div class="relative mt-4">
+                        <button type="button" onclick="toggleUnidadeMenu()" class="w-full p-2 bg-[#F6F7FB] border border-[#E4E8F3] rounded-xl flex items-center justify-between text-xs cursor-pointer hover:bg-slate-100 transition">
+                            <div class="flex items-center gap-2 overflow-hidden">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></div>
+                                <span class="font-bold text-slate-800 truncate" id="topbarClinicaNome">Odonto Solution · Matriz SP</span>
+                            </div>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
+                        </button>
+                        <div id="unidadeDropdown" class="hidden absolute left-0 right-0 mt-1.5 bg-white border border-slate-200 rounded-xl shadow-lg p-1.5 z-50 text-xs space-y-0.5">
+                            <button type="button" onclick="selecionarUnidade('Odonto Solution · Matriz SP')" class="w-full text-left px-2.5 py-2 rounded-lg hover:bg-brand-50 font-semibold text-slate-800 flex items-center justify-between"><span>Matriz SP (matriz)</span><span class="w-2 h-2 rounded-full bg-emerald-500"></span></button>
+                            <button type="button" onclick="selecionarUnidade('Odonto Solution · Jardins')" class="w-full text-left px-2.5 py-2 rounded-lg hover:bg-brand-50 font-medium text-slate-600">Unidade Jardins</button>
+                            <button type="button" onclick="selecionarUnidade('Odonto Solution · Campinas')" class="w-full text-left px-2.5 py-2 rounded-lg hover:bg-brand-50 font-medium text-slate-600">Unidade Campinas</button>
                         </div>
-                        <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
                     </div>
                 </div>
 
@@ -223,6 +233,25 @@
                         <i data-lucide="trending-up" class="w-4 h-4 text-blue-600"></i>
                         <span>Relatórios & Metas</span>
                     </button>
+
+                    <div class="px-3 pt-4 pb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Clínica & Gestão
+                    </div>
+
+                    <button onclick="trocarAba('financeiro')" id="nav-financeiro" class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="wallet" class="w-4 h-4 text-emerald-600"></i>
+                        <span>Financeiro & NFS-e</span>
+                    </button>
+
+                    <button onclick="trocarAba('painel-tv')" id="nav-painel-tv" class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="tv" class="w-4 h-4 text-violet-600"></i>
+                        <span>Painel TV & Recepção</span>
+                    </button>
+
+                    <button onclick="trocarAba('docsign')" id="nav-docsign" class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition text-left">
+                        <i data-lucide="pen-tool" class="w-4 h-4 text-sky-600"></i>
+                        <span>DocSign & Contratos OTP</span>
+                    </button>
                 </nav>
             </div>
 
@@ -249,9 +278,12 @@
         <main class="flex-1 flex flex-col overflow-hidden">
             
             <!-- TOPBAR SUPERIOR DO CRM -->
-            <header class="h-16 bg-white border-b border-[#E4E8F3] flex items-center justify-between px-6 shrink-0">
-                <div class="flex items-center gap-4">
-                    <h2 id="topbarTitulo" class="font-display font-bold text-lg text-slate-900">
+            <header class="h-16 bg-white border-b border-[#E4E8F3] flex items-center justify-between px-4 lg:px-6 shrink-0">
+                <div class="flex items-center gap-3 lg:gap-4">
+                    <button type="button" onclick="toggleSidebar(true)" class="lg:hidden p-2 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50" aria-label="Abrir menu">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                    <h2 id="topbarTitulo" class="font-display font-bold text-base lg:text-lg text-slate-900 truncate">
                         Painel de Controle
                     </h2>
                     <span class="text-xs text-slate-400 hidden sm:inline">|</span>
@@ -974,9 +1006,28 @@
                     </div>
                 </div>
 
+                <!-- ============================================== -->
+                <!-- 7. TELA: FINANCEIRO & EMISSÃO NFS-E -->
+                <!-- ============================================== -->
+                <div id="view-financeiro" class="tab-pane hidden space-y-5"></div>
+
+                <!-- ============================================== -->
+                <!-- 8. TELA: PAINEL TV & SALA DE ESPERA -->
+                <!-- ============================================== -->
+                <div id="view-painel-tv" class="tab-pane hidden space-y-5"></div>
+
+                <!-- ============================================== -->
+                <!-- 9. TELA: DOCSIGN & CONTRATOS OTP -->
+                <!-- ============================================== -->
+                <div id="view-docsign" class="tab-pane hidden space-y-5"></div>
+
             </div>
         </main>
     </div>
+
+    <!-- TOAST NOTIFICATIONS & MODAL DINÂMICO -->
+    <div id="toastContainer" class="fixed bottom-4 right-4 z-[70] flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+    <div id="portalModalRoot" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-4"></div>
 
     <!-- MODAL NOVO LEAD -->
     <div id="modalNovoLead" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
@@ -1256,8 +1307,11 @@
         }
 
         function enviarPropostaWhatsApp(nome) {
-            alert(`Proposta de tratamento e simulação de parcelamento reenviada via WhatsApp com sucesso para ${nome}!`);
+            if (window.showToast) {
+                showToast('Proposta reenviada', `Simulação de parcelamento enviada via WhatsApp para ${nome}.`, 'success');
+            }
         }
     </script>
+    <script src="/assets/portal-app.js"></script>
 </body>
 </html>
