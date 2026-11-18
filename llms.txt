@@ -1,0 +1,26 @@
+# Odonto Solution CRM
+
+> Plataforma completa de CRM, atendimento via WhatsApp e gestão clínica desenvolvida para clínicas odontológicas e médicas no Brasil.
+
+## Visão Geral
+O Odonto Solution centraliza a captação de pacientes, o funil de orçamentos (Kanban), o atendimento multiatendente no WhatsApp, a agenda clínica integrada, o prontuário eletrônico, a assinatura digital com validação OTP (DocSign), o painel de chamada por voz na sala de espera e o controle financeiro com emissão de NFS-e.
+
+## Principais Módulos
+- **Funil de Tratamentos (CRM Kanban):** Acompanhamento visual de leads desde o primeiro contato até a aprovação do tratamento.
+- **Inbox WhatsApp Multiatendente:** Centralização de conversas no mesmo número oficial da clínica, com histórico unificado por paciente.
+- **Secretária Digital & Automações:** Fluxos automáticos de acolhimento, lembretes de consulta (24h e 2h antes), follow-up de orçamentos e reativação de pacientes.
+- **Agenda Clínica Inteligente:** Grade multiprofissional com controle de status em tempo real.
+- **Prontuário & Prescrição Digital:** Registro clínico e emissão de receitas digitais com QR Code.
+- **Conformidade LGPD & CFO:** Infraestrutura alinhada à Lei Geral de Proteção de Dados (Lei nº 13.709/2018) e às normativas do Conselho Federal de Odontologia.
+
+## Planos de Referência (Mensal · Brasil)
+- **Clínica Individual:** R$ 297/mês — Para organizar a rotina de um consultório.
+- **Clínica em Expansão:** R$ 497/mês — Para equipes conectadas com automações e relatórios por profissional.
+- **Redes & Franquias:** R$ 897/mês — Operação ampliada multiunidade com implantação acompanhada.
+
+## Links Oficiais
+- Página Inicial: https://odonto-solution.vercel.app/
+- Portal do Sistema: https://odonto-solution.vercel.app/portal
+- Conformidade LGPD: https://odonto-solution.vercel.app/lgpd
+- Política de Privacidade: https://odonto-solution.vercel.app/privacidade
+- Termos de Uso: https://odonto-solution.vercel.app/termos

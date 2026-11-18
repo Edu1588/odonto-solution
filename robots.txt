@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /portal
+Disallow: /portal/
+Disallow: /app
+Disallow: /login
+Disallow: /api/
+
+Sitemap: https://odonto-solution.vercel.app/sitemap.xml
