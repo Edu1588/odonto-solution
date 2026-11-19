@@ -254,6 +254,7 @@
         renderPainelTV();
         renderDocSign();
         enhanceKanban();
+        if (window.odontoI18n) window.odontoI18n.translateTextNodes(document.body);
         if (window.lucide) lucide.createIcons();
     }
 
@@ -1365,5 +1366,6 @@
         if (unitEl) unitEl.textContent = state.unidade;
         setupDashboardControls();
         syncBackendData();
+        window.addEventListener('odonto:langchange', () => renderAll());
     });
 })();
